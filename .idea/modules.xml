@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/project-slwl-back-code.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/project-slwl-back-code.iml" />
       <module fileurl="file://$PROJECT_DIR$/sl-express.iml" filepath="$PROJECT_DIR$/sl-express.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-base/sl-express-ms-base.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-base/sl-express-ms-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-carriage/sl-express-ms-carriage.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-carriage/sl-express-ms-carriage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-courier/sl-express-ms-courier.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-courier/sl-express-ms-courier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-driver/sl-express-ms-driver.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-driver/sl-express-ms-driver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-oms/sl-express-ms-oms.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-oms/sl-express-ms-oms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/sl-express-ms-search.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/sl-express-ms-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-service-scope/sl-express-ms-service-scope.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-service-scope/sl-express-ms-service-scope.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-sms/sl-express-ms-sms.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-sms/sl-express-ms-sms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-track/sl-express-ms-track.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-track/sl-express-ms-track.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-trade/sl-express-ms-trade.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-trade/sl-express-ms-trade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport/sl-express-ms-transport.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport/sl-express-ms-transport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport-info/sl-express-ms-transport-info.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport-info/sl-express-ms-transport-info.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-user/sl-express-ms-user.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-user/sl-express-ms-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-work/sl-express-ms-work.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-work/sl-express-ms-work.iml" />
     </modules>
   </component>
 </project>

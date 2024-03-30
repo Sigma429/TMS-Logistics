@@ -13,6 +13,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -21,16 +24,16 @@
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\Maven\maven-repo" />
         <option name="mavenHome" value="$PROJECT_DIR$/../../Maven/apache-maven-3.9.1" />
-        <option name="userSettingsFile" value="D:\Maven\apache-maven-3.9.1\conf\settings.xml" />
+        <option name="userSettingsFile" value="D:\Project\express-platform\sl-express\project-slwl-back-code\config\maven\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2eOVhOArfYq0O6kRtzjM8fwtzBd" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -41,17 +44,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/sl-express",
+    "last_opened_file_path": "D:/Project/express-platform/sl-express/project-slwl-back-code/sl-express-ms-work/ms-work-service",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.14634146",
+    "project.structure.side.proportion": "0.27605957",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -59,10 +64,144 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Project\sl-express" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Project\express-platform\sl-express\project-slwl-back-code\sl-express-ms-work" />
+      <recent name="D:\Project\express-platform\sl-express\project-slwl-back-code\sl-express-ms-carriage" />
+      <recent name="D:\Project\express-platform\sl-express\project-slwl-back-code\sl-express-ms-courier" />
+      <recent name="D:\Project\express-platform\sl-express\project-slwl-back-code\sl-express-ms-user" />
+      <recent name="D:\Project\express-platform\sl-express\project-slwl-back-code\sl-express-ms-transport-info" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MsWebCourierApplication">
+    <configuration name="CarriageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-carriage-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.CarriageApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourierApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-courier-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.CourierApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sl-express-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsBaseServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-base-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsBaseServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsDispatchServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sl-express-ms-dispatch-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsDispatchServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsDriverServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-driver-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsDriverServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsOmsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-oms-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsOmsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsServiceScopeServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-service-scope-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsServiceScopeServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsSmsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-sms-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsSmsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsTrackServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-track-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsTrackServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsWebCourierApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sl-express-ms-web-courier" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsWebCourierApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsWebDriverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sl-express-ms-web-driver" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsWebDriverApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsWebManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sl-express-ms-web-manager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsWebManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TradeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-trade-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.TradeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebCustomerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="sl-express-ms-web-customer" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.WebCustomerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="lua.app" factoryName="Lua Application">
+      <option name="program" value="lua.exe" />
+      <option name="file" value="" />
+      <option name="workingDir" value="$PROJECT_DIR$/project-slwl-back-code1/src" />
+      <option name="debuggerType" value="1" />
+      <option name="params" value="" />
+      <option name="charset" value="UTF-8" />
+      <option name="showConsole" value="true" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-11.0.22-corretto-11.0.22-3183f394aec4-cd32a1c5" />
         <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-8f899f12" />
       </set>
     </attachedChunks>
@@ -76,6 +215,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711775731540</updated>
       <workItem from="1711775732701" duration="1047000" />
+      <workItem from="1711777575888" duration="2878000" />
     </task>
     <servers />
   </component>
