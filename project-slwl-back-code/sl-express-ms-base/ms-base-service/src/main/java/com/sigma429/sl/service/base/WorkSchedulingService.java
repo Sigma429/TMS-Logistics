@@ -1,12 +1,12 @@
 package com.sigma429.sl.service.base;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.base.domain.base.WorkSchedulingAddDTO;
-import com.sl.ms.base.domain.base.WorkSchedulingDTO;
-import com.sl.ms.base.domain.base.WorkSchedulingQueryDTO;
-import com.sl.ms.base.domain.base.WorkSchedulingUpdateDTO;
-import com.sl.ms.base.entity.base.WorkSchedulingEntity;
-import com.sl.transport.common.util.PageResponse;
+import com.sigma429.sl.base.WorkSchedulingAddDTO;
+import com.sigma429.sl.base.WorkSchedulingDTO;
+import com.sigma429.sl.base.WorkSchedulingQueryDTO;
+import com.sigma429.sl.base.WorkSchedulingUpdateDTO;
+import com.sigma429.sl.entity.base.WorkSchedulingEntity;
+import com.sigma429.sl.util.PageResponse;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -31,7 +31,7 @@ public interface WorkSchedulingService extends IService<WorkSchedulingEntity> {
 
     /**
      * 删除排班
-     * @param id 排班ID
+     * @param id       排班ID
      * @param operator 操作人
      */
     void delete(Long id, Long operator);
@@ -71,19 +71,19 @@ public interface WorkSchedulingService extends IService<WorkSchedulingEntity> {
 
     /**
      * 根据快递员/司机id列表或网点id查询当前工作排班
-     * @param userIds 用户ID
+     * @param userIds  用户ID
      * @param agencyId 机构ID
-     * @param type 用户类型：1:员工，2：快递员，3：司机
-     * @param time 时间
+     * @param type     用户类型：1:员工，2：快递员，3：司机
+     * @param time     时间
      * @return 当前工作排班
      */
     List<WorkSchedulingDTO> monthSchedule(List<Long> userIds, Long agencyId, Byte type, LocalDateTime time);
 
     /**
      * 获取整个计划（运输任务）期间每一天都上班的司机
-     * @param driverIds 司机ID列表
+     * @param driverIds         司机ID列表
      * @param planDepartureTime 计划发车时间
-     * @param planArrivalTime 计划到达时间
+     * @param planArrivalTime   计划到达时间
      * @return 正常上班的司机ID列表
      */
     List<Long> getWorkingDrivers(List<Long> driverIds, LocalDateTime planDepartureTime, LocalDateTime planArrivalTime);

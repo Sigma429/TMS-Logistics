@@ -6,13 +6,13 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum WorkStatusEnum {
-    NOMAL((byte) 1, "正常"),STOPING((byte) 2, "停用");
+    NOMAL((byte) 1, "正常"), STOPING((byte) 2, "停用");
     private byte status;
     private String desc;
 
     public static String desc(byte status) {
         for (WorkStatusEnum workStatusEnum : values()) {
-            if(status == workStatusEnum.getStatus()) {
+            if (status == workStatusEnum.getStatus()) {
                 return workStatusEnum.getDesc();
             }
         }

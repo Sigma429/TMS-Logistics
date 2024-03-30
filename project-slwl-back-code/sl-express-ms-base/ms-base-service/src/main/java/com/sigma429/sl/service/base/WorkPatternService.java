@@ -1,12 +1,12 @@
 package com.sigma429.sl.service.base;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.base.domain.base.WorkPatternAddDTO;
-import com.sl.ms.base.domain.base.WorkPatternDTO;
-import com.sl.ms.base.domain.base.WorkPatternQueryDTO;
-import com.sl.ms.base.domain.base.WorkPatternUpdateDTO;
-import com.sl.ms.base.entity.base.WorkPatternEntity;
-import com.sl.transport.common.util.PageResponse;
+import com.sigma429.sl.base.WorkPatternAddDTO;
+import com.sigma429.sl.base.WorkPatternDTO;
+import com.sigma429.sl.base.WorkPatternQueryDTO;
+import com.sigma429.sl.base.WorkPatternUpdateDTO;
+import com.sigma429.sl.entity.base.WorkPatternEntity;
+import com.sigma429.sl.util.PageResponse;
 
 import java.util.List;
 

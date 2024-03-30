@@ -1,7 +1,7 @@
 package com.sigma429.sl.service.truck;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.base.entity.truck.TruckTypeGoodsTypeEntity;
+import com.sigma429.sl.entity.truck.TruckTypeGoodsTypeEntity;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ public interface TruckTypeGoodsTypeService extends IService<TruckTypeGoodsTypeEn
 
     /**
      * 删除关联关系
-     *
      * @param truckTypeId 车辆类型id
      * @param goodsTypeId 货物类型id
      */
@@ -20,7 +19,6 @@ public interface TruckTypeGoodsTypeService extends IService<TruckTypeGoodsTypeEn
 
     /**
      * 获取车辆类型与货物类型关联
-     *
      * @param truckTypeId 车辆类型id
      * @param goodsTypeId 货物类型id
      * @return 车辆类型与货物类型关联

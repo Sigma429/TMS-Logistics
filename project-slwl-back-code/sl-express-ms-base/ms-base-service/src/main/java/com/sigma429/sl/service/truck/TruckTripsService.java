@@ -1,8 +1,8 @@
 package com.sigma429.sl.service.truck;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.base.domain.truck.OrganIdsDto;
-import com.sl.ms.base.entity.truck.TruckTripsEntity;
+import com.sigma429.sl.entity.truck.TruckTripsEntity;
+import com.sigma429.sl.truck.OrganIdsDto;
 
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +15,6 @@ public interface TruckTripsService extends IService<TruckTripsEntity> {
 
     /**
      * 获取车次列表
-     *
      * @param transportLineId 线路id
      * @param ids             车次id列表
      * @return 车次列表
@@ -24,7 +23,6 @@ public interface TruckTripsService extends IService<TruckTripsEntity> {
 
     /**
      * 删除车次
-     *
      * @param id 车次ID
      */
     void disable(Long id);

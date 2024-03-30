@@ -1,7 +1,7 @@
 package com.sigma429.sl.service.truck;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.base.entity.truck.TruckPlanEntity;
+import com.sigma429.sl.entity.truck.TruckPlanEntity;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;

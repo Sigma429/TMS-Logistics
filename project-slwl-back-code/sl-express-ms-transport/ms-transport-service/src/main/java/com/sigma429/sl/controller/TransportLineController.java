@@ -28,7 +28,7 @@ import java.util.List;
 @Api(tags = "物流路线")
 @RequestMapping("transports")
 @Validated
-@RestController
+// @RestController
 public class TransportLineController {
 
     @Resource
@@ -42,7 +42,7 @@ public class TransportLineController {
     @GetMapping("{startId}/{endId}")
     public TransportLineNodeDTO queryShortestPath(@NotNull(message = "startId不能为空") @PathVariable("startId") Long startId,
                                                   @NotNull(message = "endId不能为空") @PathVariable("endId") Long endId) {
-        return this.transportLineService.queryShortestPath(startId, endId);
+        return transportLineService.queryShortestPath(startId, endId);
     }
 
     @ApiImplicitParams({
@@ -53,7 +53,7 @@ public class TransportLineController {
     @GetMapping("lowest/{startId}/{endId}")
     public TransportLineNodeDTO findLowestPath(@NotNull(message = "startId不能为空") @PathVariable("startId") Long startId,
                                                @NotNull(message = "endId不能为空") @PathVariable("endId") Long endId) {
-        return this.transportLineService.findLowestPath(startId, endId);
+        return transportLineService.findLowestPath(startId, endId);
     }
 
     @ApiImplicitParams({
@@ -64,14 +64,14 @@ public class TransportLineController {
     @GetMapping("/dispatchMethod/{startId}/{endId}")
     public TransportLineNodeDTO queryPathByDispatchMethod(@NotNull(message = "startId不能为空") @PathVariable("startId") Long startId,
                                                           @NotNull(message = "endId不能为空") @PathVariable("endId") Long endId) {
-        return this.transportLineService.queryPathByDispatchMethod(startId, endId);
+        return transportLineService.queryPathByDispatchMethod(startId, endId);
     }
 
     @ApiOperation(value = "新增路线", notes = "新增路线，干线：起点终点无顺序，支线：起点必须是二级转运中心，接驳路线：起点必须是网点")
     @PostMapping
     public void createLine(@RequestBody TransportLineDTO transportLineDTO) {
         TransportLine transportLine = TransportLineUtils.toEntity(transportLineDTO);
-        Boolean result = this.transportLineService.createLine(transportLine);
+        Boolean result = transportLineService.createLine(transportLine);
         if (!result) {
             throw new SLException("新增路线失败！", HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
@@ -81,7 +81,7 @@ public class TransportLineController {
     @PutMapping
     public void updateLine(@RequestBody TransportLineDTO transportLineDTO) {
         TransportLine transportLine = TransportLineUtils.toEntity(transportLineDTO);
-        Boolean result = this.transportLineService.updateLine(transportLine);
+        Boolean result = transportLineService.updateLine(transportLine);
         if (!result) {
             throw new SLException("更新路线失败！", HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
@@ -93,7 +93,7 @@ public class TransportLineController {
     @ApiOperation(value = "删除路线", notes = "删除路线，单向删除")
     @DeleteMapping("{id}")
     public void deleteLine(@PathVariable("id") Long id) {
-        Boolean result = this.transportLineService.deleteLine(id);
+        Boolean result = transportLineService.deleteLine(id);
         if (!result) {
             throw new SLException("更新路线失败！", HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
@@ -105,7 +105,7 @@ public class TransportLineController {
     @ApiOperation(value = "根据id查询路线", notes = "根据id查询路线")
     @GetMapping("{id}")
     public TransportLineDTO queryById(@PathVariable("id") Long id) {
-        TransportLine transportLine = this.transportLineService.queryById(id);
+        TransportLine transportLine = transportLineService.queryById(id);
         return TransportLineUtils.toDTO(transportLine);
     }
 
@@ -115,14 +115,14 @@ public class TransportLineController {
     @ApiOperation(value = "根据ids批量查询路线", notes = "根据ids批量查询路线")
     @GetMapping("list")
     public List<TransportLineDTO> queryByIds(@Size(min = 1, message = "至少要传入1个id") @RequestParam("ids") Long[] ids) {
-        List<TransportLine> list = this.transportLineService.queryByIds(ids);
+        List<TransportLine> list = transportLineService.queryByIds(ids);
         return TransportLineUtils.toDTOList(list);
     }
 
     @ApiOperation(value = "分页查询路线", notes = "分页查询路线，如果有条件就进行筛选查询")
     @PostMapping("page")
     public PageResponse<TransportLineDTO> queryPageList(@RequestBody TransportLineSearchDTO transportLineSearchDTO) {
-        PageResponse<TransportLine> pageResponse = this.transportLineService.queryPageList(transportLineSearchDTO);
+        PageResponse<TransportLine> pageResponse = transportLineService.queryPageList(transportLineSearchDTO);
 
         PageResponse<TransportLineDTO> result = new PageResponse<>();
         BeanUtil.copyProperties(pageResponse, result, "items");

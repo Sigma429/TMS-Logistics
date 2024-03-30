@@ -1,8 +1,8 @@
 package com.sigma429.sl.service.base;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.base.domain.base.AreaDto;
-import com.sl.ms.base.entity.base.AreaEntity;
+import com.sigma429.sl.base.AreaDto;
+import com.sigma429.sl.entity.base.AreaEntity;
 
 import java.util.List;
 
@@ -16,7 +16,6 @@ public interface AreaService extends IService<AreaEntity> {
 
     /**
      * 根据编码查询行政区域
-     *
      * @param code 行政编码
      * @return 行政区域
      */
@@ -24,7 +23,6 @@ public interface AreaService extends IService<AreaEntity> {
 
     /**
      * 根据父级id查询子级行政区域
-     *
      * @param parentId 父级id
      * @return 子级行政区域列表
      */
@@ -32,7 +30,6 @@ public interface AreaService extends IService<AreaEntity> {
 
     /**
      * 根据id批量查询
-     *
      * @param ids id列表
      * @return 行政区域列表
      */

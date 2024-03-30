@@ -2,7 +2,7 @@ package com.sigma429.sl.service.truck;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.base.entity.truck.TruckTypeEntity;
+import com.sigma429.sl.entity.truck.TruckTypeEntity;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,7 +16,6 @@ public interface TruckTypeService extends IService<TruckTypeEntity> {
 
     /**
      * 获取车辆类型分页数据
-     *
      * @param page               页码
      * @param pageSize           页尺寸
      * @param name               车辆类型名称
@@ -27,7 +26,9 @@ public interface TruckTypeService extends IService<TruckTypeEntity> {
      * @param id                 车型id
      * @return 车辆类型分页数据
      */
-    IPage<TruckTypeEntity> findByPage(Integer page, Integer pageSize, String name, BigDecimal minAllowableLoad, BigDecimal maxAllowableLoad, BigDecimal minAllowableVolume, BigDecimal maxAllowableVolume, Long id);
+    IPage<TruckTypeEntity> findByPage(Integer page, Integer pageSize, String name, BigDecimal minAllowableLoad,
+                                      BigDecimal maxAllowableLoad, BigDecimal minAllowableVolume,
+                                      BigDecimal maxAllowableVolume, Long id);
 
     /**
      * 获取车辆类型列表
@@ -38,14 +39,12 @@ public interface TruckTypeService extends IService<TruckTypeEntity> {
 
     /**
      * 删除车辆类型
-     *
      * @param id 车型ID
      */
     void disable(Long id);
 
     /**
      * 获取map类型车辆类型数据集合
-     *
      * @param truckTypeSet 车辆类型id列表
      * @return 执行结果
      */
