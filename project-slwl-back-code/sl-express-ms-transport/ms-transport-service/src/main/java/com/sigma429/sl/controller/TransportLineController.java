@@ -1,14 +1,14 @@
 package com.sigma429.sl.controller;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.sl.transport.common.exception.SLException;
-import com.sl.transport.common.util.PageResponse;
-import com.sl.transport.domain.TransportLineDTO;
-import com.sl.transport.domain.TransportLineNodeDTO;
-import com.sl.transport.domain.TransportLineSearchDTO;
-import com.sl.transport.entity.line.TransportLine;
-import com.sl.transport.service.TransportLineService;
-import com.sl.transport.utils.TransportLineUtils;
+import com.sigma429.sl.domain.TransportLineDTO;
+import com.sigma429.sl.domain.TransportLineNodeDTO;
+import com.sigma429.sl.domain.TransportLineSearchDTO;
+import com.sigma429.sl.entity.line.TransportLine;
+import com.sigma429.sl.exception.SLException;
+import com.sigma429.sl.service.TransportLineService;
+import com.sigma429.sl.util.PageResponse;
+import com.sigma429.sl.utils.TransportLineUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -24,9 +24,6 @@ import java.util.List;
 
 /**
  * 物流路线相关业务对外提供接口服务
- *
- * @author zzj
- * @version 1.0
  */
 @Api(tags = "物流路线")
 @RequestMapping("transports")

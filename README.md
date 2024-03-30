@@ -214,4 +214,6 @@ sl-express，是TMS运配系统，本质上解决的是怎样运送的问题。
 - Day13
     1. 路线规划模块初步搭建
 - Day14
-    1. 
+    1. mq模块error三种情况：发送到交换机，但队列未绑定、发送到mq服务器，但交换机不存在、未发送到mq服务器
+    2. 发送消息的三种error情况，用日志或者任务调度处理、消费消息error用ErrorMessageConfig类处理
+    3. sl-express-mq模块已完成，sl-express-base模块初步搭建

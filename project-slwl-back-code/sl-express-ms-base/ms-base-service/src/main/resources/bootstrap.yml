@@ -2,11 +2,11 @@ application:
   version: v1.0
 logging:
   config: classpath:logback-spring.xml
-#  level:
-#    org.springframework.data.neo4j: debug
 spring:
   application:
-    name: sl-express-transport
+    name: sl-express-ms-base
+  main:
+    allow-circular-references: true #允许bean循环依赖
   profiles:
     active: local
   mvc:
@@ -15,10 +15,12 @@ spring:
       #因为Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher
       matching-strategy: ant_path_matcher
 sl:
+  mq:
+    enable: true #开启MQ，可以注入MQService使用，但是必须保证数据库有sl_fail_msg表
   swagger:
     package-path: com.sigma429.sl.controller
-    title: 运输路线微服务接口文档
-    description: 该微服务完成网点、二级转运中心、一级转运中心的路线计算服务。
+    title:  基础微服务接口文档
+    description: 该微服务完成车辆、省市区等基础数据的管理。
     contact-name: Sigma429
     contact-url: https://github.com/Sigma429
     contact-email: 1059769283@qq.com

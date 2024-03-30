@@ -1,7 +1,7 @@
 package com.sigma429.sl.controller;
 
-import com.sl.transport.domain.DispatchConfigurationDTO;
-import com.sl.transport.service.DispatchConfigurationService;
+import com.sigma429.sl.domain.DispatchConfigurationDTO;
+import com.sigma429.sl.service.DispatchConfigurationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
@@ -11,9 +11,6 @@ import javax.annotation.Resource;
 
 /**
  * 调度配置相关业务对外提供接口服务
- *
- * @author zzj
- * @version 1.0
  */
 @Api(tags = "调度配置")
 @RequestMapping("dispatch-configuration")

@@ -1,6 +1,7 @@
 package com.sigma429.sl.controller;
 
 import com.sigma429.sl.domain.CostConfigurationDTO;
+import com.sigma429.sl.service.CostConfigurationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;

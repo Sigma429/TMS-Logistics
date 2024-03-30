@@ -1,11 +1,11 @@
 package com.sigma429.sl.controller;
 
-import com.sl.transport.common.exception.SLException;
-import com.sl.transport.domain.OrganDTO;
-import com.sl.transport.entity.node.BaseEntity;
-import com.sl.transport.service.OrganService;
-import com.sl.transport.utils.OrganServiceFactory;
-import com.sl.transport.utils.OrganUtils;
+import com.sigma429.sl.domain.OrganDTO;
+import com.sigma429.sl.entity.node.BaseEntity;
+import com.sigma429.sl.exception.SLException;
+import com.sigma429.sl.service.OrganService;
+import com.sigma429.sl.utils.OrganServiceFactory;
+import com.sigma429.sl.utils.OrganUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -20,9 +20,6 @@ import java.util.List;
 
 /**
  * 对外提供机构服务，机构、一级转运中心、二级转运中心统称为机构
- *
- * @author zzj
- * @version 1.0
  */
 @Api(tags = "机构服务")
 @RequestMapping("organs")
