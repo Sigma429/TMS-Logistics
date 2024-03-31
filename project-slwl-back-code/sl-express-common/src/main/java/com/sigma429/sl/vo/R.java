@@ -9,7 +9,6 @@ import java.io.Serializable;
 
 /**
  * 通用返回结果，服务端响应的数据最终都会封装成此对象
- *
  * @param <T>
  */
 @Data
@@ -22,7 +21,8 @@ public class R<T> implements Serializable {
     @ApiModelProperty(value = "提示消息", required = true)
     private String msg;
     @ApiModelProperty(value = "响应数据", required = true)
-    private T data; //数据
+    // 数据
+    private T data;
 
     public static <T> R<T> success() {
         return success(null);
@@ -53,7 +53,6 @@ public class R<T> implements Serializable {
 
     /**
      * 是否成功
-     *
      * @return
      */
     @JsonIgnore

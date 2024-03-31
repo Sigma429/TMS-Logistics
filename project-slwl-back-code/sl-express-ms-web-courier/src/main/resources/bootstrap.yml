@@ -1,0 +1,27 @@
+application:
+  version: v1.0
+logging:
+  config: classpath:logback-spring.xml
+spring:
+  application:
+    name: sl-express-ms-web-courier
+  profiles:
+    active: local
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      #解决异常：swagger Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+      #因为Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher
+      matching-strategy: ant_path_matcher
+sl:
+  swagger:
+    package-path: com.sigma429.sl.controller
+    title: 快递员端接口文档
+    description: 该服务用于快递员端
+    contact-name: Sigma429
+    contact-url: https://github.com/Sigma429
+    contact-email: 1059769283@qq.com
+    version: ${application.version}
+
+

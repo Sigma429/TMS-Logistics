@@ -19,7 +19,6 @@ public interface TransportOrderFeign {
 
     /**
      * 新增运单（订单转运单）
-     *
      * @param orderId 订单id
      * @return 运单信息
      */
@@ -28,7 +27,6 @@ public interface TransportOrderFeign {
 
     /**
      * 更新状态，不允许 CREATED 状态
-     *
      * @param id     运单id
      * @param status 订单状态
      * @return 是否成功
@@ -46,7 +44,6 @@ public interface TransportOrderFeign {
 
     /**
      * 根据id获取运单信息
-     *
      * @param id 运单id
      * @return 运单信息
      */
@@ -55,7 +52,6 @@ public interface TransportOrderFeign {
 
     /**
      * 根据id获取运单信息
-     *
      * @param id 运单id
      * @return 运单信息
      */
@@ -64,7 +60,6 @@ public interface TransportOrderFeign {
 
     /**
      * 根据订单id获取运单信息
-     *
      * @param orderId 订单id
      * @return 运单信息
      */
@@ -73,7 +68,6 @@ public interface TransportOrderFeign {
 
     /**
      * 根据多个订单id查询运单信息
-     *
      * @param orderIds 订单id列表
      * @return 运单列表
      */
@@ -82,7 +76,6 @@ public interface TransportOrderFeign {
 
     /**
      * 根据运单号搜索运单
-     *
      * @param id 运单号
      * @return 运单列表
      */
@@ -91,7 +84,6 @@ public interface TransportOrderFeign {
 
     /**
      * 统计各个状态的数量
-     *
      * @return 状态数量数据
      */
     @GetMapping("count")
@@ -99,7 +91,6 @@ public interface TransportOrderFeign {
 
     /**
      * 根据运输任务id修改运单
-     *
      * @param taskId 运输任务id
      * @return 是否成功
      */
@@ -108,7 +99,6 @@ public interface TransportOrderFeign {
 
     /**
      * 批量更新状态
-     *
      * @param ids    运单id列表
      * @param status 订单状态
      * @return 是否成功
@@ -119,7 +109,6 @@ public interface TransportOrderFeign {
 
     /**
      * 根据运输任务id分页查询运单信息
-     *
      * @param page             页码
      * @param pageSize         页面大小
      * @param taskId           运输任务id
