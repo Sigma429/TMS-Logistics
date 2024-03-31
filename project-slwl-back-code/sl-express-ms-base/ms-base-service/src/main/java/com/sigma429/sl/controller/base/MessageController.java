@@ -1,11 +1,11 @@
 package com.sigma429.sl.controller.base;
 
-import com.sl.ms.base.domain.base.LatestMessageDTO;
-import com.sl.ms.base.domain.base.MessageAddDTO;
-import com.sl.ms.base.domain.base.MessageDTO;
-import com.sl.ms.base.domain.base.MessageQueryDTO;
-import com.sl.ms.base.service.base.MessageService;
-import com.sl.transport.common.util.PageResponse;
+import com.sigma429.sl.base.LatestMessageDTO;
+import com.sigma429.sl.base.MessageAddDTO;
+import com.sigma429.sl.base.MessageDTO;
+import com.sigma429.sl.base.MessageQueryDTO;
+import com.sigma429.sl.service.base.MessageService;
+import com.sigma429.sl.util.PageResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

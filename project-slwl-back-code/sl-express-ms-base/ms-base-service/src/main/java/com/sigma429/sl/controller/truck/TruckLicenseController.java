@@ -1,9 +1,9 @@
 package com.sigma429.sl.controller.truck;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.sl.ms.base.domain.truck.TruckLicenseDto;
-import com.sl.ms.base.entity.truck.TruckLicenseEntity;
-import com.sl.ms.base.service.truck.TruckLicenseService;
+import com.sigma429.sl.entity.truck.TruckLicenseEntity;
+import com.sigma429.sl.service.truck.TruckLicenseService;
+import com.sigma429.sl.truck.TruckLicenseDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

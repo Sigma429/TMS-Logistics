@@ -2,6 +2,7 @@ package com.sigma429.sl.controller.base;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.sigma429.sl.base.AreaDto;
+import com.sigma429.sl.service.base.AreaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

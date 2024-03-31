@@ -1,6 +1,6 @@
 package com.sigma429.sl.controller.base;
 
-import com.sl.mq.service.MQService;
+import com.sigma429.sl.service.MQService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -16,9 +16,6 @@ import javax.annotation.Resource;
 
 /**
  * 通用的消息中间件发送接口
- *
- * @author zzj
- * @version 1.0
  */
 @Slf4j
 @Validated

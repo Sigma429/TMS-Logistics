@@ -3,12 +3,12 @@ package com.sigma429.sl.controller.base;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.sl.ms.base.domain.base.WorkSchedulingAddDTO;
-import com.sl.ms.base.domain.base.WorkSchedulingDTO;
-import com.sl.ms.base.domain.base.WorkSchedulingQueryDTO;
-import com.sl.ms.base.domain.base.WorkSchedulingUpdateDTO;
-import com.sl.ms.base.service.base.WorkSchedulingService;
-import com.sl.transport.common.util.PageResponse;
+import com.sigma429.sl.base.WorkSchedulingAddDTO;
+import com.sigma429.sl.base.WorkSchedulingDTO;
+import com.sigma429.sl.base.WorkSchedulingQueryDTO;
+import com.sigma429.sl.base.WorkSchedulingUpdateDTO;
+import com.sigma429.sl.service.base.WorkSchedulingService;
+import com.sigma429.sl.util.PageResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -94,9 +94,11 @@ public class WorkSchedulingController {
             @RequestParam(value = "userIdList", required = false) String userIdList,
             @RequestParam(value = "agencyId", required = false) Long agencyId,
             @PathVariable("userType") Byte type,
-            @RequestParam("time") Long time){
-        List<Long> userIds = ObjectUtil.isNotEmpty(userIdList) ? Arrays.stream(userIdList.split(",")).filter(StrUtil::isNotEmpty).map(Long::parseLong).collect(Collectors.toList()) : new ArrayList<>();
-        return ResponseEntity.ok(workSchedulingService.monthSchedule(userIds, agencyId, type, LocalDateTimeUtil.of(time)));
+            @RequestParam("time") Long time) {
+        List<Long> userIds = ObjectUtil.isNotEmpty(userIdList) ?
+                Arrays.stream(userIdList.split(",")).filter(StrUtil::isNotEmpty).map(Long::parseLong).collect(Collectors.toList()) : new ArrayList<>();
+        return ResponseEntity.ok(workSchedulingService.monthSchedule(userIds, agencyId, type,
+                LocalDateTimeUtil.of(time)));
     }
 
 }

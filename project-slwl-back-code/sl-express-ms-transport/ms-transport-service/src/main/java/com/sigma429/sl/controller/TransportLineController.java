@@ -28,7 +28,7 @@ import java.util.List;
 @Api(tags = "物流路线")
 @RequestMapping("transports")
 @Validated
-// @RestController
+@RestController
 public class TransportLineController {
 
     @Resource

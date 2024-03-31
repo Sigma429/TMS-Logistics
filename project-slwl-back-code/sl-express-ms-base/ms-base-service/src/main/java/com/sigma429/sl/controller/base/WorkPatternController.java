@@ -1,11 +1,11 @@
 package com.sigma429.sl.controller.base;
 
-import com.sl.ms.base.domain.base.WorkPatternAddDTO;
-import com.sl.ms.base.domain.base.WorkPatternDTO;
-import com.sl.ms.base.domain.base.WorkPatternQueryDTO;
-import com.sl.ms.base.domain.base.WorkPatternUpdateDTO;
-import com.sl.ms.base.service.base.WorkPatternService;
-import com.sl.transport.common.util.PageResponse;
+import com.sigma429.sl.base.WorkPatternAddDTO;
+import com.sigma429.sl.base.WorkPatternDTO;
+import com.sigma429.sl.base.WorkPatternQueryDTO;
+import com.sigma429.sl.base.WorkPatternUpdateDTO;
+import com.sigma429.sl.service.base.WorkPatternService;
+import com.sigma429.sl.util.PageResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

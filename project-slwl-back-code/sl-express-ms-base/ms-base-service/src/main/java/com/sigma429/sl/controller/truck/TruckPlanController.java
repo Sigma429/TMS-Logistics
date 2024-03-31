@@ -1,10 +1,10 @@
 package com.sigma429.sl.controller.truck;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.sl.ms.base.domain.enums.StatusEnum;
-import com.sl.ms.base.domain.truck.TruckPlanDto;
-import com.sl.ms.base.entity.truck.TruckPlanEntity;
-import com.sl.ms.base.service.truck.TruckPlanService;
+import com.sigma429.sl.entity.truck.TruckPlanEntity;
+import com.sigma429.sl.enums.StatusEnum;
+import com.sigma429.sl.service.truck.TruckPlanService;
+import com.sigma429.sl.truck.TruckPlanDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

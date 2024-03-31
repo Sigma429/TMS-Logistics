@@ -1,12 +1,11 @@
 package com.sigma429.sl.controller.truck;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.sl.ms.base.domain.truck.TruckReturnRegisterDTO;
-import com.sl.ms.base.domain.truck.TruckReturnRegisterListDTO;
-import com.sl.ms.base.domain.truck.TruckReturnRegisterPageQueryDTO;
-import com.sl.ms.base.entity.truck.TruckReturnRegisterEntity;
-import com.sl.ms.base.service.truck.TruckReturnRegisterService;
-import com.sl.transport.common.util.PageResponse;
+import com.sigma429.sl.entity.truck.TruckReturnRegisterEntity;
+import com.sigma429.sl.service.truck.TruckReturnRegisterService;
+import com.sigma429.sl.truck.TruckReturnRegisterDTO;
+import com.sigma429.sl.truck.TruckReturnRegisterListDTO;
+import com.sigma429.sl.truck.TruckReturnRegisterPageQueryDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

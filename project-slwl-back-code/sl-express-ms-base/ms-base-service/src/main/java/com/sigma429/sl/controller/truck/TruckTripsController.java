@@ -1,13 +1,12 @@
 package com.sigma429.sl.controller.truck;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.sl.ms.base.domain.truck.TransportTripsTruckDriverDto;
-import com.sl.ms.base.domain.truck.TruckTripsDto;
-import com.sl.ms.base.entity.truck.TransportTripsTruckDriverEntity;
-import com.sl.ms.base.entity.truck.TruckTripsEntity;
-import com.sl.ms.base.service.truck.TransportTripsTruckDriverService;
-import com.sl.ms.base.service.truck.TruckTripsService;
-import com.sl.transport.common.util.ObjectUtil;
+import com.sigma429.sl.entity.truck.TransportTripsTruckDriverEntity;
+import com.sigma429.sl.entity.truck.TruckTripsEntity;
+import com.sigma429.sl.service.truck.TransportTripsTruckDriverService;
+import com.sigma429.sl.service.truck.TruckTripsService;
+import com.sigma429.sl.truck.TransportTripsTruckDriverDto;
+import com.sigma429.sl.truck.TruckTripsDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

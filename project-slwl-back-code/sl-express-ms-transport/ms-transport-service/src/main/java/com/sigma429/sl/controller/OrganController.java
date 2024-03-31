@@ -54,7 +54,7 @@ public class OrganController {
     public void update(@RequestBody OrganDTO organDTO) {
         BaseEntity entity = OrganUtils.toEntity(organDTO);
         BaseEntity entityData = OrganServiceFactory.getBean(organDTO.getType()).update(entity);
-        if (null == entityData) {
+        if (entityData == null) {
             throw new SLException("更新机构失败！", HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
     }

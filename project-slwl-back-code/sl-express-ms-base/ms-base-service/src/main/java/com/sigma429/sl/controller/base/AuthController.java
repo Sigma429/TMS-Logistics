@@ -1,7 +1,7 @@
 package com.sigma429.sl.controller.base;
 
 import com.itheima.auth.sdk.dto.UserDTO;
-import com.sl.ms.base.service.base.AuthService;
+import com.sigma429.sl.service.base.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

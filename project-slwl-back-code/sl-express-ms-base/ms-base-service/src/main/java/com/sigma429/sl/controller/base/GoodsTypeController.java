@@ -2,14 +2,13 @@ package com.sigma429.sl.controller.base;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.sl.ms.base.domain.base.GoodsTypeDto;
-import com.sl.ms.base.domain.constants.TruckConstant;
-import com.sl.ms.base.entity.base.GoodsTypeEntity;
-import com.sl.ms.base.entity.truck.TruckTypeGoodsTypeEntity;
-import com.sl.ms.base.service.base.GoodsTypeService;
-import com.sl.ms.base.service.truck.TruckTypeGoodsTypeService;
-import com.sl.transport.common.util.ObjectUtil;
-import com.sl.transport.common.util.PageResponse;
+import com.sigma429.sl.base.GoodsTypeDto;
+import com.sigma429.sl.constants.TruckConstant;
+import com.sigma429.sl.entity.base.GoodsTypeEntity;
+import com.sigma429.sl.entity.truck.TruckTypeGoodsTypeEntity;
+import com.sigma429.sl.service.base.GoodsTypeService;
+import com.sigma429.sl.service.truck.TruckTypeGoodsTypeService;
+import com.sigma429.sl.util.PageResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
