@@ -1,8 +1,8 @@
 package com.sigma429.sl.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sl.ms.work.domain.dto.response.TransportOrderStatusCountDTO;
-import com.sl.ms.work.entity.TransportOrderEntity;
+import com.sigma429.sl.dto.response.TransportOrderStatusCountDTO;
+import com.sigma429.sl.entity.TransportOrderEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

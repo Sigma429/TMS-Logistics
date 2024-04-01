@@ -14,11 +14,11 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderMsg extends BaseMsg{
+public class OrderMsg extends BaseMsg {
 
     private static final long serialVersionUID = 1L;
-
-    private Long orderId; //订单ID
+    // 订单ID
+    private Long orderId;
 
     /**
      * 任务类型，1为取件，2为派件

@@ -1,7 +1,7 @@
 package com.sigma429.sl.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sl.ms.work.entity.TransportOrderTaskEntity;
+import com.sigma429.sl.entity.TransportOrderTaskEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

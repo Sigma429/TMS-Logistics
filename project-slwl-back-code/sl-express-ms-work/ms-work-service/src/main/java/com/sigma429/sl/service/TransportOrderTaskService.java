@@ -2,7 +2,7 @@ package com.sigma429.sl.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.sl.ms.work.entity.TransportOrderTaskEntity;
+import com.sigma429.sl.entity.TransportOrderTaskEntity;
 
 import java.util.List;
 
@@ -13,25 +13,23 @@ public interface TransportOrderTaskService extends IService<TransportOrderTaskEn
 
     /**
      * 批量添加运单与运输任务关联关系
-     *
      * @param transportOrderTaskList 关联关系列表
      */
     void batchSaveTransportOrder(List<TransportOrderTaskEntity> transportOrderTaskList);
 
     /**
      * 获取运单与运输任务关联关系分页数据
-     *
      * @param page             页码
      * @param pageSize         页尺寸
      * @param transportOrderId 运单id
      * @param transportTaskId  订单id
      * @return 运单与运输任务关联关系分页数据
      */
-    IPage<TransportOrderTaskEntity> findByPage(Integer page, Integer pageSize, String transportOrderId, Long transportTaskId);
+    IPage<TransportOrderTaskEntity> findByPage(Integer page, Integer pageSize, String transportOrderId,
+                                               Long transportTaskId);
 
     /**
      * 获取运单与运输任务关联关系列表
-     *
      * @param transportOrderId 运单id
      * @param transportTaskId  运输任务id
      * @return 运单与运输任务关联关系列表
@@ -40,7 +38,6 @@ public interface TransportOrderTaskService extends IService<TransportOrderTaskEn
 
     /**
      * 统计关联数量
-     *
      * @param transportOrderId 运单Id
      * @param transportTaskId  运输任务Id
      * @return 数量
@@ -49,7 +46,6 @@ public interface TransportOrderTaskService extends IService<TransportOrderTaskEn
 
     /**
      * 根据条件删除关联关系
-     *
      * @param transportOrderId 运单id
      * @param transportTaskId  运输任务id
      */

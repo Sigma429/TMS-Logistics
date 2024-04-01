@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * id服务，用于生成自定义的id
- *
- * @author zzj
- * @version 1.0
  */
 @Service
 public class IdService {

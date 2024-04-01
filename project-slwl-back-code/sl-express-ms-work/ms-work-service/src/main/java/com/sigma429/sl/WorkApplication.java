@@ -2,6 +2,8 @@ package com.sigma429.sl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.retry.annotation.Retryable;
 
 @Retryable
 @EnableFeignClients

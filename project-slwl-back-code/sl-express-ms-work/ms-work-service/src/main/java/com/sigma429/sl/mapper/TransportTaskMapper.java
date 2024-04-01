@@ -1,9 +1,9 @@
 package com.sigma429.sl.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sl.ms.work.domain.dto.response.TransportTaskMonthlyDistanceDTO;
-import com.sl.ms.work.domain.dto.response.TransportTaskStatusCountDTO;
-import com.sl.ms.work.entity.TransportTaskEntity;
+import com.sigma429.sl.dto.response.TransportTaskMonthlyDistanceDTO;
+import com.sigma429.sl.dto.response.TransportTaskStatusCountDTO;
+import com.sigma429.sl.entity.TransportTaskEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,7 +20,6 @@ public interface TransportTaskMapper extends BaseMapper<TransportTaskEntity> {
 
     /**
      * 任务里程统计
-     *
      * @param transportTaskIds 运输任务id列表
      * @param startTime        开始时间
      * @param endTime          结束时间

@@ -222,3 +222,7 @@ sl-express，是TMS运配系统，本质上解决的是怎样运送的问题。
     1. 完成路线管理和路线成本接口
     2. 接入EagleMap API获取时间、距离
     3. web-courier模块和work-service模块初步搭建
+- Day16
+    1. 智能调度与整体核心业务理解
+    2. 订单转运单(取件成功消息消费、美团leaf生成运单号、业务实现)
+    3. 理解美团leaf，号段模式，双buffer优化，IdService

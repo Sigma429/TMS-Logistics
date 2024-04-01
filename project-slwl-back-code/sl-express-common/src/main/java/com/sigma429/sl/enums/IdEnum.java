@@ -7,9 +7,12 @@ public enum IdEnum implements BaseEnum {
 
     private Integer code;
     private String value;
-    private String biz; // 业务名称
-    private String type; // 类型：自增长（segment），雪花id（snowflake）
-    private String prefix;// id前缀
+    // 业务名称
+    private String biz;
+    // 类型：自增长（segment），雪花id（snowflake）
+    private String type;
+    // id前缀
+    private String prefix;
 
     IdEnum(Integer code, String value, String biz, String type, String prefix) {
         this.code = code;

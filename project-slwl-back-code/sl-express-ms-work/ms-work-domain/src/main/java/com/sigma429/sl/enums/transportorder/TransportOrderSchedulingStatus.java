@@ -18,6 +18,7 @@ public enum TransportOrderSchedulingStatus implements BaseEnum {
     @JsonValue
     private final Integer code;
     private final String value;
+
     TransportOrderSchedulingStatus(Integer code, String value) {
         this.code = code;
         this.value = value;

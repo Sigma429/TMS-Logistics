@@ -1,8 +1,8 @@
 package com.sigma429.sl.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.sl.ms.work.domain.dto.CourierTaskCountDTO;
-import com.sl.ms.work.entity.PickupDispatchTaskEntity;
+import com.sigma429.sl.dto.CourierTaskCountDTO;
+import com.sigma429.sl.entity.PickupDispatchTaskEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

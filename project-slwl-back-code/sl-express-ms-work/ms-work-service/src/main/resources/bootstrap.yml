@@ -18,10 +18,10 @@ spring:
       matching-strategy: ant_path_matcher
 sl:
   swagger:
-    package-path: com.sl.ms.work.controller
-    title: 神领物流 - work微服务接口文档
+    package-path: com.sigma429.sl.controller
+    title: work微服务接口文档
     description: 提供运输任务、取派件任务等相关服务。
-    contact-name: 传智教育·研究院
-    contact-url: http://www.itcast.cn/
-    contact-email: yjy@itcast.cn
+    contact-name: Sigma429
+    contact-url: https://github.com/Sigma429
+    contact-email: 1059769283@qq.com
     version: ${application.version}
