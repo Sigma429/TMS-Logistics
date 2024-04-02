@@ -26,7 +26,7 @@ public abstract class FeignErrorDecoder implements ErrorDecoder {
             JSONObject jsonObject = JSONUtil.parseObj(message);
             return this.call(response.status(), jsonObject.getInt("code"), jsonObject.getStr("msg"));
         } catch (Exception e) {
-            //出现网络中断、服务宕机
+            // 出现网络中断、服务宕机
             String msg = StrUtil.format("Feign调用失败，methodKey = {}, message = {}", methodKey, message);
             return this.call(response.status(), -1, msg);
         }

@@ -201,8 +201,7 @@ public class PageResponse<T> {
      */
     @SafeVarargs
     public static <E> PageResponse<E> of(E... elements) {
-        // return of(List.of(elements));
-        return null;
+        return of(List.of(elements));
     }
 
     /**

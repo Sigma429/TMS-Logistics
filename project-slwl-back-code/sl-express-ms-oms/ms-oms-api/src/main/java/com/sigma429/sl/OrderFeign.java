@@ -14,7 +14,6 @@ public interface OrderFeign {
     /**
      * 新增订单
      * 下单 寄件
-     *
      * @param mailingSaveDTO 订单信息
      * @return 订单信息
      */
@@ -23,7 +22,6 @@ public interface OrderFeign {
 
     /**
      * 预估总价
-     *
      * @param mailingSaveDTO 订单信息
      * @return 预估信息
      */
@@ -32,7 +30,6 @@ public interface OrderFeign {
 
     /**
      * 统计各个状态的数量
-     *
      * @param memberId 用户ID
      * @return 状态数量数据
      */
@@ -41,7 +38,6 @@ public interface OrderFeign {
 
     /**
      * 修改订单信息
-     *
      * @param id       订单id
      * @param orderDTO 订单信息
      * @return 订单信息
@@ -51,7 +47,6 @@ public interface OrderFeign {
 
     /**
      * 获取订单分页数据
-     *
      * @param orderDTO 查询条件
      * @return 订单分页数据
      */
@@ -60,7 +55,6 @@ public interface OrderFeign {
 
     /**
      * 根据id获取订单详情
-     *
      * @param id 订单Id
      * @return 订单详情
      */
@@ -69,7 +63,6 @@ public interface OrderFeign {
 
     /**
      * 根据id获取集合
-     *
      * @param ids 订单Id
      * @return 订单详情
      */
@@ -78,7 +71,6 @@ public interface OrderFeign {
 
     /**
      * 列表查询
-     *
      * @param orderSearchDTO 条件
      * @return 订单列表
      */
@@ -87,7 +79,6 @@ public interface OrderFeign {
 
     /**
      * 查询订单位置
-     *
      * @param orderId 订单ID
      * @return 位置
      */
@@ -96,7 +87,6 @@ public interface OrderFeign {
 
     /**
      * 根据orderId列表查询订单的location信息
-     *
      * @param orderIds 订单id列表
      * @return 位置
      */
@@ -105,7 +95,6 @@ public interface OrderFeign {
 
     /**
      * 取件更新
-     *
      * @param orderPickupDTO 取件更新信息
      */
     @PutMapping("orderPickup")
@@ -113,7 +102,6 @@ public interface OrderFeign {
 
     /**
      * 状态更新
-     *
      * @param orderId 订单ID
      * @param code    状态码
      */
@@ -122,7 +110,6 @@ public interface OrderFeign {
 
     /**
      * 根据id获取订单详情
-     *
      * @param id 订单Id
      * @return 订单详情
      */

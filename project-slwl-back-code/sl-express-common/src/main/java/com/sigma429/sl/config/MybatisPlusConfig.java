@@ -15,10 +15,10 @@ public class MybatisPlusConfig {
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
 
         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        //设置分页插件
+        // 设置分页插件
         mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
 
-        //防全表更新与删除插件
+        // 防全表更新与删除插件
         mybatisPlusInterceptor.addInnerInterceptor(new BlockAttackInnerInterceptor());
         return mybatisPlusInterceptor;
     }

@@ -31,7 +31,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         if (handlerMethod.hasMethodAnnotation(NoAuthorization.class)) {
-            //不需要校验，直接放行
+            // 不需要校验，直接放行
             return true;
         }
 
@@ -49,7 +49,8 @@ public class TokenInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
+                                Exception ex) {
         AuthTemplateThreadLocal.remove();
         log.info("请求结束：{}", request.getRequestURI());
     }

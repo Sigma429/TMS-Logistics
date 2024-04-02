@@ -12,9 +12,11 @@ import java.time.LocalDateTime;
 public abstract class BaseEntity implements Serializable {
 
     @TableId
-    private Long id; // 主键id
+    // 主键id
+    private Long id;
 
-    @TableField(fill = FieldFill.INSERT) // MP自动填充
+    @TableField(fill = FieldFill.INSERT)
+    // MP自动填充
     private LocalDateTime created;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updated;

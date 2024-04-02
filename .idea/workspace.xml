@@ -5,28 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ead22982-4d33-4b37-920d-d268b35e23c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/config/RedissonConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/config/XxlJobConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/dto/DispatchMsgDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/job/DispatchJob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/mq/OrderMQListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/mq/TransportOrderDispatchMQListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/resources/bootstrap-local.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/resources/bootstrap-stu.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/resources/bootstrap-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/ms-search-api/src/main/java/com/sigma429/sl/CourierTaskFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/MsDispatchServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/java/com/sigma429/sl/DispatchApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-dispatch-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/ms-search-api/src/main/java/com/sigma429/sl/MsSearchApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/ms-search-api/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/ms-search-api/src/test/java/com/sigma429/sl/MsSearchApiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/config/FeignErrorDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/config/FeignErrorDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/config/MybatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/config/MybatisPlusConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/entity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/interceptor/TokenInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/interceptor/TokenInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/interceptor/UserFeignRequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/interceptor/UserFeignRequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/interceptor/UserInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/interceptor/UserInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/util/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-common/src/main/java/com/sigma429/sl/util/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-carriage/ms-carriage-api/src/main/java/com/sigma429/sl/CarriageFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-carriage/ms-carriage-api/src/main/java/com/sigma429/sl/CarriageFeign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/TaskServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +84,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.14634146&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.27605957&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -365,6 +352,8 @@
       <workItem from="1711804337156" duration="6282000" />
       <workItem from="1711859334870" duration="16556000" />
       <workItem from="1711938453286" duration="20853000" />
+      <workItem from="1712025726653" duration="12417000" />
+      <workItem from="1712047462836" duration="66000" />
     </task>
     <servers />
   </component>

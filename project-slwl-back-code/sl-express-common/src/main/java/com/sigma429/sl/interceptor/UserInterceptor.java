@@ -30,7 +30,7 @@ public class UserInterceptor implements HandlerInterceptor {
 
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         if (handlerMethod.hasMethodAnnotation(NoAuthorization.class)) {
-            //不需要校验，直接放行
+            // 不需要校验，直接放行
             return true;
         }
 
@@ -55,7 +55,8 @@ public class UserInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
+                                Exception ex) throws Exception {
         UserThreadLocal.remove();
     }
 }
