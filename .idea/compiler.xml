@@ -60,5 +60,6 @@
         <module name="ms-service-scope-domain" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>
