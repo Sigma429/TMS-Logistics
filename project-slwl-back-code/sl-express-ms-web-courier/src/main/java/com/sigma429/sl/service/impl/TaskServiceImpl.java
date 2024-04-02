@@ -1,22 +1,19 @@
 package com.sigma429.sl.service.impl;
 
+
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.date.LocalDateTimeUtil;
-import cn.hutool.core.text.CharSequenceUtil;
-import cn.hutool.core.util.DesensitizedUtil;
-import cn.hutool.core.util.IdcardUtil;
-import cn.hutool.core.util.NumberUtil;
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.json.JSONUtil;
-import com.itheima.auth.sdk.dto.UserDTO;
 import com.sigma429.sl.*;
+import com.sigma429.sl.base.AreaDto;
 import com.sigma429.sl.common.AreaFeign;
 import com.sigma429.sl.common.MQFeign;
 import com.sigma429.sl.common.MessageFeign;
 import com.sigma429.sl.constant.Constants;
+import com.sigma429.sl.dto.CarriageDTO;
+import com.sigma429.sl.dto.WaybillDTO;
+import com.sigma429.sl.exception.SLWebException;
 import com.sigma429.sl.service.RealNameVerifyService;
 import com.sigma429.sl.service.TaskService;
+import com.sigma429.sl.util.BeanUtil;
 import com.sigma429.sl.util.PageResponse;
 import com.sigma429.sl.util.UserThreadLocal;
 import com.sigma429.sl.vo.CourierMsg;
@@ -62,8 +59,8 @@ public class TaskServiceImpl implements TaskService {
     private RealNameVerifyService realNameVerifyService;
     @Resource
     private MQFeign mqFeign;
-    // @Resource
-    // private CourierTaskFeign courierTaskFeign;
+    @Resource
+    private CourierTaskFeign courierTaskFeign;
 
     /**
      * 实名认证开关，默认关闭
@@ -78,7 +75,30 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public CarriageVO calculate(CarriageCalculateVO calculateVO) {
-        return null;
+        // 1.根据县级id获取市级地址id
+        List<AreaDto> areaDtos = areaFeign.findBatch(Arrays.asList(calculateVO.getReceiverCountyId(),
+                calculateVO.getSenderCountyId()));
+        if (CollUtil.isEmpty(areaDtos)) {
+            throw new SLWebException("地址未找到");
+        }
+        Map<Long, Long> areaCountyIdAndCityIdMap = areaDtos.stream().collect(Collectors.toMap(AreaDto::getId,
+                AreaDto::getParentId));
+
+        // 2.将市级id作为运费计算条件
+        WaybillDTO waybillDTO = BeanUtil.toBean(calculateVO, WaybillDTO.class, (calculate, waybill) -> {
+            waybill.setReceiverCityId(areaCountyIdAndCityIdMap.get(calculate.getReceiverCountyId()));
+            waybill.setSenderCityId(areaCountyIdAndCityIdMap.get(calculate.getSenderCountyId()));
+        });
+
+        // 3.调用接口，计算运费
+        CarriageDTO carriageDTO = carriageFeign.compute(waybillDTO);
+        log.info("计算结果:{}", carriageDTO);
+        return BeanUtil.toBean(carriageDTO, CarriageVO.class, (carriage, carriageVO) -> {
+            carriageVO.setFreight(String.valueOf(carriage.getExpense()));
+            carriageVO.setWeight(BigDecimal.valueOf(carriage.getComputeWeight()));
+            carriageVO.setFirstWeight(carriage.getFirstWeight());
+            carriageVO.setContinuousWeight(carriage.getContinuousWeight());
+        });
     }
 
     /**
