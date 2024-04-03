@@ -57,7 +57,7 @@ public class TruckEntity extends BaseEntity {
      * 车辆行驶证信息id
      */
     private Long truckLicenseId;
-    
+
     /**
      * 状态 0：禁用 1：正常
      */
@@ -75,7 +75,7 @@ public class TruckEntity extends BaseEntity {
      */
     private Integer runStatus;
 
-    //所在机构id
+    // 所在机构id
     private Long currentOrganId;
 
     /**

@@ -55,7 +55,7 @@ public class TruckDto {
 
     private Integer workStatus;
 
-    //所在机构id
+    // 所在机构id
     private Long currentOrganId;
 
     /**

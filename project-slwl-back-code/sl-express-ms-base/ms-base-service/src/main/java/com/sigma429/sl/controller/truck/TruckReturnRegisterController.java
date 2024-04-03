@@ -6,6 +6,7 @@ import com.sigma429.sl.service.truck.TruckReturnRegisterService;
 import com.sigma429.sl.truck.TruckReturnRegisterDTO;
 import com.sigma429.sl.truck.TruckReturnRegisterListDTO;
 import com.sigma429.sl.truck.TruckReturnRegisterPageQueryDTO;
+import com.sigma429.sl.util.PageResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

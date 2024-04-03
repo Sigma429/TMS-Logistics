@@ -33,7 +33,6 @@ public class AreaController {
 
     /**
      * 根据id获取行政区域详情
-     *
      * @param id 行政区域id
      * @return 行政区域id
      */

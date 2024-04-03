@@ -38,14 +38,13 @@ public class TruckController {
 
     /**
      * 添加车辆
-     *
      * @param dto 车辆信息
      * @return 车辆信息
      */
     @PostMapping
     public TruckDto saveTruck(@RequestBody TruckDto dto) {
         TruckEntity truckEntity = BeanUtil.toBean(dto, TruckEntity.class);
-        // 車型計算
+        // 车型計算
         List<TruckTypeEntity> all = truckTypeService.findAll(Collections.singletonList(dto.getTruckTypeId()));
         if (CollUtil.isNotEmpty(all)) {
             TruckTypeEntity truckTypeEntity = all.get(0);
@@ -53,7 +52,6 @@ public class TruckController {
                 truckEntity.setAllowableLoad(truckTypeEntity.getAllowableLoad());
                 truckEntity.setAllowableVolume(truckTypeEntity.getAllowableVolume());
             }
-
         }
         truckService.save(truckEntity);
         BeanUtil.copyProperties(truckEntity, dto);
@@ -62,7 +60,6 @@ public class TruckController {
 
     /**
      * 根据id获取车辆详情
-     *
      * @param id 车辆id
      * @return 车辆信息
      */
@@ -77,7 +74,6 @@ public class TruckController {
 
     /**
      * 获取车辆分页数据
-     *
      * @param page         页码
      * @param pageSize     页尺寸
      * @param truckTypeId  车辆类型id
@@ -123,7 +119,6 @@ public class TruckController {
 
     /**
      * 获取车辆列表
-     *
      * @param ids 车辆id列表
      * @return 车辆列表
      */
@@ -141,7 +136,6 @@ public class TruckController {
 
     /**
      * 更新车辆信息
-     *
      * @param id  车辆id
      * @param dto 车辆信息
      * @return 车辆信息
@@ -156,7 +150,6 @@ public class TruckController {
 
     /**
      * 统计车辆数量
-     *
      * @return 车辆数量
      */
     @GetMapping("/count")
@@ -166,7 +159,6 @@ public class TruckController {
 
     /**
      * 禁用车辆
-     *
      * @param id 车辆id
      */
     @PutMapping("/{id}/disable")
@@ -176,7 +168,6 @@ public class TruckController {
 
     /**
      * 启用车辆
-     *
      * @param id 车辆id
      */
     @PutMapping("/{id}/enable")
@@ -186,7 +177,6 @@ public class TruckController {
 
     /**
      * 删除车辆
-     *
      * @param id 车辆id
      */
     @PutMapping("/{id}/del")
@@ -197,7 +187,7 @@ public class TruckController {
     /**
      * 更新车辆状态
      * 调用时机 车辆出库
-     * @param id 车辆id
+     * @param id     车辆id
      * @param status 车辆状态枚举
      */
     @PutMapping("/updateRunStatus")

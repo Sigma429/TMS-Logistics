@@ -8,6 +8,7 @@ import com.sigma429.sl.entity.base.GoodsTypeEntity;
 import com.sigma429.sl.entity.truck.TruckTypeGoodsTypeEntity;
 import com.sigma429.sl.service.base.GoodsTypeService;
 import com.sigma429.sl.service.truck.TruckTypeGoodsTypeService;
+import com.sigma429.sl.util.ObjectUtil;
 import com.sigma429.sl.util.PageResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,6 @@ public class GoodsTypeController {
 
     /**
      * 添加货物类型
-     *
      * @param dto 货物类型信息
      * @return 货物类型信息
      */
@@ -52,7 +52,6 @@ public class GoodsTypeController {
 
     /**
      * 根据id获取货物类型详情
-     *
      * @param id 货物类型id
      * @return 货物类型信息
      */
@@ -74,7 +73,6 @@ public class GoodsTypeController {
 
     /**
      * 获取货物类型列表
-     *
      * @return 货物类型列表
      */
     @GetMapping
@@ -91,7 +89,6 @@ public class GoodsTypeController {
 
     /**
      * 获取分页货物类型数据
-     *
      * @param page        页码
      * @param pageSize    页尺寸
      * @param name        货物类型名称
@@ -124,7 +121,6 @@ public class GoodsTypeController {
 
     /**
      * 更新货物类型信息
-     *
      * @param id  货物类型id
      * @param dto 货物类型信息
      * @return 货物类型信息
@@ -146,7 +142,6 @@ public class GoodsTypeController {
 
     /**
      * 删除货物类型
-     *
      * @param id 货物类型id
      * @return 返回信息
      */
