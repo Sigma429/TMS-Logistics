@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.logistics</groupId>
+        <artifactId>logistics-parent</artifactId>
+        <version>1.4</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.logistics.ms.driver</groupId>
+    <artifactId>ms-driver-domain</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <description>司机微服务-实体</description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <logistics-common.version>1.2-SNAPSHOT</logistics-common.version>
+        <logistics-ms-base-domain.version>1.1-SNAPSHOT</logistics-ms-base-domain.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.logistics.common</groupId>
+            <artifactId>logistics-common</artifactId>
+            <version>${logistics-common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.logistics.ms.base</groupId>
+            <artifactId>ms-base-domain</artifactId>
+            <version>${logistics-ms-base-domain.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

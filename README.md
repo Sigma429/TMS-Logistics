@@ -1,8 +1,8 @@
-# **1**、sl-express
+# **1**、TMS-Logistics
 
 ## 1.1、概述
 
-sl-express是一个基于Spring Cloud微服务架构体系的、具备完整物流业务闭环的生产级物流项目系统。
+TMS-Logistics是一个基于Spring Cloud微服务架构体系的、具备完整物流业务闭环的生产级物流项目系统。
 
 ## 1.2、特性
 
@@ -18,7 +18,7 @@ sl-express是一个基于Spring Cloud微服务架构体系的、具备完整物�
 
 ## 1.3、产品说明
 
-sl-express类似顺丰速运，是向C端用户提供快递服务的系统。竞品有：顺丰、中通、圆通、京东快递等。
+TMS-Logistics类似顺丰速运，是向C端用户提供快递服务的系统。竞品有：顺丰、中通、圆通、京东快递等。
 项目产品主要有4端产品：
 
 - 用户端：基于微信小程序开发，外部客户使用，可以寄件、查询物流信息等。
@@ -32,7 +32,7 @@ sl-express类似顺丰速运，是向C端用户提供快递服务的系统。竞
 
 这四大系统本质上解决了物流行业的四大核心问题：怎么存放、怎么运送、怎么跟进、怎么结算。
 
-sl-express，是TMS运配系统，本质上解决的是怎样运送的问题。
+TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题。
 
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/27683667/1666843467766-309e2f8f-1fc0-4f05-ba11-3142f542929c.png#averageHue=%23e1deb0&clientId=u5ccd6243-bb68-4&from=paste&height=1303&id=uf6361701&name=image.png&originHeight=1955&originWidth=2700&originalType=binary&ratio=1&rotation=0&showTitle=false&size=2507860&status=done&style=shadow&taskId=u55fe548e-896b-41e8-9420-51863c19e41&title=&width=1800)
 
@@ -44,7 +44,7 @@ sl-express，是TMS运配系统，本质上解决的是怎样运送的问题。
 
 ## 3.2、技术架构
 
-下图展现了sl-express使用的主要的技术：
+下图展现了TMS-Logistics使用的主要的技术：
 
 ![](https://cdn.nlark.com/yuque/0/2022/jpeg/27683667/1665997873162-a4c9ea61-f71e-4111-862e-efa01fd35e7b.jpeg)
 
@@ -216,7 +216,7 @@ sl-express，是TMS运配系统，本质上解决的是怎样运送的问题。
 - Day14
     1. mq模块error三种情况：发送到交换机，但队列未绑定、发送到mq服务器，但交换机不存在、未发送到mq服务器
     2. 发送消息的三种error情况，用日志或者任务调度处理、消费消息error用ErrorMessageConfig类处理
-    3. sl-express-mq模块已完成，sl-express-base模块初步搭建
+    3. TMS-logistics-mq模块已完成，TMS-logistics-base模块初步搭建
     4. transport模块通过mq和IService封装实现机构同步，实现OrganService接口完成机构管理
 - Day15
     1. 完成路线管理和路线成本接口
@@ -227,3 +227,5 @@ sl-express，是TMS运配系统，本质上解决的是怎样运送的问题。
     2. 订单转运单(取件成功消息消费、美团leaf生成运单号、业务实现)
     3. 理解美团leaf，号段模式，双buffer优化，IdService
     4. 完善运单服务,使用redis的list结构合并运单
+- Day17
+    1. base模块代码理解

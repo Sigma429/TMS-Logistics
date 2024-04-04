@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.logistics</groupId>
+        <artifactId>logistics-parent</artifactId>
+        <version>1.4</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <version>1.1-SNAPSHOT</version>
+    <groupId>com.logistics.ms.user</groupId>
+    <artifactId>ms-user-api</artifactId>
+    <description>用户微服务-Feign接口</description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <logistics-common.version>1.2-SNAPSHOT</logistics-common.version>
+        <logistics-user-domain.version>1.1-SNAPSHOT</logistics-user-domain.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.logistics.common</groupId>
+            <artifactId>logistics-common</artifactId>
+            <version>${logistics-common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.logistics.ms.user</groupId>
+            <artifactId>ms-user-domain</artifactId>
+            <version>${logistics-user-domain.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

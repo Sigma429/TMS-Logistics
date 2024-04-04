@@ -12,12 +12,16 @@
         <module name="ms-track-domain" />
         <module name="ms-sms-api" />
         <module name="sl-express-ms-web-driver" />
+        <module name="logistics-pay" />
+        <module name="logistics-ms-web-customer" />
         <module name="ms-base-service" />
+        <module name="logistics-mq" />
         <module name="ms-oms-domain" />
         <module name="ms-transport-domain" />
         <module name="sl-express-xxl-job" />
         <module name="ms-transport-info-api" />
         <module name="ms-oms-service" />
+        <module name="logistics-ms-web-manager" />
         <module name="ms-carriage-domain" />
         <module name="ms-search-api" />
         <module name="sl-express-common" />
@@ -40,23 +44,29 @@
         <module name="ms-courier-service" />
         <module name="ms-service-scope-service" />
         <module name="sl-express-ms-web-customer" />
+        <module name="logistics-gateway" />
         <module name="ms-base-api" />
         <module name="ms-driver-api" />
         <module name="ms-transport-info-domain" />
         <module name="ms-trade-api" />
+        <module name="logistics-ms-web-driver" />
         <module name="ms-transport-api" />
+        <module name="logistics-xxl-job" />
         <module name="sl-express-gateway" />
         <module name="ms-search-service" />
         <module name="ms-user-domain" />
         <module name="ms-track-service" />
         <module name="ms-transport-service" />
+        <module name="logistics-common" />
         <module name="ms-driver-service" />
         <module name="sl-express-mq" />
         <module name="ms-driver-domain" />
+        <module name="logistics-ms-web-courier" />
         <module name="ms-search-domain" />
         <module name="ms-work-domain" />
         <module name="sl-express-ms-web-manager" />
         <module name="ms-base-domain" />
+        <module name="logistics-ms-dispatch-service" />
         <module name="ms-service-scope-domain" />
       </profile>
     </annotationProcessing>

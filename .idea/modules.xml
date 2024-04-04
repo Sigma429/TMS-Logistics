@@ -2,22 +2,22 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/project-slwl-back-code.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/project-slwl-back-code.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sl-express.iml" filepath="$PROJECT_DIR$/sl-express.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-base/sl-express-ms-base.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-base/sl-express-ms-base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-carriage/sl-express-ms-carriage.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-carriage/sl-express-ms-carriage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-courier/sl-express-ms-courier.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-courier/sl-express-ms-courier.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-driver/sl-express-ms-driver.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-driver/sl-express-ms-driver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-oms/sl-express-ms-oms.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-oms/sl-express-ms-oms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/sl-express-ms-search.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-search/sl-express-ms-search.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-service-scope/sl-express-ms-service-scope.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-service-scope/sl-express-ms-service-scope.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-sms/sl-express-ms-sms.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-sms/sl-express-ms-sms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-track/sl-express-ms-track.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-track/sl-express-ms-track.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-trade/sl-express-ms-trade.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-trade/sl-express-ms-trade.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport/sl-express-ms-transport.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport/sl-express-ms-transport.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport-info/sl-express-ms-transport-info.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-transport-info/sl-express-ms-transport-info.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-user/sl-express-ms-user.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-user/sl-express-ms-user.iml" />
-      <module fileurl="file://$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-work/sl-express-ms-work.iml" filepath="$PROJECT_DIR$/project-slwl-back-code/sl-express-ms-work/sl-express-ms-work.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TMS-Logistics.iml" filepath="$PROJECT_DIR$/TMS-Logistics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-back-code.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-back-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-base/logistics-ms-base.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-base/logistics-ms-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-carriage/logistics-ms-carriage.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-carriage/logistics-ms-carriage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-courier/logistics-ms-courier.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-courier/logistics-ms-courier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/logistics-ms-driver.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/logistics-ms-driver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-oms/logistics-ms-oms.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-oms/logistics-ms-oms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-search/logistics-ms-search.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-search/logistics-ms-search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/logistics-ms-service-scope.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/logistics-ms-service-scope.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-sms/logistics-ms-sms.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-sms/logistics-ms-sms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-track/logistics-ms-track.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-track/logistics-ms-track.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-trade/logistics-ms-trade.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-trade/logistics-ms-trade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-transport/logistics-ms-transport.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport/logistics-ms-transport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/logistics-ms-transport-info.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/logistics-ms-transport-info.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-user/logistics-ms-user.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-user/logistics-ms-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logistics-back-code/logistics-ms-work/logistics-ms-work.iml" filepath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/logistics-ms-work.iml" />
     </modules>
   </component>
 </project>

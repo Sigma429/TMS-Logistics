@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.logistics</groupId>
+        <artifactId>logistics-parent</artifactId>
+        <version>1.4</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.logistics.ms.carriage</groupId>
+    <artifactId>ms-carriage-api</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <description>运费微服务-Feign接口</description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <logistics-ms-carriage-domain.version>1.1-SNAPSHOT</logistics-ms-carriage-domain.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.logistics.ms.carriage</groupId>
+            <artifactId>ms-carriage-domain</artifactId>
+            <version>${logistics-ms-carriage-domain.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
