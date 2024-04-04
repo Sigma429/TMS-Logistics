@@ -26,9 +26,9 @@ public class TruckTripsController {
 
     @Resource
     private TransportTripsTruckDriverService transportTripsTruckDriverService;
+
     /**
      * 添加车次
-     *
      * @param dto 车次信息
      * @return 车次信息
      */
@@ -41,7 +41,6 @@ public class TruckTripsController {
 
     /**
      * 根据id获取车次详情
-     *
      * @param id 车次id
      * @return 车次信息
      */
@@ -57,7 +56,6 @@ public class TruckTripsController {
 
     /**
      * 获取车次列表
-     *
      * @param transportLineId 线路id
      * @param ids             车次id列表
      * @return 车次列表
@@ -73,7 +71,6 @@ public class TruckTripsController {
 
     /**
      * 更新车次信息
-     *
      * @param id  车次id
      * @param dto 车次信息
      * @return 车次信息
@@ -89,7 +86,6 @@ public class TruckTripsController {
 
     /**
      * 删除车次信息
-     *
      * @param id 车次信息
      */
     @PutMapping("/{id}/disable")
@@ -99,12 +95,11 @@ public class TruckTripsController {
 
     /**
      * 批量保存车次与车辆和司机关联关系
-     *
      * @param dtoList 车次与车辆和司机关联关系
      */
     @PostMapping("{id}/truckDriver")
     public void batchSaveTruckDriver(@PathVariable(value = "id", required = false) Long transportTripsId,
-                                @RequestBody List<TransportTripsTruckDriverDto> dtoList) {
+                                     @RequestBody List<TransportTripsTruckDriverDto> dtoList) {
         transportTripsTruckDriverService.batchSave(transportTripsId, dtoList.stream().map(dto -> {
             dto.setTransportTripsId(transportTripsId);
             return BeanUtil.toBean(dto, TransportTripsTruckDriverEntity.class);
@@ -113,16 +108,18 @@ public class TruckTripsController {
 
     /**
      * 获取车次与车辆和司机关联关系列表
-     *
      * @param transportTripsId 车次id
      * @param truckId          车辆id
-     * @param driverId           司机id
+     * @param driverId         司机id
      * @return 车次与车辆和司机关联关系列表
      */
     @GetMapping("truckDriver")
-    public List<TransportTripsTruckDriverDto> findAllTruckDriverTransportTrips(@RequestParam(name = "transportTripsId", required = false) Long transportTripsId,
-                                          @RequestParam(name = "truckId", required = false) Long truckId,
-                                          @RequestParam(name = "driverId", required = false) Long driverId) {
+    public List<TransportTripsTruckDriverDto> findAllTruckDriverTransportTrips(@RequestParam(name = "transportTripsId"
+            , required = false) Long transportTripsId,
+                                                                               @RequestParam(name = "truckId",
+                                                                                       required = false) Long truckId,
+                                                                               @RequestParam(name = "driverId",
+                                                                                       required = false) Long driverId) {
         return transportTripsTruckDriverService.findAll(transportTripsId, truckId, driverId)
                 .parallelStream()
                 .map(transportTripsTruck -> BeanUtil.toBean(transportTripsTruck, TransportTripsTruckDriverDto.class))

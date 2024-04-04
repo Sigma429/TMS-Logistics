@@ -44,8 +44,6 @@ public class TruckPlanDto {
 
     /**
      * 状态
-     *
-     * @see com.sl.ms.base.domain.enums.StatusEnum
      */
     private Integer status;
 

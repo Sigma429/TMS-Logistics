@@ -68,8 +68,8 @@ public class WorkSchedulingServiceImpl extends ServiceImpl<WorkSchedulingMapper,
         final String queryMonth = StringUtils.isEmpty(workSchedulingQueryDTO.getMonth()) ?
                 LocalDateTimeUtil.format(LocalDateTimeUtil.now(), DateUtils.DEFAULT_MONTH_FORMAT) :
                 workSchedulingQueryDTO.getMonth();
-
-        boolean isQueryHistory = WorkSchedulingUtils.isQueryHistory(queryMonth); // 是否查询历史数据
+        // 是否查询历史数据
+        boolean isQueryHistory = WorkSchedulingUtils.isQueryHistory(queryMonth);
 
         // 查询排班记录
         LambdaQueryWrapper<WorkSchedulingEntity> queryWrapper = Wrappers.lambdaQuery();
@@ -95,11 +95,13 @@ public class WorkSchedulingServiceImpl extends ServiceImpl<WorkSchedulingMapper,
         final Map<String, String> historyMap = new HashMap<>();
 
         List<WorkSchedulingEntity> records = entityPage.getRecords();
-        if (CollUtil.isEmpty(records)) { // 有数据
+        // 有数据
+        if (CollUtil.isEmpty(records)) {
             return PageResponse.of(entityPage, WorkSchedulingDTO.class);
         }
 
-        if (isQueryHistory) { // 查询历史数据
+        // 查询历史数据
+        if (isQueryHistory) {
             List<Long> userIdList = records.stream().map(WorkSchedulingEntity::getUserId).collect(Collectors.toList());
             List<WorkHistorySchedulingEntity> historyEntity = workHistorySchedulingMapper.selectList(
                     Wrappers.<WorkHistorySchedulingEntity>lambdaQuery()

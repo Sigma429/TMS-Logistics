@@ -8,7 +8,8 @@ import lombok.Data;
 @Data
 public class WorkSchedulingQueryDTO {
     @ApiModelProperty("页数")
-    private Integer page = 1; //默认第一页
+    // 默认第一页
+    private Integer page = 1;
     @ApiModelProperty("每页条数")
     private Integer pageSize = 10;
     @ApiModelProperty("月份,该值为空默认当前月份yy-mm")

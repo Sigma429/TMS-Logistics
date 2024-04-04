@@ -36,7 +36,6 @@ public class TruckTypeController {
 
     /**
      * 添加车辆类型
-     *
      * @param dto 车辆类型信息
      * @return 车辆类型信息
      */
@@ -45,7 +44,7 @@ public class TruckTypeController {
         TruckTypeEntity truckTypeEntity = BeanUtil.toBean(dto, TruckTypeEntity.class);
         truckTypeService.save(truckTypeEntity);
         Long truckTypeId = truckTypeEntity.getId();
-        //处理与货物类型的关联
+        // 处理与货物类型的关联
         if (ObjectUtil.isNotEmpty(dto.getGoodsTypeIds())) {
             List<TruckTypeGoodsTypeEntity> list = dto.getGoodsTypeIds()
                     .stream()
@@ -59,7 +58,6 @@ public class TruckTypeController {
 
     /**
      * 根据id获取车辆类型详情
-     *
      * @param id 车辆类型id
      * @return 车辆类型信息
      */
@@ -77,7 +75,6 @@ public class TruckTypeController {
 
     /**
      * 获取车辆类型分页数据
-     *
      * @param page               页码
      * @param pageSize           页尺寸
      * @param name               车辆类型名称
@@ -97,11 +94,13 @@ public class TruckTypeController {
                                                  @RequestParam(name = "minAllowableVolume", required = false) BigDecimal minAllowableVolume,
                                                  @RequestParam(name = "maxAllowableVolume", required = false) BigDecimal maxAllowableVolume,
                                                  @RequestParam(name = "id", required = false) Long id) {
-        IPage<TruckTypeEntity> pdTruckTypePage = truckTypeService.findByPage(page, pageSize, name, minAllowableLoad, maxAllowableLoad, minAllowableVolume, maxAllowableVolume, id);
+        IPage<TruckTypeEntity> pdTruckTypePage = truckTypeService.findByPage(page, pageSize, name, minAllowableLoad,
+                maxAllowableLoad, minAllowableVolume, maxAllowableVolume, id);
         List<TruckTypeDto> dtoList = new ArrayList<>();
         pdTruckTypePage.getRecords().forEach(truckType -> {
             TruckTypeDto dto = BeanUtil.toBean(truckType, TruckTypeDto.class);
-            List<Long> list = truckTypeGoodsTypeService.findAll(dto.getId(), null).stream().map(TruckTypeGoodsTypeEntity::getGoodsTypeId).collect(Collectors.toList());
+            List<Long> list =
+                    truckTypeGoodsTypeService.findAll(dto.getId(), null).stream().map(TruckTypeGoodsTypeEntity::getGoodsTypeId).collect(Collectors.toList());
             dto.setGoodsTypeIds(list);
             int size = truckService.countByType(truckType.getId());
             dto.setNum(size);
@@ -112,7 +111,6 @@ public class TruckTypeController {
 
     /**
      * 获取车辆类型列表
-     *
      * @param ids 车辆类型id
      * @return 车辆类型列表
      */
@@ -120,7 +118,8 @@ public class TruckTypeController {
     public List<TruckTypeDto> findAll(@RequestParam(name = "ids", required = false) List<Long> ids) {
         return truckTypeService.findAll(ids).stream().map(truckType -> {
             TruckTypeDto dto = BeanUtil.toBean(truckType, TruckTypeDto.class);
-            List<Long> list = truckTypeGoodsTypeService.findAll(dto.getId(), null).stream().map(TruckTypeGoodsTypeEntity::getGoodsTypeId).collect(Collectors.toList());
+            List<Long> list =
+                    truckTypeGoodsTypeService.findAll(dto.getId(), null).stream().map(TruckTypeGoodsTypeEntity::getGoodsTypeId).collect(Collectors.toList());
             dto.setGoodsTypeIds(list);
             return dto;
         }).collect(Collectors.toList());
@@ -128,7 +127,6 @@ public class TruckTypeController {
 
     /**
      * 更新车辆类型信息
-     *
      * @param id  车辆类型id
      * @param dto 车辆类型信息
      * @return 车辆类型信息
@@ -137,10 +135,10 @@ public class TruckTypeController {
     public TruckTypeDto update(@PathVariable(name = "id") Long id, @RequestBody TruckTypeDto dto) {
         dto.setId(id);
         truckTypeService.updateById(BeanUtil.toBean(dto, TruckTypeEntity.class));
-        //处理与货物类型的关联
+        // 处理与货物类型的关联
         if (ObjectUtil.isNotEmpty(dto.getGoodsTypeIds())) {
             truckTypeGoodsTypeService.delete(id, null);
-            //绑定新的关系
+            // 绑定新的关系
             truckTypeGoodsTypeService.saveBatch(dto.getGoodsTypeIds().stream().map(goodsTypeId -> TruckTypeGoodsTypeEntity.builder().goodsTypeId(goodsTypeId).truckTypeId(id).build()).collect(Collectors.toList()));
         }
         return dto;
@@ -148,7 +146,6 @@ public class TruckTypeController {
 
     /**
      * 删除车辆类型
-     *
      * @param id 车辆类型Id
      */
     @PutMapping("/{id}/disable")

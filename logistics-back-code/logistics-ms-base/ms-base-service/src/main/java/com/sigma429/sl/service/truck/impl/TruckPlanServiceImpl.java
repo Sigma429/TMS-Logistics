@@ -234,7 +234,7 @@ public class TruckPlanServiceImpl extends ServiceImpl<TruckPlanMapper, TruckPlan
         // 设置车辆位置 可能回车登记的车辆 并不是计划中的车辆
         Boolean updateCurrentOrganId = truckService.updateCurrentOrganId(truckId, currentOrganId, statusEnum);
         if (!updateCurrentOrganId) {
-            log.error("更新车辆位置失败 currentOrganId {} planId {} ", currentOrganId, planId);
+            // log.error("更新车辆位置失败 currentOrganId {} planId {} ", currentOrganId, planId);
             throw new SLException(StrUtil.format("更新车辆位置失败currentOrganId {} planId {} ", currentOrganId, planId));
         }
 

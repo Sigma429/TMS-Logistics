@@ -30,7 +30,8 @@ public class TruckReturnRegisterController {
     @PostMapping
     @ApiOperation(value = "新增回车登记", notes = "新增回车登记记录")
     public void save(@RequestBody TruckReturnRegisterDTO truckReturnRegisterDTO) {
-        TruckReturnRegisterEntity truckReturnRegisterEntity = BeanUtil.toBean(truckReturnRegisterDTO, TruckReturnRegisterEntity.class);
+        TruckReturnRegisterEntity truckReturnRegisterEntity = BeanUtil.toBean(truckReturnRegisterDTO,
+                TruckReturnRegisterEntity.class);
         truckReturnRegisterService.save(truckReturnRegisterEntity);
     }
 
@@ -42,7 +43,7 @@ public class TruckReturnRegisterController {
 
     @GetMapping("/{id}")
     @ApiOperation(value = "根据id查询回车登记详情")
-    @ApiImplicitParams({@ApiImplicitParam(name = "id", value = "回车登记id",dataTypeClass = Long.class)})
+    @ApiImplicitParams({@ApiImplicitParam(name = "id", value = "回车登记id", dataTypeClass = Long.class)})
     public TruckReturnRegisterDTO findById(@PathVariable("id") Long id) {
         return truckReturnRegisterService.findById(id);
     }

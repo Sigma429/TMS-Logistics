@@ -86,7 +86,7 @@ public class TruckPlanCreateServiceImpl extends ServiceImpl<TruckPlanMapper, Tru
      * @return 异步任务
      */
     @Override
-    @Async
+    @Async // 当其它线程调用这个方法时，就会开启一个新的线程去异步处理业务逻辑。
     public CompletableFuture<String> createNextPlans(Long truckId, List<Long> driverIds, Long currentOrganId) {
         // 根据车辆ID获取车次IDs  如果解除了绑定 计划也会被弃用
         List<Long> transportTripsIds = SimpleQuery.list(
@@ -167,12 +167,12 @@ public class TruckPlanCreateServiceImpl extends ServiceImpl<TruckPlanMapper, Tru
 
         // 去重复
         long count = count(Wrappers.<TruckPlanEntity>lambdaQuery()
-                        .eq(TruckPlanEntity::getTruckId, truckId)
-//                .eq(TruckPlanEntity::getDriverId, driverId)
-                        .eq(TruckPlanEntity::getTransportTripsId, transportTripsId)
-                        .between(TruckPlanEntity::getPlanDepartureTime,
-                                truckPlanEntityNew.getPlanDepartureTime().minusMinutes(1),
-                                truckPlanEntityNew.getPlanDepartureTime().plusMinutes(1))
+                .eq(TruckPlanEntity::getTruckId, truckId)
+                //.eq(TruckPlanEntity::getDriverId, driverId)
+                .eq(TruckPlanEntity::getTransportTripsId, transportTripsId)
+                .between(TruckPlanEntity::getPlanDepartureTime,
+                        truckPlanEntityNew.getPlanDepartureTime().minusMinutes(1),
+                        truckPlanEntityNew.getPlanDepartureTime().plusMinutes(1))
         );
         if (count == 0) {
             // 插入一条新数据

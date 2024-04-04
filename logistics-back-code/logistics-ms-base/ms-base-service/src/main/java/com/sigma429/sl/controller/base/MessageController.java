@@ -49,7 +49,8 @@ public class MessageController {
     @PutMapping("readAll/{userId}/{contentType}")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "userId", value = "用户id", required = true, dataTypeClass = Long.class),
-            @ApiImplicitParam(name = "contentType", value = "消息类型，300：快递员端公告，301：寄件相关消息，302：签收相关消息，303：快件取消消息，304派件消息", required = true, dataTypeClass = Integer.class)
+            @ApiImplicitParam(name = "contentType", value = "消息类型，300：快递员端公告，301：寄件相关消息，302：签收相关消息，303：快件取消消息，304" +
+                    "派件消息", required = true, dataTypeClass = Integer.class)
     })
     public void readAll(@PathVariable("userId") Long userId,
                         @PathVariable("contentType") Integer contentType) {

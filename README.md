@@ -215,7 +215,7 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
     1. 路线规划模块初步搭建
 - Day14
     1. mq模块error三种情况：发送到交换机，但队列未绑定、发送到mq服务器，但交换机不存在、未发送到mq服务器
-    2. 发送消息的三种error情况，用日志或者任务调度处理、消费消息error用ErrorMessageConfig类处理
+    2. 发送消息的三种error情况，用日志、数据持久化(后续通过xxl-job重新发送消息)和retry重试机制，消费消息error用ErrorMessageConfig类处理
     3. TMS-logistics-mq模块已完成，TMS-logistics-base模块初步搭建
     4. transport模块通过mq和IService封装实现机构同步，实现OrganService接口完成机构管理
 - Day15
@@ -228,4 +228,35 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
     3. 理解美团leaf，号段模式，双buffer优化，IdService
     4. 完善运单服务,使用redis的list结构合并运单
 - Day17
-    1. base模块代码理解
+    1. base模块代码理解, 线路 -> 车次 -> 车辆 -> 司机/货物 -> 排班 -> 计划服务
+    2. base模块代码阅读完毕
+
+# 8、进度
+
+| common              |    |
+|---------------------|----|
+| gateway             | OK |
+| mq                  | OK |
+| ms-base             | OK |
+| ms-carriage         |    |
+| ms-courier          |    |
+| ms-dispatch-service |    |
+| ms-driver           |    |
+| ms-oms              |    |
+| ms-search           |    |
+| ms-service-scope    |    |
+| ms-sms              |    |
+| ms-track            |    |
+| ms-trade            |    |
+| ms-transport        |    |
+| ms-transport-info   |    |
+| ms-user             |    |
+| ms-web-courier      |    |
+| ms-web-customer     |    |
+| ms-web-driver       |    |
+| ms-web-manager      |    |
+| ms-work             |    |
+| parent              | OK |
+| pay                 | OK |
+| xxl-job             | OK |
+
