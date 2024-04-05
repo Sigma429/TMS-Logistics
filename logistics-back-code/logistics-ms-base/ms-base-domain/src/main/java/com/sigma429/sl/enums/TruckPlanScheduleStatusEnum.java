@@ -1,6 +1,6 @@
 package com.sigma429.sl.enums;
 
-/***
+/**
  * 车辆计划运行状态枚举
  */
 public enum TruckPlanScheduleStatusEnum {

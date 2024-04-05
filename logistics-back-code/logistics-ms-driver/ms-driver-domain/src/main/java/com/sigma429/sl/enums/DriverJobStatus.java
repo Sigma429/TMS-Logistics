@@ -6,8 +6,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 司机任务状态
- *
- * @author itcast
  */
 public enum DriverJobStatus implements BaseEnum {
     /**

@@ -93,7 +93,7 @@
                 </executions>
                 <configuration>
                     <!--指定主类-->
-                    <mainClass>com.sl.TransportApplication</mainClass>
+                    <mainClass>com.sigma429.sl.TransportApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

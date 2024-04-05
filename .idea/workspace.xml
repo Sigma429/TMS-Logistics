@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ead22982-4d33-4b37-920d-d268b35e23c0" name="Changes" comment="" />
+    <list default="true" id="ead22982-4d33-4b37-920d-d268b35e23c0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/config/RedissonConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/controller/DriverJobController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/entity/DriverJobEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/enums/DriverExceptionEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/mapper/DriverJobMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/service/DriverJobService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/service/impl/DriverJobServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-local.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-stu.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/mq/TransportTaskMQListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-base/ms-base-domain/src/main/java/com/sigma429/sl/enums/TruckPlanScheduleStatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-base/ms-base-domain/src/main/java/com/sigma429/sl/enums/TruckPlanScheduleStatusEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/java/com/sigma429/sl/job/DispatchJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/java/com/sigma429/sl/job/DispatchJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/resources/bootstrap-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/resources/bootstrap-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-domain/src/main/java/com/sigma429/sl/enums/DriverJobStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-domain/src/main/java/com/sigma429/sl/enums/DriverJobStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/MsDriverServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/DriverApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderTaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderTaskServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,13 +87,14 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.DispatchApplication.executor": "Run",
     "Spring Boot.TradeApplication.executor": "Run",
     "Spring Boot.TransportApplication.executor": "Run",
     "Spring Boot.WebCourierApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-base/ms-base-service/src/main/java/com/sigma429/sl",
+    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,11 +116,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-driver\ms-driver-service\src\main\java\com\sigma429\sl" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-driver\ms-driver-service\src\main\resources" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-driver\ms-driver-service" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-base\ms-base-service\src\main\java\com\sigma429\sl" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-work" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-user" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-transport-info" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-transport" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code" />
@@ -116,7 +144,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TradeApplication">
+  <component name="RunManager" selected="Spring Boot.DriverApplication">
     <configuration name="AgencyServiceTest.testQueryByBid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-transport-service" />
       <extension name="coverage">
@@ -193,16 +221,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="logistics-gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.GatewayApplication" />
+    <configuration name="DriverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-driver-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.DriverApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsDriverServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ms-driver-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsDriverServiceApplication" />
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="logistics-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.GatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -355,6 +383,7 @@
       <workItem from="1712213232656" duration="5139000" />
       <workItem from="1712218456378" duration="4000" />
       <workItem from="1712219385229" duration="15074000" />
+      <workItem from="1712292013350" duration="18028000" />
     </task>
     <servers />
   </component>

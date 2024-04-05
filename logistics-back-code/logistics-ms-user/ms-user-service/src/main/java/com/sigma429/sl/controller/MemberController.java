@@ -30,7 +30,6 @@ public class MemberController {
 
     /**
      * 分页查询
-     *
      * @param page
      * @param pageSize
      * @return
@@ -53,7 +52,6 @@ public class MemberController {
 
     /**
      * 新增
-     *
      * @param dto
      * @return
      */
@@ -66,7 +64,6 @@ public class MemberController {
 
     /**
      * 修改
-     *
      * @param id
      * @param dto
      * @return
@@ -81,7 +78,6 @@ public class MemberController {
 
     /**
      * 删除
-     *
      * @param id
      * @return
      */
@@ -93,7 +89,6 @@ public class MemberController {
 
     /**
      * 详情
-     *
      * @param id
      * @return
      */
@@ -106,14 +101,14 @@ public class MemberController {
 
     /**
      * 详情
-     *
      * @param openId
      * @return
      */
     @ApiOperation(value = "详情 -openId")
     @GetMapping("openId/{openId}")
     MemberDTO detailByOpenId(@PathVariable(name = "openId") String openId) {
-        MemberEntity one = memberService.getOne(Wrappers.<MemberEntity>lambdaQuery().eq(MemberEntity::getOpenId, openId));
+        MemberEntity one = memberService.getOne(Wrappers.<MemberEntity>lambdaQuery().eq(MemberEntity::getOpenId,
+                openId));
         return BeanUtil.toBean(one, MemberDTO.class);
     }
 }

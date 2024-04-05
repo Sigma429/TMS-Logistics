@@ -1,5 +1,5 @@
 server:
-  port: 18086
+  port: 18098
   tomcat:
     uri-encoding: UTF-8
     threads:
@@ -20,16 +20,12 @@ spring:
           - data-id: shared-spring-seata.yml
             group: SHARED_GROUP
             refresh: false
-          - data-id: shared-spring-rabbitmq.yml
+          - data-id: shared-spring-mysql.yml
+            group: SHARED_GROUP
+            refresh: false
+          - data-id: shared-spring-mybatis-plus.yml
             group: SHARED_GROUP
             refresh: false
           - data-id: shared-spring-redis.yml
             group: SHARED_GROUP
             refresh: false
-          - data-id: shared-spring-xxl-job.yml
-            group: SHARED_GROUP
-            refresh: false
-xxl:
-  job:
-    executor:
-      ip: 192.168.150.1

@@ -236,27 +236,29 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
        ，通过路由转发的过滤器将AddRequestHeader=X-Request-From
        设置为sl-express-gateway，下游微服务的user拦截器检验userInfo和X-Request-From后，将userInfo存储到ThreadLocal中，同时token拦截器将AuthTemplate实例存放到AuthTemplateThreadLocal
     3. common模块代码阅读完毕
+    4. 完成DispatchJob类任务调度将合并运单生成运输任务,TransportTaskMQListener类创建运输任务,生成司机作业单,理解司机入库、出库和回车登记逻辑
+    5. driver模块代码阅读完毕,**理解车辆计划业务流程**
 
 # 8、进度
 
-| common              |    |
+| common              | OK |
 |---------------------|----|
 | gateway             | OK |
 | mq                  | OK |
 | ms-base             | OK |
-| ms-carriage         |    |
+| ms-carriage         | OK |
 | ms-courier          |    |
 | ms-dispatch-service |    |
-| ms-driver           |    |
+| ms-driver           | OK |
 | ms-oms              |    |
 | ms-search           |    |
 | ms-service-scope    |    |
 | ms-sms              |    |
 | ms-track            |    |
-| ms-trade            |    |
-| ms-transport        |    |
+| ms-trade            | OK |
+| ms-transport        | OK |
 | ms-transport-info   |    |
-| ms-user             |    |
+| ms-user             | OK |
 | ms-web-courier      |    |
 | ms-web-customer     |    |
 | ms-web-driver       |    |

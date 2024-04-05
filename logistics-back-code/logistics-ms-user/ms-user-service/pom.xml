@@ -81,7 +81,7 @@
                 </executions>
                 <configuration>
                     <!--指定主类-->
-                    <mainClass>com.sl.UserApplication</mainClass>
+                    <mainClass>com.sigma429.sl.UserApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

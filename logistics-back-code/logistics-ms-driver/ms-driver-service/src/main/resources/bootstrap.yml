@@ -4,7 +4,7 @@ logging:
   config: classpath:logback-spring.xml
 spring:
   application:
-    name: sl-express-ms-user
+    name: sl-express-ms-driver
   profiles:
     active: local
   mvc:
@@ -15,8 +15,8 @@ spring:
 sl:
   swagger:
     package-path: com.sigma429.sl.controller
-    title: 用户服务微服务接口文档
-    description: 该微服务完成用户相关的业务。
+    title: 司机微服务接口文档
+    description: 该微服务完成司机相关业务。
     contact-name: Sigma429
     contact-url: https://github.com/Sigma429
     contact-email: 1059769283@qq.com

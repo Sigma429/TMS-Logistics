@@ -115,7 +115,7 @@
                 </executions>
                 <configuration>
                     <!--指定主类-->
-                    <mainClass>com.sl.DriverApplication</mainClass>
+                    <mainClass>com.sigma429.sl.DriverApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

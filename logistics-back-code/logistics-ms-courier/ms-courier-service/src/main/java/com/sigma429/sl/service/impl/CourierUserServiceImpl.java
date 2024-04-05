@@ -3,11 +3,11 @@ package com.sigma429.sl.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.text.CharSequenceUtil;
 import com.sigma429.sl.ServiceScopeFeign;
+import com.sigma429.sl.base.WorkSchedulingDTO;
 import com.sigma429.sl.common.WorkSchedulingFeign;
 import com.sigma429.sl.dto.ServiceScopeDTO;
+import com.sigma429.sl.enums.WorkUserTypeEnum;
 import com.sigma429.sl.service.CourierUserService;
-import com.sl.ms.base.domain.base.WorkSchedulingDTO;
-import com.sl.ms.base.domain.enums.WorkUserTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -91,7 +91,7 @@
                 </executions>
                 <configuration>
                     <!--指定主类-->
-                    <mainClass>com.sl.CarriageApplication</mainClass>
+                    <mainClass>com.sigma429.sl.CarriageApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
