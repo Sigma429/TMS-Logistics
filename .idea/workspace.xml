@@ -49,50 +49,50 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.AgencyServiceTest.testQueryByBid.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrganServiceTest.findAll.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrganServiceTest.findByBid.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.TradeApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.TransportApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.WebCourierApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-work/ms-work-service&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.27605957&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.AgencyServiceTest.testQueryByBid.executor": "Run",
+    "JUnit.OrganServiceTest.findAll.executor": "Run",
+    "JUnit.OrganServiceTest.findByBid.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.TradeApplication.executor": "Run",
+    "Spring Boot.TransportApplication.executor": "Run",
+    "Spring Boot.WebCourierApplication.executor": "Run",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "11",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-base/ms-base-service/src/main/java/com/sigma429/sl",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.14941406",
+    "project.structure.side.proportion": "0.27605957",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;redis&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "redis"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-base\ms-base-service\src\main\java\com\sigma429\sl" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-work" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-user" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-transport-info" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-transport" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-trade" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code" />
@@ -354,6 +354,7 @@
       <workItem from="1712212514766" duration="292000" />
       <workItem from="1712213232656" duration="5139000" />
       <workItem from="1712218456378" duration="4000" />
+      <workItem from="1712219385229" duration="15074000" />
     </task>
     <servers />
   </component>

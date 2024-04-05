@@ -48,10 +48,14 @@ public class JwtUtils {
 
         // 生成token
         return Jwts.builder()
-                .setHeader(header)  // header，可省略
-                .setClaims(claims) // payload，存放数据的位置，不能放置敏感数据，如：密码、手机号等
-                .signWith(SignatureAlgorithm.RS256, rsa.getPrivateKey()) // 设置签名的加密算法和密钥
-                .setExpiration(DateUtil.offset(new Date(), dateField, dateOffset)) // 设置过期时间
+                // header，可省略
+                .setHeader(header)
+                // payload，存放数据的位置，不能放置敏感数据，如：密码、手机号等
+                .setClaims(claims)
+                // 设置签名的加密算法和密钥
+                .signWith(SignatureAlgorithm.RS256, rsa.getPrivateKey())
+                // 设置过期时间
+                .setExpiration(DateUtil.offset(new Date(), dateField, dateOffset))
                 .compact();
     }
     // 只有持有私钥的一方才能够生成有效的签名，而任何人都可以使用公钥来验证签名的有效性。
@@ -67,7 +71,8 @@ public class JwtUtils {
         try {
             // 通过token解析数据
             Map<String, Object> body = Jwts.parser()
-                    .setSigningKey(rsa.getPublicKey()) // 设置校验token签名的密钥
+                    // 设置校验token签名的密钥
+                    .setSigningKey(rsa.getPublicKey())
                     .parseClaimsJws(token)
                     .getBody();
             return body;
