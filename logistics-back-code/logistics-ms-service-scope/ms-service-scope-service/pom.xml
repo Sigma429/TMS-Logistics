@@ -79,7 +79,7 @@
                 </executions>
                 <configuration>
                     <!--指定主类-->
-                    <mainClass>com.sl.ServiceScopeApplication</mainClass>
+                    <mainClass>com.sigma429.sl.ServiceScopeApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

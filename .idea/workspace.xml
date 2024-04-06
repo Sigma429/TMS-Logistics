@@ -5,32 +5,147 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ead22982-4d33-4b37-920d-d268b35e23c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/config/RedissonConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/controller/DriverJobController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/entity/DriverJobEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/enums/DriverExceptionEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/mapper/DriverJobMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/service/DriverJobService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/service/impl/DriverJobServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-local.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-prod.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-stu.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/mq/TransportTaskMQListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/controller/ScopeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/entity/ServiceScopeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/enums/ServiceTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/service/ScopeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/service/impl/ScopeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/util/EntityUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/bootstrap-local.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/bootstrap-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/bootstrap-stu.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/bootstrap-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/config/ManagerWebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/config/OSSConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/config/WebFeignErrorDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/agency/AgencyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/auth/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/common/AreaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/common/FileUploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/common/GoodTypeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/common/WorkPatternController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/common/WorkSchedulingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/common/WorkspaceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/truck/DriverController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/truck/TruckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/truck/TruckReturnRegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/truck/TruckTripsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/base/truck/TruckTypeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/carriage/CarriageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/oms/CargoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/oms/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/transport/CostConfigurationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/transport/DispatchConfigurationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/transport/TransportLineController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/work/PickupDispatchTaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/work/TransportOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/controller/work/TransportTaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/enums/TruckTypeAllowableLoadEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/enums/TruckTypeAllowableVolumeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/AgencyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/BaseCommonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/BaseTruckService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/CarriageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/OmsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/TransportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/TruckReturnRegisterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/WorkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/WorkspaceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/AgencyServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/AuthServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/BaseCommonServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/BaseTruckServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/CarriageServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/OmsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/TransportServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/TruckReturnRegisterServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/WorkServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/service/impl/WorkspaceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/util/ExcelUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/util/ImportVOListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/util/RowFormatSetTextHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/agency/AgencySimpleVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/agency/AgencyUpdateVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/agency/AgencyVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/agency/ServiceScopeVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/auth/CourierVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/auth/RoleVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/auth/SysUserVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseCommon/AreaSimpleVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseCommon/AreaVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseCommon/GoodsTypeVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseCommon/LoadRangeVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseCommon/WorkSchedulingAddVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseCommon/WorkSchedulingExportVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseCommon/WorkSchedulingVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/BindingDriversVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/BindingTrucksVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/DriverLicenseVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/DriverUpdateVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/DriverVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TransportTripsUpdateVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TransportTripsVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckDriverTripsVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckDriverVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckLicenseVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckLocationVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckReturnRegisterListVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckReturnRegisterPageQueryVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckReturnRegisterVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckTypeVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/baseTruck/TruckVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/carriage/CarriageVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/oms/OrderCargoUpdateVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/oms/OrderCargoVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/oms/OrderLocusVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/oms/OrderQueryVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/oms/OrderVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/transportLine/TransportLineQueryVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/transportLine/TransportLineVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/CostConfigurationVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/DispatchConfigurationVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/MarkerPointVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/PickupDispatchTaskListVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/PickupDispatchTaskQuantityStatisticsVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/PointVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TaskPickupDispatchQueryVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TaskPickupDispatchVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TaskTransportQueryVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TaskTransportUpdateVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TaskTransportVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TrackVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TransportOrderPointVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TransportOrderQueryVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/work/TransportOrderVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/BacklogVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/MonthlyOrderAddVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/MonthlyOrderVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/OrderLineChartVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/OrganOverviewVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/TodayDataVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/WorkbenchAddVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/WorkbenchTransportTaskVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/vo/workspace/WorkbenchVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/bootstrap-local.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/bootstrap-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/bootstrap-stu.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/bootstrap-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/logback-spring.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-base/ms-base-domain/src/main/java/com/sigma429/sl/enums/TruckPlanScheduleStatusEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-base/ms-base-domain/src/main/java/com/sigma429/sl/enums/TruckPlanScheduleStatusEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/java/com/sigma429/sl/job/DispatchJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/java/com/sigma429/sl/job/DispatchJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/resources/bootstrap-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/resources/bootstrap-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-domain/src/main/java/com/sigma429/sl/enums/DriverJobStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-domain/src/main/java/com/sigma429/sl/enums/DriverJobStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/MsDriverServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl/DriverApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderTaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderTaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-domain/src/main/java/com/sigma429/sl/dto/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-domain/src/main/java/com/sigma429/sl/dto/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/MsServiceScopeServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/java/com/sigma429/sl/ServiceScopeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/test/java/com/sigma429/sl/MsServiceScopeServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-service-scope/ms-service-scope-service/src/test/java/com/sigma429/sl/ScopeServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/MsWebManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/java/com/sigma429/sl/WebManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-manager/src/main/resources/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +196,9 @@
     "JUnit.AgencyServiceTest.testQueryByBid.executor": "Run",
     "JUnit.OrganServiceTest.findAll.executor": "Run",
     "JUnit.OrganServiceTest.findByBid.executor": "Run",
+    "JUnit.ScopeServiceTest.saveOrUpdate.executor": "Run",
+    "JUnit.ScopeServiceTest.testQueryListByPoint.executor": "Run",
+    "JUnit.ScopeServiceTest.testQueryListByPoint2.executor": "Debug",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -88,13 +206,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.DispatchApplication.executor": "Run",
+    "Spring Boot.DriverApplication.executor": "Run",
+    "Spring Boot.MsWebManagerApplication.executor": "Run",
+    "Spring Boot.ServiceScopeApplication.executor": "Run",
     "Spring Boot.TradeApplication.executor": "Run",
     "Spring Boot.TransportApplication.executor": "Run",
     "Spring Boot.WebCourierApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-driver/ms-driver-service/src/main/java/com/sigma429/sl",
+    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-web-manager/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,11 +237,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-driver\ms-driver-service\src\main\java\com\sigma429\sl" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-driver\ms-driver-service\src\main\resources" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-driver\ms-driver-service" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-base\ms-base-service\src\main\java\com\sigma429\sl" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-work" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-web-manager\src\main\resources" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-web-manager\src\main\java\com\sigma429\sl" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-service-scope\ms-service-scope-service\src\main\java\com\sigma429\sl" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-service-scope\ms-service-scope-service\src\main\resources" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-service-scope\ms-service-scope-service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code" />
@@ -144,23 +265,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.DriverApplication">
-    <configuration name="AgencyServiceTest.testQueryByBid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-transport-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sigma429.sl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
-      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.AgencyServiceTest" />
-      <option name="METHOD_NAME" value="testQueryByBid" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.MsWebManagerApplication">
     <configuration name="OrganServiceTest.findAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-transport-service" />
       <extension name="coverage">
@@ -188,6 +293,54 @@
       <option name="PACKAGE_NAME" value="com.sigma429.sl" />
       <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.OrganServiceTest" />
       <option name="METHOD_NAME" value="findByBid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScopeServiceTest.saveOrUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-service-scope-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigma429.sl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
+      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.ScopeServiceTest" />
+      <option name="METHOD_NAME" value="saveOrUpdate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScopeServiceTest.testQueryListByPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-service-scope-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigma429.sl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
+      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.ScopeServiceTest" />
+      <option name="METHOD_NAME" value="testQueryListByPoint" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScopeServiceTest.testQueryListByPoint2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-service-scope-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigma429.sl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
+      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.ScopeServiceTest" />
+      <option name="METHOD_NAME" value="testQueryListByPoint2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -249,13 +402,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsServiceScopeServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ms-service-scope-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsServiceScopeServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MsSmsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ms-sms-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsSmsServiceApplication" />
@@ -284,9 +430,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsWebManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="logistics-ms-web-manager" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsWebManagerApplication" />
+    <configuration name="ServiceScopeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-service-scope-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.ServiceScopeApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -326,6 +472,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="logistics-ms-web-manager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.WebManagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WorkApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ms-work-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.WorkApplication" />
@@ -345,9 +498,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScopeServiceTest.testQueryListByPoint2" />
+        <item itemvalue="JUnit.ScopeServiceTest.testQueryListByPoint" />
+        <item itemvalue="JUnit.ScopeServiceTest.saveOrUpdate" />
         <item itemvalue="JUnit.OrganServiceTest.findByBid" />
         <item itemvalue="JUnit.OrganServiceTest.findAll" />
-        <item itemvalue="JUnit.AgencyServiceTest.testQueryByBid" />
       </list>
     </recent_temporary>
   </component>
@@ -383,7 +538,8 @@
       <workItem from="1712213232656" duration="5139000" />
       <workItem from="1712218456378" duration="4000" />
       <workItem from="1712219385229" duration="15074000" />
-      <workItem from="1712292013350" duration="18028000" />
+      <workItem from="1712292013350" duration="24952000" />
+      <workItem from="1712386282668" duration="5992000" />
     </task>
     <servers />
   </component>

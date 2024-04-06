@@ -238,6 +238,9 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
     3. common模块代码阅读完毕
     4. 完成DispatchJob类任务调度将合并运单生成运输任务,TransportTaskMQListener类创建运输任务,生成司机作业单,理解司机入库、出库和回车登记逻辑
     5. driver模块代码阅读完毕,**理解车辆计划业务流程**
+- Day19
+    1. MongoDB实现作业范围的存储，理解service-scope模块代码
+    2. 
 
 # 8、进度
 
@@ -252,7 +255,7 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
 | ms-driver           | OK |
 | ms-oms              |    |
 | ms-search           |    |
-| ms-service-scope    |    |
+| ms-service-scope    | OK |
 | ms-sms              |    |
 | ms-track            |    |
 | ms-trade            | OK |
