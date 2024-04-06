@@ -16,7 +16,6 @@ import java.util.Map;
 public interface OmsService {
     /**
      * 根据ID查询
-     *
      * @param id 订单ID
      * @return 订单VO
      */
@@ -24,7 +23,6 @@ public interface OmsService {
 
     /**
      * 根据ID查询详情
-     *
      * @param id 订单ID
      * @return 订单VO
      */
@@ -32,7 +30,6 @@ public interface OmsService {
 
     /**
      * 更新
-     *
      * @param id 订单ID
      * @param vo 订单VO
      */
@@ -40,14 +37,12 @@ public interface OmsService {
 
     /**
      * 删除订单
-     *
      * @param id 货物id
      */
     void delOrder(Long id);
 
     /**
      * 分页查询
-     *
      * @param vo 订单查询VO
      * @return 订单VO
      */
@@ -55,7 +50,6 @@ public interface OmsService {
 
     /**
      * 获取货物列表
-     *
      * @param tranOrderId 运单id
      * @param orderId     订单id
      * @return 货物列表
@@ -65,14 +59,12 @@ public interface OmsService {
 
     /**
      * 添加货物
-     *
      * @param vo 货物信息
      */
     void save(OrderCargoUpdateVO vo);
 
     /**
      * 更新货物信息
-     *
      * @param id 货物id
      * @param vo 货物信息
      */
@@ -80,7 +72,6 @@ public interface OmsService {
 
     /**
      * 删除货物信息
-     *
      * @param id 货物id
      */
     void del(Long id);
@@ -88,7 +79,6 @@ public interface OmsService {
 
     /**
      * 常用货物
-     *
      * @param name 货物名称
      * @return 常用货物
      */
@@ -96,14 +86,12 @@ public interface OmsService {
 
     /**
      * 统计
-     *
      * @return 统计结果
      */
     Map<Integer, Long> count();
 
     /**
      * 下单
-     *
      * @param vo 下单信息
      * @return 下单结果
      */
@@ -111,7 +99,6 @@ public interface OmsService {
 
     /**
      * 支付
-     *
      * @param tradeLaunchVO 订单号
      * @return 预支付编号 签名数据
      */
@@ -119,14 +106,12 @@ public interface OmsService {
 
     /**
      * 取消订单
-     *
      * @param id 订单号
      */
     void cancel(Long id);
 
     /**
      * 预估总价
-     *
      * @param mailingSaveVO 订单信息
      * @return 预估信息
      */
@@ -134,7 +119,6 @@ public interface OmsService {
 
     /**
      * 最近寄递
-     *
      * @param name 名称
      * @return 订单货品
      */
@@ -149,7 +133,6 @@ public interface OmsService {
 
     /**
      * 运单轨迹
-     *
      * @param id 运单ID
      * @return 轨迹
      */

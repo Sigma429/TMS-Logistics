@@ -4,7 +4,9 @@ logging:
   config: classpath:logback-spring.xml
 spring:
   application:
-    name: sl-express-ms-web-customer
+    name: sl-express-ms-oms
+  main:
+    allow-circular-references: true #允许bean循环依赖
   profiles:
     active: local
   mvc:
@@ -15,8 +17,8 @@ spring:
 sl:
   swagger:
     package-path: com.sigma429.sl.controller
-    title: 用户端微服务接口文档
-    description: 该服务用于管理后台
+    title: 订单微服务接口文档
+    description: 该微服务完成订单相关业务。
     contact-name: Sigma429
     contact-url: https://github.com/Sigma429
     contact-email: 1059769283@qq.com
