@@ -86,7 +86,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
     @Override
     public OrderDTO mailingSave(MailingSaveDTO mailingSaveDTO) throws Exception {
         // 获取地址详细信息
-        HashMap<Long, AddressBookDTO> orderAddress = getOrderAddress(mailingSaveDTO.getSendAddress(), mailingSaveDTO.getReceiptAddress());
+        HashMap<Long, AddressBookDTO> orderAddress = getOrderAddress(mailingSaveDTO.getSendAddress(),
+                mailingSaveDTO.getReceiptAddress());
         AddressBookDTO sendAddress = orderAddress.get(mailingSaveDTO.getSendAddress());
         AddressBookDTO receiptAddress = orderAddress.get(mailingSaveDTO.getReceiptAddress());
         // 构建实体
@@ -126,14 +127,15 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     /**
      * 获取订单地址信息
-     * @param sendAddressId 发送地址ID
+     * @param sendAddressId    发送地址ID
      * @param receiptAddressId 接收地址ID
      * @return
      */
     private HashMap<Long, AddressBookDTO> getOrderAddress(Long sendAddressId, Long receiptAddressId) {
         AddressBookDTO sendAddress = addressBookFeign.detail(sendAddressId);
         AddressBookDTO receiptAddress = addressBookFeign.detail(receiptAddressId);
-        log.info("sendAddress:{},{} receiptAddress:{},{}", receiptAddressId, sendAddress, receiptAddressId, receiptAddress);
+        log.info("sendAddress:{},{} receiptAddress:{},{}", receiptAddressId, sendAddress, receiptAddressId,
+                receiptAddress);
         if (ObjectUtil.isEmpty(sendAddress) || ObjectUtil.isEmpty(receiptAddress)) {
             log.error("获取地址薄详细信息 失败 receiptAddressId  receiptAddressId :{} {} ", sendAddressId, receiptAddressId);
             throw new SLException("获取地址详细信息失败");
@@ -153,7 +155,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
     public OrderCarriageDTO totalPrice(MailingSaveDTO mailingSaveDTO) {
         // 获取地址详细信息
         // 获取地址详细信息
-        HashMap<Long, AddressBookDTO> orderAddress = getOrderAddress(mailingSaveDTO.getSendAddress(), mailingSaveDTO.getReceiptAddress());
+        HashMap<Long, AddressBookDTO> orderAddress = getOrderAddress(mailingSaveDTO.getSendAddress(),
+                mailingSaveDTO.getReceiptAddress());
         AddressBookDTO sendAddress = orderAddress.get(mailingSaveDTO.getSendAddress());
         AddressBookDTO receiptAddress = orderAddress.get(mailingSaveDTO.getReceiptAddress());
         // 计算运费
@@ -165,7 +168,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
     /**
      * 运费计算
      * @param mailingSaveDTO 下单信息
-     * @param senderCityId 发送城市ID
+     * @param senderCityId   发送城市ID
      * @param receiverCityId 接收城市ID
      * @return 计算结果
      */
@@ -177,7 +180,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
                 .measureHigh(mailingSaveDTO.getMeasureHigh())
                 .measureLong(mailingSaveDTO.getMeasureLong())
                 .measureWidth(mailingSaveDTO.getMeasureWidth())
-                .volume(ObjectUtil.isEmpty(mailingSaveDTO.getTotalVolume()) ? null : mailingSaveDTO.getTotalVolume().intValue())
+                .volume(ObjectUtil.isEmpty(mailingSaveDTO.getTotalVolume()) ? null :
+                        mailingSaveDTO.getTotalVolume().intValue())
                 .weight(mailingSaveDTO.getTotalWeight().doubleValue())
                 .build();
 
@@ -190,14 +194,14 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     /**
      * 补充数据
-     * @param order 订单
+     * @param order         订单
      * @param orderLocation 订单位置
      */
     private void appendOtherInfo(OrderEntity order, OrderLocationEntity orderLocation) {
         // 当前机构
         order.setCurrentAgencyId(orderLocation.getSendAgentId());
 
-        //查询地图服务商
+        // 查询地图服务商
         String[] sendLocation = orderLocation.getSendLocation().split(",");
         double sendLnt = Double.parseDouble(sendLocation[0]);
         double sendLat = Double.parseDouble(sendLocation[1]);
@@ -207,18 +211,18 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         double receiveLat = Double.parseDouble(receiveLocation[1]);
         Coordinate origin = new Coordinate(sendLnt, sendLat);
         Coordinate destination = new Coordinate(receiveLnt, receiveLat);
-        //设置高德地图参数，默认是不返回预计耗时的，需要额外设置参数
+        // 设置高德地图参数，默认是不返回预计耗时的，需要额外设置参数
         Map<String, Object> param = MapUtil.<String, Object>builder().put("show_fields", "cost").build();
         String driving = this.eagleMapTemplate.opsForDirection().driving(ProviderEnum.AMAP, origin, destination, param);
         if (StrUtil.isEmpty(driving)) {
             return;
         }
         JSONObject jsonObject = JSONUtil.parseObj(driving);
-        //距离，单位：米
+        // 距离，单位：米
         Double distance = Convert.toDouble(jsonObject.getByPath("route.paths[0].distance"));
         order.setDistance(distance);
 
-        //时间，单位：秒
+        // 时间，单位：秒
         Long duration = Convert.toLong(jsonObject.getByPath("route.paths[0].cost.duration"), -1L);
         // 预计到达时间 这里根据地图大致估算时间 并非实际时间
         order.setEstimatedArrivalTime(LocalDateTime.now().plus(duration, ChronoUnit.SECONDS));
@@ -226,13 +230,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     /**
      * 构建订单
-     *
      * @param mailingSaveDTO 下单信息
-     * @param sendAddress 发送地址
+     * @param sendAddress    发送地址
      * @param receiptAddress 接收地址
      * @return
      */
-    private OrderEntity buildOrder(MailingSaveDTO mailingSaveDTO, AddressBookDTO sendAddress, AddressBookDTO receiptAddress) {
+    private OrderEntity buildOrder(MailingSaveDTO mailingSaveDTO, AddressBookDTO sendAddress,
+                                   AddressBookDTO receiptAddress) {
         OrderEntity entity = OrderEntity.builder()
                 // 用户ID
                 .memberId(mailingSaveDTO.getMemberId())
@@ -259,13 +263,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
                 .pickupType(mailingSaveDTO.getPickupType())
                 .build();
 
-        entity.setOrderType(entity.getReceiverCityId().equals(entity.getSenderCityId()) ? OrderType.INCITY.getCode() : OrderType.OUTCITY.getCode());
+        entity.setOrderType(entity.getReceiverCityId().equals(entity.getSenderCityId()) ? OrderType.INCITY.getCode()
+                : OrderType.OUTCITY.getCode());
         return entity;
     }
 
     /**
      * 根据地址计算网点
-     *
      * @param address 地址
      * @return
      */
@@ -275,7 +279,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
             log.error("地址不能为空");
             throw new SLException("下单时发货地址不能为空");
         }
-        //根据详细地址查询坐标
+        // 根据详细地址查询坐标
         GeoResult geoResult = this.eagleMapTemplate.opsForBase().geoCode(ProviderEnum.AMAP, address, null);
         Coordinate coordinate = geoResult.getLocation();
 
@@ -291,7 +295,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         String latStr = df.format(lat);
         String location = StrUtil.format("{},{}", lngStr, latStr);
 
-        List<ServiceScopeDTO> serviceScopeDTOS = agencyScopeFeign.queryListByLocation(1, coordinate.getLongitude(), coordinate.getLatitude());
+        List<ServiceScopeDTO> serviceScopeDTOS = agencyScopeFeign.queryListByLocation(1, coordinate.getLongitude(),
+                coordinate.getLatitude());
         if (CollectionUtils.isEmpty(serviceScopeDTOS)) {
             log.error("地址不在服务范围");
             throw new SLException("地址不在服务范围");
@@ -355,7 +360,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     /**
      * 构建货物
-     *
      * @param mailingSaveDTO 下单信息
      * @return
      */
@@ -372,7 +376,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         cargoEntity.setWeight(mailingSaveDTO.getTotalWeight());
 
         // 体积
-        BigDecimal volume = ObjectUtil.isEmpty(mailingSaveDTO.getTotalVolume())  ? new BigDecimal("0.0001") : mailingSaveDTO.getTotalVolume().divide(new BigDecimal("1000000.00"));
+        BigDecimal volume = ObjectUtil.isEmpty(mailingSaveDTO.getTotalVolume()) ? new BigDecimal("0.0001") :
+                mailingSaveDTO.getTotalVolume().divide(new BigDecimal("1000000.00"));
         cargoEntity.setTotalVolume(volume);
         cargoEntity.setVolume(volume);
         return cargoEntity;
@@ -380,7 +385,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     /**
      * 根据发收件人地址获取起止机构ID 调用机构范围微服务
-     *
      * @param order 订单
      * @return 位置信息
      */
@@ -398,7 +402,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         // 线路规划逻辑耗时较长，影响下单接口响应时间 下单时暂不进行判断是否存在线路
 //        if (ObjectUtil.notEqual(sendAgentId, receiveAgentId)) {
 //            //根据起始机构规划运输路线
-//            TransportLineNodeDTO transportLineNodeDTO = this.transportLineFeign.queryPathByDispatchMethod(Long.parseLong(sendAgentId), Long.parseLong(receiveAgentId));
+//            TransportLineNodeDTO transportLineNodeDTO = this.transportLineFeign.queryPathByDispatchMethod(Long
+//            .parseLong(sendAgentId), Long.parseLong(receiveAgentId));
 //            if (ObjectUtil.isEmpty(transportLineNodeDTO) || CollUtil.isEmpty(transportLineNodeDTO.getNodeList())) {
 //                throw new SLException("暂不支持寄件收件地址，没有对应的路线");
 //            }
@@ -415,12 +420,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     /**
      * 取件
-     *
-     * @param orderEntity 订单
+     * @param orderEntity   订单
      * @param orderLocation 位置
      */
     private void noticeOrderStatusChange(OrderEntity orderEntity, OrderLocationEntity orderLocation) {
-        //{"order":{"orderId":123, "agencyId": 8001, "taskType":1, "mark":"带包装", "longitude":116.111, "latitude":39.00, "created":1654224658728, "estimatedStartTime": 1654224658728}, "created":123456}
+        //{"order":{"orderId":123, "agencyId": 8001, "taskType":1, "mark":"带包装", "longitude":116.111, "latitude":39
+        // .00, "created":1654224658728, "estimatedStartTime": 1654224658728}, "created":123456}
         String[] split = orderLocation.getSendLocation().split(",");
         double lnt = Double.parseDouble(split[0]);
         double lat = Double.parseDouble(split[1]);
@@ -434,7 +439,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
                 .agencyId(orderEntity.getCurrentAgencyId())
                 .orderId(orderEntity.getId())
                 .build();
-        //发送消息
-        this.mqFeign.sendMsg(Constants.MQ.Exchanges.ORDER_DELAYED, Constants.MQ.RoutingKeys.ORDER_CREATE, orderMsg.toJson(), Constants.MQ.LOW_DELAY);
+        // 发送消息
+        this.mqFeign.sendMsg(Constants.MQ.Exchanges.ORDER_DELAYED, Constants.MQ.RoutingKeys.ORDER_CREATE,
+                orderMsg.toJson(), Constants.MQ.LOW_DELAY);
     }
 }

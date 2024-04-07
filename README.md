@@ -240,6 +240,8 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
     5. driver模块代码阅读完毕,**理解车辆计划业务流程**
 - Day19
     1. MongoDB实现作业范围的存储，理解service-scope模块代码
+- Day20
+    1.
 
 # 8、进度
 
@@ -249,8 +251,8 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
 | mq                  | OK |
 | ms-base             | OK |
 | ms-carriage         | OK |
-| ms-courier          |    |
-| ms-dispatch-service |    |
+| ms-courier          | OK |
+| ms-dispatch-service | OK |
 | ms-driver           | OK |
 | ms-oms              |    |
 | ms-search           |    |
