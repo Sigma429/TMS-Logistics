@@ -241,7 +241,9 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
 - Day19
     1. MongoDB实现作业范围的存储，理解service-scope模块代码
 - Day20
-    1.
+    1. 理解取派件逻辑
+    2. courier模块和dispatch模块完毕
+    3.
 
 # 8、进度
 
