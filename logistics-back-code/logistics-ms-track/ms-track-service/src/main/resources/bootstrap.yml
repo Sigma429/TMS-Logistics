@@ -1,0 +1,25 @@
+application:
+  version: v1.0
+logging:
+  config: classpath:logback-spring.xml
+spring:
+  main:
+    allow-circular-references: true #允许bean循环依赖
+  application:
+    name: sl-express-ms-track
+  profiles:
+    active: local
+  mvc:
+    pathmatch:
+      #解决异常：swagger Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+      #因为Springfox使用的路径匹配是基于AntPathMatcher的，而Spring Boot 2.6.X使用的是PathPatternMatcher
+      matching-strategy: ant_path_matcher
+sl:
+  swagger:
+    package-path: com.sigma429.sl.controller
+    title: 车辆轨迹微服务接口文档
+    description: 提供查询车辆轨迹、上报坐标位置等相关服务。
+    contact-name: Sigma429
+    contact-url: https://github.com/Sigma429
+    contact-email: 1059769283@qq.com
+    version: ${application.version}
