@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ead22982-4d33-4b37-920d-d268b35e23c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/test/java/com/sigma429/sl/OrderMQListenerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/PickupDispatchTaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/test/java/com/sigma429/sl/PickupDispatchTaskServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/java/com/sigma429/sl/config/CaffeineConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/java/com/sigma429/sl/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/java/com/sigma429/sl/service/impl/TransportInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/test/java/com/sigma429/sl/CaffeineTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/java/com/sigma429/sl/mq/OrderMQListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-dispatch-service/src/main/java/com/sigma429/sl/mq/OrderMQListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-oms/ms-oms-service/src/main/java/com/sigma429/sl/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-oms/ms-oms-service/src/main/java/com/sigma429/sl/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/mq/CourierMQListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/mq/CourierMQListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/java/com/sigma429/sl/controller/TransportInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/java/com/sigma429/sl/controller/TransportInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/java/com/sigma429/sl/mq/TransportInfoMQListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/java/com/sigma429/sl/mq/TransportInfoMQListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/resources/bootstrap-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/main/resources/bootstrap-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/test/java/com/sigma429/sl/MsTransportInfoServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-transport-info/ms-transport-info-service/src/test/java/com/sigma429/sl/TransportInfoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-work/ms-work-service/src/main/java/com/sigma429/sl/service/impl/TransportOrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,18 +57,23 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.AgencyServiceTest.testQueryByBid.executor": "Run",
+    "JUnit.CaffeineTest.testCaffeine.executor": "Run",
     "JUnit.OrganServiceTest.findAll.executor": "Run",
     "JUnit.OrganServiceTest.findByBid.executor": "Run",
     "JUnit.PickupDispatchTaskServiceTest.saveTaskPickupDispatch.executor": "Run",
     "JUnit.ScopeServiceTest.saveOrUpdate.executor": "Run",
     "JUnit.ScopeServiceTest.testQueryListByPoint.executor": "Run",
     "JUnit.ScopeServiceTest.testQueryListByPoint2.executor": "Debug",
+    "JUnit.TransportInfoServiceTest.queryByTransportOrderId.executor": "Run",
+    "JUnit.TransportInfoServiceTest.saveOrUpdate.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -80,12 +88,13 @@
     "Spring Boot.ServiceScopeApplication.executor": "Run",
     "Spring Boot.TradeApplication.executor": "Run",
     "Spring Boot.TransportApplication.executor": "Run",
+    "Spring Boot.TransportInfoApplication.executor": "Run",
     "Spring Boot.WebCourierApplication.executor": "Run",
     "Spring Boot.WorkApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-oms/ms-oms-service/src/main/java/com/sigma429/sl",
+    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-track/ms-track-service/src/main/java/com/sigma429/sl",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -105,13 +114,16 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-oms\ms-oms-service\src\main\java\com\sigma429\sl" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-oms\ms-oms-service\src\main\resources" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-oms\ms-oms-service" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-oms" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-web-driver\src\main\java\com\sigma429\sl" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-track\ms-track-service\src\main\java\com\sigma429\sl" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-track\ms-track-service\src\main\resources" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-sms\ms-sms-service\src\main\resources" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-sms\ms-sms-service\src\main\java\com\sigma429\sl" />
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-transport-info\ms-transport-info-service\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-oms\ms-oms-service" />
@@ -135,9 +147,9 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.DispatchApplication">
-    <configuration name="OrganServiceTest.findByBid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-transport-service" />
+  <component name="RunManager" selected="Spring Boot.TransportInfoApplication">
+    <configuration name="CaffeineTest.testCaffeine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-transport-info-service" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.sigma429.sl.*" />
@@ -145,8 +157,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.sigma429.sl" />
-      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.OrganServiceTest" />
-      <option name="METHOD_NAME" value="findByBid" />
+      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.CaffeineTest" />
+      <option name="METHOD_NAME" value="testCaffeine" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,38 +180,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScopeServiceTest.saveOrUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-service-scope-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sigma429.sl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
-      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.ScopeServiceTest" />
-      <option name="METHOD_NAME" value="saveOrUpdate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScopeServiceTest.testQueryListByPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-service-scope-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sigma429.sl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
-      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.ScopeServiceTest" />
-      <option name="METHOD_NAME" value="testQueryListByPoint" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ScopeServiceTest.testQueryListByPoint2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-service-scope-service" />
       <extension name="coverage">
@@ -211,6 +191,38 @@
       <option name="PACKAGE_NAME" value="com.sigma429.sl" />
       <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.ScopeServiceTest" />
       <option name="METHOD_NAME" value="testQueryListByPoint2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransportInfoServiceTest.queryByTransportOrderId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-transport-info-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigma429.sl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
+      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.TransportInfoServiceTest" />
+      <option name="METHOD_NAME" value="queryByTransportOrderId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransportInfoServiceTest.saveOrUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-transport-info-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sigma429.sl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
+      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.TransportInfoServiceTest" />
+      <option name="METHOD_NAME" value="saveOrUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -258,34 +270,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsSearchServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ms-search-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsSearchServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsSmsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ms-sms-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsSmsServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsTrackServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ms-track-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsTrackServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsTransportInfoServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="ms-transport-info-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.MsTransportInfoServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ms-oms-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.OmsApplication" />
@@ -293,9 +277,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-search-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.SearchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServiceScopeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ms-service-scope-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.ServiceScopeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-sms-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.SmsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-track-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.TrackApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -310,6 +315,13 @@
     <configuration name="TransportApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ms-transport-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.TransportApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransportInfoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-transport-info-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sigma429.sl.TransportInfoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -368,11 +380,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CaffeineTest.testCaffeine" />
+        <item itemvalue="JUnit.TransportInfoServiceTest.queryByTransportOrderId" />
+        <item itemvalue="JUnit.TransportInfoServiceTest.saveOrUpdate" />
         <item itemvalue="JUnit.PickupDispatchTaskServiceTest.saveTaskPickupDispatch" />
         <item itemvalue="JUnit.ScopeServiceTest.testQueryListByPoint2" />
-        <item itemvalue="JUnit.ScopeServiceTest.testQueryListByPoint" />
-        <item itemvalue="JUnit.ScopeServiceTest.saveOrUpdate" />
-        <item itemvalue="JUnit.OrganServiceTest.findByBid" />
       </list>
     </recent_temporary>
   </component>
@@ -410,7 +422,7 @@
       <workItem from="1712219385229" duration="15074000" />
       <workItem from="1712292013350" duration="24952000" />
       <workItem from="1712386282668" duration="10678000" />
-      <workItem from="1712463326129" duration="7635000" />
+      <workItem from="1712463326129" duration="23848000" />
     </task>
     <servers />
   </component>

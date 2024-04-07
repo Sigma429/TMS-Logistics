@@ -1,5 +1,6 @@
 package com.sigma429.sl.controller;
 
+import com.github.benmanes.caffeine.cache.Cache;
 import com.sigma429.sl.dto.TransportInfoDTO;
 import com.sigma429.sl.entity.TransportInfoEntity;
 import com.sigma429.sl.enums.ExceptionEnum;
@@ -26,6 +27,9 @@ public class TransportInfoController {
     @Resource
     private TransportInfoService transportInfoService;
 
+    @Resource
+    private Cache<String, TransportInfoDTO> transportInfoCache;
+
     /**
      * 根据运单id查询运单信息
      * @param transportOrderId 运单号
@@ -37,9 +41,14 @@ public class TransportInfoController {
     @ApiOperation(value = "查询", notes = "根据运单id查询物流信息")
     @GetMapping("{transportOrderId}")
     public TransportInfoDTO queryByTransportOrderId(@PathVariable("transportOrderId") String transportOrderId) {
-        TransportInfoEntity transportInfoEntity = transportInfoService.queryByTransportOrderId(transportOrderId);
-        if (ObjectUtil.isNotEmpty(transportInfoEntity)) {
+        TransportInfoDTO transportInfoDTO = this.transportInfoCache.get(transportOrderId, s -> {
+            TransportInfoEntity transportInfoEntity =
+                    this.transportInfoService.queryByTransportOrderId(transportOrderId);
             return BeanUtil.toBean(transportInfoEntity, TransportInfoDTO.class);
+        });
+
+        if (ObjectUtil.isNotEmpty(transportInfoDTO)) {
+            return transportInfoDTO;
         }
         throw new SLException(ExceptionEnum.NOT_FOUND);
     }

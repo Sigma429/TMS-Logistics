@@ -469,10 +469,14 @@ public class TransportOrderServiceImpl extends
             // 构建消息实体类
             String info = CharSequenceUtil.format("快件到达【{}】", organDTO.getName());
             String transportInfoMsg = TransportInfoMsg.builder()
-                    .transportOrderId(transportOrder.getId())// 运单id
-                    .status("运送中")// 消息状态
-                    .info(info)// 消息详情
-                    .created(DateUtil.current())// 创建时间
+                    // 运单id
+                    .transportOrderId(transportOrder.getId())
+                    // 消息状态
+                    .status("运送中")
+                    // 消息详情
+                    .info(info)
+                    // 创建时间
+                    .created(DateUtil.current())
                     .build().toJson();
             // 发送运单跟踪消息
             this.mqFeign.sendMsg(Constants.MQ.Exchanges.TRANSPORT_INFO,
