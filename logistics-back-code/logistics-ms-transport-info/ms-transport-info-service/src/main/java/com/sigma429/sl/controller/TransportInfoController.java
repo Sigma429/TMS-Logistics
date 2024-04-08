@@ -5,6 +5,7 @@ import com.sigma429.sl.dto.TransportInfoDTO;
 import com.sigma429.sl.entity.TransportInfoEntity;
 import com.sigma429.sl.enums.ExceptionEnum;
 import com.sigma429.sl.exception.SLException;
+import com.sigma429.sl.service.BloomFilterService;
 import com.sigma429.sl.service.TransportInfoService;
 import com.sigma429.sl.util.BeanUtil;
 import com.sigma429.sl.util.ObjectUtil;
@@ -30,6 +31,9 @@ public class TransportInfoController {
     @Resource
     private Cache<String, TransportInfoDTO> transportInfoCache;
 
+    @Resource
+    private BloomFilterService bloomFilterService;
+
     /**
      * 根据运单id查询运单信息
      * @param transportOrderId 运单号
@@ -41,9 +45,15 @@ public class TransportInfoController {
     @ApiOperation(value = "查询", notes = "根据运单id查询物流信息")
     @GetMapping("{transportOrderId}")
     public TransportInfoDTO queryByTransportOrderId(@PathVariable("transportOrderId") String transportOrderId) {
-        TransportInfoDTO transportInfoDTO = this.transportInfoCache.get(transportOrderId, s -> {
-            TransportInfoEntity transportInfoEntity =
-                    this.transportInfoService.queryByTransportOrderId(transportOrderId);
+        // 如果布隆过滤器中不存在，无需缓存命中，直接返回即可
+        boolean contains = this.bloomFilterService.contains(transportOrderId);
+        if (!contains) {
+            throw new SLException(ExceptionEnum.NOT_FOUND);
+        }
+        TransportInfoDTO transportInfoDTO = transportInfoCache.get(transportOrderId, id -> {
+            // 未命中，查询MongoDB
+            TransportInfoEntity transportInfoEntity = this.transportInfoService.queryByTransportOrderId(id);
+            // 转化成DTO
             return BeanUtil.toBean(transportInfoEntity, TransportInfoDTO.class);
         });
 
