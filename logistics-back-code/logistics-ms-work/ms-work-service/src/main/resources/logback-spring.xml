@@ -23,7 +23,8 @@
         </filter>
         <File>${logback.logdir}/${logback.appname}/${logback.appname}.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>${logback.logdir}/${logback.appname}/${logback.appname}.%d{yyyy-MM-dd}.log.zip</FileNamePattern>
+            <FileNamePattern>${logback.logdir}/${logback.appname}/${logback.appname}.%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
             <maxHistory>90</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -51,6 +52,6 @@
     <!--不能设置为INHERITED或者同义词NULL。默认是DEBUG。-->
     <root level="INFO">
         <appender-ref ref="stdout"/>
-        <!--<appender-ref ref="GELF"/>-->
+        <appender-ref ref="GELF"/>
     </root>
 </configuration>

@@ -1,4 +1,6 @@
-FROM openjdk:11-jdk
+#FROM openjdk:11-jdk
+#修改为基于整合了skywalking的镜像，其他的不需要动
+FROM apache/skywalking-java-agent:8.11.0-java11
 LABEL maintainer="研究院研发组 <research@itcast.cn>"
  
 # 时区修改为东八区

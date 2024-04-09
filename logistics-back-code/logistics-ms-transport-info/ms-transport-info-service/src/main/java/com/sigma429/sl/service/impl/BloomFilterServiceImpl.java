@@ -34,7 +34,8 @@ public class BloomFilterServiceImpl implements BloomFilterService {
     @PostConstruct // spring启动后进行初始化
     public void init() {
         RBloomFilter<Object> bloomFilter = this.getBloomFilter();
-        bloomFilter.tryInit(this.bloomFilterConfig.getExpectedInsertions(), this.bloomFilterConfig.getFalseProbability());
+        bloomFilter.tryInit(this.bloomFilterConfig.getExpectedInsertions(),
+                this.bloomFilterConfig.getFalseProbability());
     }
 
     @Override

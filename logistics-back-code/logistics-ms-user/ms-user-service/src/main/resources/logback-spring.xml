@@ -33,10 +33,25 @@
         </encoder>
     </appender>
 
+    <appender name="GELF" class="biz.paluch.logging.gelf.logback.GelfLogbackAppender">
+        <!--GrayLog服务地址-->
+        <host>udp:192.168.150.101</host>
+        <!--GrayLog服务端口-->
+        <port>12201</port>
+        <version>1.1</version>
+        <!--当前服务名称-->
+        <facility>${appName}</facility>
+        <extractStackTrace>true</extractStackTrace>
+        <filterStackTrace>true</filterStackTrace>
+        <mdcProfiling>true</mdcProfiling>
+        <timestampPattern>yyyy-MM-dd HH:mm:ss,SSS</timestampPattern>
+        <maximumMessageSize>8192</maximumMessageSize>
+    </appender>
 
     <!--evel:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，-->
     <!--不能设置为INHERITED或者同义词NULL。默认是DEBUG。-->
     <root level="INFO">
         <appender-ref ref="stdout"/>
+        <appender-ref ref="GELF"/>
     </root>
 </configuration>

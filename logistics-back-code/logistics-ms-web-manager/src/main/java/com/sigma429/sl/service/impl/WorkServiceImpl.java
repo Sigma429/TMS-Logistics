@@ -13,6 +13,9 @@ import com.sigma429.sl.dto.request.PickupDispatchTaskPageQueryDTO;
 import com.sigma429.sl.dto.request.TransportOrderQueryDTO;
 import com.sigma429.sl.dto.request.TransportTaskPageQueryDTO;
 import com.sigma429.sl.dto.response.DriverJobDTO;
+import com.sigma429.sl.dto.response.TransportOrderStatusCountDTO;
+import com.sigma429.sl.dto.response.TransportTaskStatusCountDTO;
+import com.sigma429.sl.enums.DriverJobStatus;
 import com.sigma429.sl.enums.StatusEnum;
 import com.sigma429.sl.enums.TrackStatusEnum;
 import com.sigma429.sl.enums.transporttask.TransportTaskLoadingStatus;
@@ -48,7 +51,6 @@ import java.util.stream.Collectors;
  * 调度管理
  * 运单，运输任务管理
  * 对应 work微服务
- *
  * @author itcast
  */
 @Slf4j
@@ -105,7 +107,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运单分页
-     *
      * @param vo 运单查询条件
      * @return 运单分页
      */
@@ -118,7 +119,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运单批量转换
-     *
      * @param dtoList 运单DTO
      * @return 运单VO
      */
@@ -127,14 +127,20 @@ public class WorkServiceImpl implements WorkService {
             return new ArrayList<>();
         }
         // 机构
-        List<Long> agentIds = dtoList.parallelStream().map(TransportOrderDTO::getStartAgencyId).distinct().collect(Collectors.toList());
-        List<Long> endAgentIds = dtoList.parallelStream().map(TransportOrderDTO::getEndAgencyId).distinct().collect(Collectors.toList());
+        List<Long> agentIds =
+                dtoList.parallelStream().map(TransportOrderDTO::getStartAgencyId).distinct().collect(Collectors.toList());
+        List<Long> endAgentIds =
+                dtoList.parallelStream().map(TransportOrderDTO::getEndAgencyId).distinct().collect(Collectors.toList());
         agentIds.addAll(endAgentIds);
-        List<Long> currentAgentIds = dtoList.parallelStream().map(TransportOrderDTO::getCurrentAgencyId).distinct().collect(Collectors.toList());
+        List<Long> currentAgentIds =
+                dtoList.parallelStream().map(TransportOrderDTO::getCurrentAgencyId).distinct().collect(Collectors.toList());
         agentIds.addAll(currentAgentIds);
-        List<Long> nextAgencyIds = dtoList.parallelStream().map(TransportOrderDTO::getNextAgencyId).distinct().collect(Collectors.toList());
+        List<Long> nextAgencyIds =
+                dtoList.parallelStream().map(TransportOrderDTO::getNextAgencyId).distinct().collect(Collectors.toList());
         agentIds.addAll(nextAgencyIds);
-        Map<Long, AgencySimpleVO> agencySimpleVOMap = agencyService.batchAgencySimple(agentIds).stream().collect(Collectors.toMap(AgencySimpleVO::getId, v -> v));
+        Map<Long, AgencySimpleVO> agencySimpleVOMap =
+                agencyService.batchAgencySimple(agentIds).stream().collect(Collectors.toMap(AgencySimpleVO::getId,
+                        v -> v));
 
         return dtoList.stream().map(dto -> {
             TransportOrderVO vo = BeanUtil.toBean(dto, TransportOrderVO.class);
@@ -175,7 +181,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运输任务批量转换
-     *
      * @param dtoList 运输任务DTO
      * @return 运维任务VO
      */
@@ -185,24 +190,31 @@ public class WorkServiceImpl implements WorkService {
         }
 
         // 车次map
-        List<Long> tripsIds = dtoList.parallelStream().map(TransportTaskDTO::getTransportTripsId).distinct().collect(Collectors.toList());
+        List<Long> tripsIds =
+                dtoList.parallelStream().map(TransportTaskDTO::getTransportTripsId).distinct().collect(Collectors.toList());
         List<TruckTripsDto> tripsDtoList = tripsFeign.findAll(null, tripsIds);
-        Map<Long, TruckTripsDto> transportTripsDTOMap = tripsDtoList.parallelStream().collect(Collectors.toMap(TruckTripsDto::getId, v -> v));
+        Map<Long, TruckTripsDto> transportTripsDTOMap =
+                tripsDtoList.parallelStream().collect(Collectors.toMap(TruckTripsDto::getId, v -> v));
 
         // 线路map
-        List<Long> lineIds = tripsDtoList.parallelStream().distinct().map(TruckTripsDto::getTransportLineId).distinct().collect(Collectors.toList());
+        List<Long> lineIds =
+                tripsDtoList.parallelStream().distinct().map(TruckTripsDto::getTransportLineId).distinct().collect(Collectors.toList());
         Map<Long, TransportLineVO> transportLineVOMap = new HashMap<>();
 
 
         if (CollUtil.isNotEmpty(lineIds)) {
-            transportLineVOMap = transportService.findTransportLineByIds(lineIds).parallelStream().collect(Collectors.toMap(TransportLineVO::getId, v -> v));
+            transportLineVOMap =
+                    transportService.findTransportLineByIds(lineIds).parallelStream().collect(Collectors.toMap(TransportLineVO::getId, v -> v));
         }
 
         // 机构
-        List<Long> startAgentIds = dtoList.parallelStream().map(TransportTaskDTO::getStartAgencyId).distinct().collect(Collectors.toList());
-        List<Long> endAgentIds = dtoList.parallelStream().map(TransportTaskDTO::getEndAgencyId).distinct().collect(Collectors.toList());
+        List<Long> startAgentIds =
+                dtoList.parallelStream().map(TransportTaskDTO::getStartAgencyId).distinct().collect(Collectors.toList());
+        List<Long> endAgentIds =
+                dtoList.parallelStream().map(TransportTaskDTO::getEndAgencyId).distinct().collect(Collectors.toList());
         startAgentIds.addAll(endAgentIds);
-        Map<Long, AgencySimpleVO> agencySimpleVOMap = agencyService.batchAgencySimple(startAgentIds).stream().collect(Collectors.toMap(AgencySimpleVO::getId, v -> v));
+        Map<Long, AgencySimpleVO> agencySimpleVOMap =
+                agencyService.batchAgencySimple(startAgentIds).stream().collect(Collectors.toMap(AgencySimpleVO::getId, v -> v));
 
         // 车辆
         Set<Long> truckIds = dtoList.parallelStream().map(TransportTaskDTO::getTruckId).collect(Collectors.toSet());
@@ -256,13 +268,14 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 批量查询运单
-     *
      * @param transportOrderIds 运单IDs
      * @return 运单列表
      */
     private List<TransportOrderVO> batchGetTransportOrder(List<String> transportOrderIds) {
-        List<TransportOrderDTO> transportOrderVOList = transportOrderFeign.findByIds(transportOrderIds.toArray(String[]::new));
-        List<OrderDTO> orderDTOS = orderFeign.findByIds(transportOrderVOList.stream().map(v -> v.getOrderId().toString()).distinct().collect(Collectors.toList()));
+        List<TransportOrderDTO> transportOrderVOList =
+                transportOrderFeign.findByIds(transportOrderIds.toArray(String[]::new));
+        List<OrderDTO> orderDTOS =
+                orderFeign.findByIds(transportOrderVOList.stream().map(v -> v.getOrderId().toString()).distinct().collect(Collectors.toList()));
         List<OrderVO> orderVOS = omsService.batchParseOrderDTO2Vo(orderDTOS);
         Map<Long, OrderVO> orderVOMap = orderVOS.stream().collect(Collectors.toMap(OrderVO::getId, v -> v));
         return transportOrderVOList.parallelStream().map(v -> {
@@ -274,7 +287,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运单简要信息
-     *
      * @param id 运单ID
      * @return 运单详情
      */
@@ -289,7 +301,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运单详情页面
-     *
      * @param id 运单ID
      * @return 运单详情
      */
@@ -303,13 +314,13 @@ public class WorkServiceImpl implements WorkService {
 
     @Override
     public Map<Integer, Long> countTransportOrder() {
-        return transportOrderFeign.findStatusCount().stream().collect(Collectors.toMap(TransportOrderStatusCountDTO::getStatusCode, TransportOrderStatusCountDTO::getCount));
+        return transportOrderFeign.findStatusCount().stream().collect(Collectors.toMap(TransportOrderStatusCountDTO::getStatusCode,
+                TransportOrderStatusCountDTO::getCount));
     }
 
     /**
      * 转换运单
      * 运单列表页面 和 详情页面
-     *
      * @param dto 运单DTO
      * @return 运单VO
      */
@@ -337,17 +348,14 @@ public class WorkServiceImpl implements WorkService {
     /**
      * 补充运单VO详情
      * 后台运单详情页面
-     *
      * @param vo 运单VO
      */
     private void appendTransportOrderVO(TransportOrderVO vo) {
-        //获取运输信息
+        // 获取运输信息
         List<TaskTransportVO> taskTransportVOList = new ArrayList<>();
         List<TransportTaskDTO> TransportTaskDTOS = transportTaskFeign.findAllByOrderIdOrTaskId(vo.getId(), null);
         if (CollUtil.isNotEmpty(TransportTaskDTOS)) {
-            TransportTaskDTOS.forEach(TransportTaskDTO ->
-                    taskTransportVOList.add(parseTransportTaskDTO2Vo(TransportTaskDTO))
-            );
+            TransportTaskDTOS.forEach(TransportTaskDTO -> taskTransportVOList.add(parseTransportTaskDTO2Vo(TransportTaskDTO)));
             Collections.reverse(taskTransportVOList);
         }
         vo.setTaskTransports(taskTransportVOList);
@@ -355,7 +363,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运输任务分页
-     *
      * @param vo 查询条件
      * @return 运输任务分页
      */
@@ -364,7 +371,8 @@ public class WorkServiceImpl implements WorkService {
         TransportTaskPageQueryDTO transportTaskPageQueryDTO = BeanUtil.toBean(vo, TransportTaskPageQueryDTO.class);
         // 查询车辆ID
         PageResponse<TruckDto> truckDtoPage = truckFeign.findByPage(1, 1000, null, null, vo.getLicensePlate());
-        List<Long> truckIds = truckDtoPage.getItems().parallelStream().map(TruckDto::getId).collect(Collectors.toList());
+        List<Long> truckIds =
+                truckDtoPage.getItems().parallelStream().map(TruckDto::getId).collect(Collectors.toList());
         transportTaskPageQueryDTO.setTruckIds(truckIds);
         PageResponse<TransportTaskDTO> dtoPageResponse = transportTaskFeign.findByPage(transportTaskPageQueryDTO);
         return PageResponse.of(dtoPageResponse, this::batchParseTransportTaskDTO2Vo);
@@ -372,7 +380,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运输任务详情
-     *
      * @param id 运输任务ID
      * @return 运输任务详情
      */
@@ -387,7 +394,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 手动调整运输任务
-     *
      * @param id 运输任务ID
      * @param vo 司机 车辆 车次等信息
      */
@@ -396,7 +402,8 @@ public class WorkServiceImpl implements WorkService {
         // 根据车辆ID查询司机ID
         if (CollUtil.isEmpty(vo.getDriverId())) {
             List<TruckDriverDto> driverDtos = driverFeign.findByTruckId(vo.getTruckId());
-            List<Long> driverIds = driverDtos.parallelStream().map(TruckDriverDto::getUserId).collect(Collectors.toList());
+            List<Long> driverIds =
+                    driverDtos.parallelStream().map(TruckDriverDto::getUserId).collect(Collectors.toList());
             vo.setDriverId(driverIds);
         }
         TaskTransportUpdateDTO taskTransportUpdateDTO = BeanUtil.toBean(vo, TaskTransportUpdateDTO.class);
@@ -406,7 +413,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 运输任务统计
-     *
      * @return 按状态统计
      */
     @Override
@@ -416,7 +422,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 转换运输任务
-     *
      * @param dto 运输任务DTO
      * @return 运输任务VO
      */
@@ -450,7 +455,8 @@ public class WorkServiceImpl implements WorkService {
         }
 
         // 司机信息
-        DriverJobPageQueryDTO driverJobPageQueryDTO = DriverJobPageQueryDTO.builder().page(1).pageSize(10).transportTaskId(dto.getId()).build();
+        DriverJobPageQueryDTO driverJobPageQueryDTO =
+                DriverJobPageQueryDTO.builder().page(1).pageSize(10).transportTaskId(dto.getId()).build();
         PageResponse<DriverJobDTO> driverJobPage = driverJobFeign.pageQuery(driverJobPageQueryDTO);
         if (CollUtil.isNotEmpty(driverJobPage.getItems())) {
             List<Long> driverIds = CollUtil.getFieldValues(driverJobPage.getItems(), "driverId", Long.class);
@@ -462,7 +468,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 获取运输任务坐标
-     *
      * @param id 运输任务ID
      * @return 运输任务坐标
      */
@@ -486,31 +491,32 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 获取取派件任务分页数据
-     *
      * @param vo 查询条件
      * @return 取派件分页数据
      */
     @Override
     public PageResponse<PickupDispatchTaskListVO> findTaskPickupDispatchByPage(TaskPickupDispatchQueryVO vo) {
-        //1.构建查询条件
-        PickupDispatchTaskPageQueryDTO pickupDispatchTaskPageQueryDTO = BeanUtil.toBean(vo, PickupDispatchTaskPageQueryDTO.class);
+        // 1.构建查询条件
+        PickupDispatchTaskPageQueryDTO pickupDispatchTaskPageQueryDTO = BeanUtil.toBean(vo,
+                PickupDispatchTaskPageQueryDTO.class);
 
-        //2.分页查询
-        PageResponse<PickupDispatchTaskDTO> pageResponse = pickupDispatchTaskFeign.findByPage(pickupDispatchTaskPageQueryDTO);
+        // 2.分页查询
+        PageResponse<PickupDispatchTaskDTO> pageResponse =
+                pickupDispatchTaskFeign.findByPage(pickupDispatchTaskPageQueryDTO);
 
-        //3.dto转为vo
+        // 3.dto转为vo
         return PageResponse.of(pageResponse, PickupDispatchTaskListVO.class, (dto, responseVO) -> {
-            //机构信息
+            // 机构信息
             OrganDTO organDTO = organFeign.queryById(responseVO.getAgencyId());
             responseVO.setAgencyName(organDTO.getName());
 
-            //快递员信息
+            // 快递员信息
             if (ObjectUtil.isNotEmpty(dto.getCourierId())) {
                 Result<UserDTO> courier = AuthTemplateThreadLocal.get().opsForUser().getUserById(dto.getCourierId());
                 responseVO.setCourierName(courier.getData().getName());
             }
 
-            //取消原因
+            // 取消原因
             if (ObjectUtil.isNotEmpty(dto.getCancelReason())) {
                 responseVO.setCancelReason(dto.getCancelReason().getValue());
             }
@@ -519,7 +525,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 转换取派件任务
-     *
      * @param dto 任务DTO
      * @return 任务VO
      */
@@ -543,7 +548,6 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 分配快递员
-     *
      * @param ids       取派件任务id
      * @param courierId 快递员ID
      */
@@ -555,40 +559,40 @@ public class WorkServiceImpl implements WorkService {
 
     /**
      * 空车取消运输任务
-     *
      * @param id 运输任务id
      */
     @Override
     @GlobalTransactional
     public void cancel(Long id) {
-        //1.根据id查询运输任务
+        // 1.根据id查询运输任务
         TransportTaskDTO transportTaskDTO = transportTaskFeign.findById(id);
 
-        //1.1非空载无法取消
+        // 1.1非空载无法取消
         if (ObjectUtil.notEqual(TransportTaskLoadingStatus.EMPTY, transportTaskDTO.getLoadingStatus())) {
             throw new SLWebException("运输任务不是空载，无法取消！");
         }
 
-        //1.2非待执行状态无法取消
+        // 1.2非待执行状态无法取消
         if (ObjectUtil.notEqual(TransportTaskStatus.PENDING, transportTaskDTO.getStatus())) {
             throw new SLWebException("运输任务不是待执行状态，无法取消！");
         }
 
-        //2.取消运输任务
+        // 2.取消运输任务
         transportTaskFeign.updateStatus(id, TransportTaskStatus.CANCELLED);
 
-        //3.取消运输任务关联的司机作业单
-        DriverJobPageQueryDTO driverJobPageQueryDTO = DriverJobPageQueryDTO.builder().page(1).pageSize(10).transportTaskId(id).build();
+        // 3.取消运输任务关联的司机作业单
+        DriverJobPageQueryDTO driverJobPageQueryDTO =
+                DriverJobPageQueryDTO.builder().page(1).pageSize(10).transportTaskId(id).build();
         PageResponse<DriverJobDTO> driverJobPage = driverJobFeign.pageQuery(driverJobPageQueryDTO);
         driverJobPage.getItems().forEach(dto -> driverJobFeign.updateStatus(dto.getId(), DriverJobStatus.CANCELLED));
 
-        //4.取消运输任务后需要完成当前车辆计划，从而能够生成下一次的车辆计划
-        truckPlanFeign.finished(transportTaskDTO.getStartAgencyId(), transportTaskDTO.getTruckPlanId(), transportTaskDTO.getTruckId(), StatusEnum.NORMAL);
+        // 4.取消运输任务后需要完成当前车辆计划，从而能够生成下一次的车辆计划
+        truckPlanFeign.finished(transportTaskDTO.getStartAgencyId(), transportTaskDTO.getTruckPlanId(),
+                transportTaskDTO.getTruckId(), StatusEnum.NORMAL);
     }
 
     /**
      * 运单轨迹
-     *
      * @param id 运单ID
      * @return 轨迹
      */
