@@ -6,14 +6,21 @@ import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.sigma429.sl.CourierTaskFeign;
 import com.sigma429.sl.OrderFeign;
 import com.sigma429.sl.OrganFeign;
+import com.sigma429.sl.common.MQFeign;
+import com.sigma429.sl.constant.Constants;
+import com.sigma429.sl.domain.OrganDTO;
 import com.sigma429.sl.dto.CourierTaskCountDTO;
+import com.sigma429.sl.dto.CourierTaskDTO;
 import com.sigma429.sl.dto.PickupDispatchTaskDTO;
 import com.sigma429.sl.dto.request.PickupDispatchTaskPageQueryDTO;
 import com.sigma429.sl.dto.response.PickupDispatchTaskStatisticsDTO;
@@ -31,6 +38,7 @@ import com.sigma429.sl.util.BeanUtil;
 import com.sigma429.sl.util.ObjectUtil;
 import com.sigma429.sl.util.PageResponse;
 import com.sigma429.sl.vo.OrderMsg;
+import com.sigma429.sl.vo.TransportInfoMsg;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,6 +67,12 @@ public class PickupDispatchTaskServiceImpl extends
 
     @Resource
     private OrderFeign orderFeign;
+
+    @Resource
+    private CourierTaskFeign courierTaskFeign;
+
+    @Resource
+    private MQFeign mqFeign;
 
     @Override
     @Transactional
@@ -134,7 +148,12 @@ public class PickupDispatchTaskServiceImpl extends
             }
         }
 
-        // TODO 发送消息，同步更新快递员任务
+        // 发送消息，同步更新快递员任务
+        CourierTaskDTO courierTaskDTO = courierTaskFeign.findById(pickupDispatchTaskDTO.getId());
+
+        // 构建快递员任务更新内容
+        mqFeign.sendMsg(Constants.MQ.Exchanges.COURIER_TASK, Constants.MQ.RoutingKeys.COURIER_TASK_SAVE_OR_UPDATE,
+                JSONUtil.toJsonStr(courierTaskDTO));
         return super.updateById(pickupDispatchTask);
     }
 

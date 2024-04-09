@@ -13,7 +13,6 @@ public interface TrackService {
 
     /**
      * 创建轨迹，会完成路线规划
-     *
      * @param transportOrderId 运单号
      * @return 是否成功
      */
@@ -21,7 +20,6 @@ public interface TrackService {
 
     /**
      * 完成轨迹，修改为完成状态
-     *
      * @param transportOrderIds 运单号列表
      * @return 是否成功
      */
@@ -29,7 +27,6 @@ public interface TrackService {
 
     /**
      * 通过运单号查询轨迹
-     *
      * @param transportOrderId 运单号
      * @return 轨迹数据
      */
@@ -37,7 +34,6 @@ public interface TrackService {
 
     /**
      * 车辆上报位置
-     *
      * @param transportTaskId 运输任务id
      * @param lng             经度
      * @param lat             纬度
@@ -47,7 +43,6 @@ public interface TrackService {
 
     /**
      * 快递员上报位置
-     *
      * @param transportOrderIds 运单号列表
      * @param lng               经度
      * @param lat               纬度

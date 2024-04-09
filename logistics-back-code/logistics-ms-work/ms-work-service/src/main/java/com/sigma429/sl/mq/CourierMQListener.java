@@ -1,12 +1,18 @@
 package com.sigma429.sl.mq;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
+import cn.hutool.core.text.CharSequenceUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.sigma429.sl.OrderFeign;
+import com.sigma429.sl.OrganFeign;
+import com.sigma429.sl.common.MQFeign;
 import com.sigma429.sl.constant.Constants;
+import com.sigma429.sl.domain.OrganDTO;
 import com.sigma429.sl.dto.OrderDTO;
 import com.sigma429.sl.entity.PickupDispatchTaskEntity;
+import com.sigma429.sl.entity.TransportOrderEntity;
 import com.sigma429.sl.enums.OrderStatus;
 import com.sigma429.sl.enums.pickupDispatchtask.PickupDispatchTaskAssignedStatus;
 import com.sigma429.sl.enums.pickupDispatchtask.PickupDispatchTaskSignStatus;
@@ -19,6 +25,7 @@ import com.sigma429.sl.util.BeanUtil;
 import com.sigma429.sl.util.ObjectUtil;
 import com.sigma429.sl.vo.CourierMsg;
 import com.sigma429.sl.vo.CourierTaskMsg;
+import com.sigma429.sl.vo.TransportInfoMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -48,6 +55,11 @@ public class CourierMQListener {
 
     @Resource
     private OrderFeign orderFeign;
+    @Resource
+    private OrganFeign organFeign;
+
+    @Resource
+    private MQFeign mqFeign;
 
     /**
      * 生成快递员取派件任务
@@ -127,10 +139,24 @@ public class CourierMQListener {
         CourierMsg courierMsg = JSONUtil.toBean(msg, CourierMsg.class);
 
         // 订单转运单
-        this.transportOrderService.orderToTransportOrder(courierMsg.getOrderId());
+        TransportOrderEntity transportOrder = this.transportOrderService.orderToTransportOrder(courierMsg.getOrderId());
+        OrganDTO organDTO = organFeign.queryById(transportOrder.getCurrentAgencyId());
 
-        // TODO 发送运单跟踪消息
-
+        // 构建消息实体类
+        String info = CharSequenceUtil.format("快件到达【{}】", organDTO.getName());
+        String transportInfoMsg = TransportInfoMsg.builder()
+                // 运单id
+                .transportOrderId(transportOrder.getId())
+                // 消息状态
+                .status("取件成功")
+                // 消息详情
+                .info(info)
+                // 创建时间
+                .created(DateUtil.current())
+                .build().toJson();
+        // 发送运单跟踪消息
+        this.mqFeign.sendMsg(Constants.MQ.Exchanges.TRANSPORT_INFO,
+                Constants.MQ.RoutingKeys.TRANSPORT_INFO_APPEND, transportInfoMsg);
 
     }
 }
