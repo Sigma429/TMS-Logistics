@@ -34,7 +34,7 @@ module.exports = {
       '/api1/apiLogin': {
         //   target: 'http://canzg-wsl.itheima.net/enterpise',
         // target: 'http://172.17.2.120:8080',
-        target: 'http://192.168.150.101:8760/api',
+        target: 'http://localhost:8760/api',
         ws: true,
         secure: false,
         changeOrigin: true,

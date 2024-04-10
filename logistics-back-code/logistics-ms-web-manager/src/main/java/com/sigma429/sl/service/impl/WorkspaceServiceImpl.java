@@ -33,6 +33,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
      * 订单总量redisKey
      */
     private static final String MONTHLY_ORDER_REDIS_KEY = "WORKSPACE:MONTHLY_ORDER";
+
     @Autowired
     private StringRedisTemplate redisTemplate;
 

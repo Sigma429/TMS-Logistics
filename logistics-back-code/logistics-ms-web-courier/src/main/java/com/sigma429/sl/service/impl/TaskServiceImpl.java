@@ -1,6 +1,5 @@
 package com.sigma429.sl.service.impl;
 
-
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
@@ -37,12 +36,12 @@ import com.sigma429.sl.vo.CourierMsg;
 import com.sigma429.sl.vo.TransportInfoMsg;
 import com.sigma429.sl.vo.TransportOrderStatusMsg;
 import com.sigma429.sl.vo.task.*;
+import com.sigma429.sl.enums.pickupDispatchtask.PickupDispatchTaskSignStatus;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
-import com.sigma429.sl.enums.pickupDispatchtask.PickupDispatchTaskSignStatus;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -147,8 +146,8 @@ public class TaskServiceImpl implements TaskService {
             String msg = CharSequenceUtil.format("id为{}的取派件任务查不到订单信息", taskVO.getId());
             throw new SLWebException(msg);
         }
-        // 运费
-        taskVO.setAmount(orderDTO.getAmount().doubleValue());
+
+        taskVO.setAmount(orderDTO.getAmount().doubleValue());// 运费
         taskVO.setPaymentStatus(orderDTO.getPaymentStatus());
         taskVO.setPaymentMethod(orderDTO.getPaymentMethod());
 
@@ -175,8 +174,7 @@ public class TaskServiceImpl implements TaskService {
         // 获取运单信息:取件任务新任务状态和已取消状态不查运单
         if (ObjectUtil.equal(PickupDispatchTaskType.DISPATCH, taskVO.getTaskType()) || ObjectUtil.equal(PickupDispatchTaskStatus.COMPLETED, taskVO.getStatus())) {
             TransportOrderDTO transportOrderDTO = transportOrderFeign.findByOrderId(taskVO.getOrderId());
-            // 运单id
-            taskVO.setTransportOrderId(transportOrderDTO.getId());
+            taskVO.setTransportOrderId(transportOrderDTO.getId());// 运单id
         }
     }
 
@@ -191,8 +189,7 @@ public class TaskServiceImpl implements TaskService {
         String location;
         Map<String, String> taskInformation = new HashMap<>();
         switch (taskInformationEnum) {
-            // 任务关联寄件人信息
-            case SEND:
+            case SEND: // 任务关联寄件人信息
                 // 寄/收件人姓名
                 taskInformation.put(CourierConstants.OrderInfo.NAME, orderDTO.getSenderName());
                 // 寄/收件人电话
@@ -205,8 +202,7 @@ public class TaskServiceImpl implements TaskService {
                 // 获取寄/收件人坐标
                 location = orderFeign.findOrderLocationByOrderId(orderDTO.getId()).getSendLocation();
                 break;
-            // 2任务关联收件人信息
-            case RECEIVE:
+            case RECEIVE:// 2任务关联收件人信息
                 // 寄/收件人姓名
                 taskInformation.put(CourierConstants.OrderInfo.NAME, orderDTO.getReceiverName());
                 // 寄/收件人电话
@@ -255,12 +251,10 @@ public class TaskServiceImpl implements TaskService {
         PickupDispatchTaskPageQueryDTO taskDTO = new PickupDispatchTaskPageQueryDTO();
         taskDTO.setPage(1);
         taskDTO.setPageSize(999);
-        // 快递员ID
-        taskDTO.setCourierId(UserThreadLocal.getUserId());
+        taskDTO.setCourierId(UserThreadLocal.getUserId()); // 快递员ID
 
         if (ObjectUtil.isNotEmpty(vo.getTaskStatus())) {
-            // 根据页面tap设置任务类型和状态
-            this.setTskTypeAndStatus(vo);
+            this.setTskTypeAndStatus(vo);// 根据页面tap设置任务类型和状态
         }
 
         taskDTO.setTaskType(PickupDispatchTaskType.codeOf(vo.getTaskType()));
@@ -277,32 +271,25 @@ public class TaskServiceImpl implements TaskService {
      */
     private void setTskTypeAndStatus(TaskQueryVO vo) {
         switch (TaskStatus.lookup(vo.getTaskStatus())) {
-            // 1待取件
-            case WAITING_PICKUP:
-                // 任务类型，1为取件任务，2为派件任务
-                vo.setTaskType(PickupDispatchTaskType.PICKUP.getCode());
-                // 任务状态，1为待执行、2为进行中、3为待确认、4为已完成、5为已取消
-                vo.setStatus(PickupDispatchTaskStatus.NEW.getCode());
+            case WAITING_PICKUP: // 1待取件
+                vo.setTaskType(PickupDispatchTaskType.PICKUP.getCode());// 任务类型，1为取件任务，2为派件任务
+                vo.setStatus(PickupDispatchTaskStatus.NEW.getCode());// 任务状态，1为待执行、2为进行中、3为待确认、4为已完成、5为已取消
                 break;
-            // 2已取件
-            case COMPLETE_PICKUP:
-                vo.setTaskType(PickupDispatchTaskType.PICKUP.getCode());
-                vo.setStatus(PickupDispatchTaskStatus.COMPLETED.getCode());
+            case COMPLETE_PICKUP: // 2已取件
+                vo.setTaskType(PickupDispatchTaskType.PICKUP.getCode());// 任务类型，1为取件任务，2为派件任务
+                vo.setStatus(PickupDispatchTaskStatus.COMPLETED.getCode());// 任务状态，1为待执行、2为进行中、3为待确认、4为已完成、5为已取消
                 break;
-            // 3已取消
-            case CANCELED:
-                vo.setTaskType(PickupDispatchTaskType.PICKUP.getCode());
-                vo.setStatus(PickupDispatchTaskStatus.CANCELLED.getCode());
+            case CANCELED: // 3已取消
+                vo.setTaskType(PickupDispatchTaskType.PICKUP.getCode());// 任务类型，1为取件任务，2为派件任务
+                vo.setStatus(PickupDispatchTaskStatus.CANCELLED.getCode());// 任务状态，1为待执行、2为进行中、3为待确认、4为已完成、5为已取消
                 break;
-            // 4待派件
-            case WAITING_DISPATCH:
-                vo.setTaskType(PickupDispatchTaskType.DISPATCH.getCode());
-                vo.setStatus(PickupDispatchTaskStatus.NEW.getCode());
+            case WAITING_DISPATCH:// 4待派件
+                vo.setTaskType(PickupDispatchTaskType.DISPATCH.getCode());// 任务类型，1为取件任务，2为派件任务
+                vo.setStatus(PickupDispatchTaskStatus.NEW.getCode());// 任务状态，1为待执行、2为进行中、3为待确认、4为已完成、5为已取消
                 break;
-            // 5已签收
-            case COMPLETE_DISPATCH:
-                vo.setTaskType(PickupDispatchTaskType.DISPATCH.getCode());
-                vo.setStatus(PickupDispatchTaskStatus.COMPLETED.getCode());
+            case COMPLETE_DISPATCH:// 5已签收
+                vo.setTaskType(PickupDispatchTaskType.DISPATCH.getCode());// 任务类型，1为取件任务，2为派件任务
+                vo.setStatus(PickupDispatchTaskStatus.COMPLETED.getCode());// 任务状态，1为待执行、2为进行中、3为待确认、4为已完成、5为已取消
                 break;
             default:
                 throw new SLWebException("Unexpected taskStatus:" + vo);
@@ -369,12 +356,9 @@ public class TaskServiceImpl implements TaskService {
         taskList = sortTaskList(vo, taskList);
 
         // 9.分页
-        // 起始位置
-        int startPosition = (vo.getPage() - 1) * vo.getPageSize();
-        // 总条目数
-        long pageCounts = taskList.size();
-        // 总页数
-        long pages = (long) Math.ceil(pageCounts * 1.0 / vo.getPageSize());
+        int startPosition = (vo.getPage() - 1) * vo.getPageSize();// 起始位置
+        long pageCounts = taskList.size();// 总条目数
+        long pages = (long) Math.ceil(pageCounts * 1.0 / vo.getPageSize());// 总页数
         // 根据起始位置和页面大小取当前页面数据列表
         taskList = taskList.stream().skip(startPosition).limit(vo.getPageSize()).collect(Collectors.toList());
 
@@ -475,57 +459,36 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public TaskInfoVO detail(String id) {
         // 查询取派件任务相关联信息
-        // 取派件任务信息
-        PickupDispatchTaskDTO taskDTO = pickupDispatchTaskFeign.findById(Long.valueOf(id));
+        PickupDispatchTaskDTO taskDTO = pickupDispatchTaskFeign.findById(Long.valueOf(id));// 取派件任务信息
         log.info("取派件任务为：{}", taskDTO);
-        // 订单信息
-        OrderDTO orderDTO = orderFeign.findById(taskDTO.getOrderId());
-        // 货物信息
-        OrderCargoDTO orderCargoDto = cargoFeign.findByOrderId(orderDTO.getId());
-        // 用户信息
-        MemberDTO memberDto = memberFeign.detail(orderDTO.getMemberId());
+        OrderDTO orderDTO = orderFeign.findById(taskDTO.getOrderId());// 订单信息
+        OrderCargoDTO orderCargoDto = cargoFeign.findByOrderId(orderDTO.getId());// 货物信息
+        MemberDTO memberDto = memberFeign.detail(orderDTO.getMemberId());// 用户信息
 
         // 组装响应数据
         TaskInfoVO vo = BeanUtil.toBean(taskDTO, TaskInfoVO.class);
-        // 任务id
-        vo.setId(id);
-        // 订单id
-        vo.setOrderId(String.valueOf(taskDTO.getOrderId()));
-        // 寄件人姓名
-        vo.setSenderName(orderDTO.getSenderName());
-        // 收件人姓名
-        vo.setReceiverName(orderDTO.getReceiverName());
-        // 寄件人电话
-        vo.setSenderPhone(orderDTO.getSenderPhone());
-        // 收件人电话
-        vo.setReceiverPhone(orderDTO.getReceiverPhone());
-        // 物品类型名称
-        vo.setGoodsType(orderCargoDto.getName());
-        // 重量
-        vo.setWeight(orderCargoDto.getWeight());
-        // 体积
-        vo.setVolume(orderCargoDto.getVolume());
-        // 金额
-        vo.setFreight(String.valueOf(orderDTO.getAmount()));
-        // 备注
-        vo.setRemark(taskDTO.getMark());
-        // 付款方式,1寄付，2到付
-        vo.setPaymentMethod(orderDTO.getPaymentMethod());
-        // 付款状态,1未付，2已付
-        vo.setPaymentStatus(orderDTO.getPaymentStatus());
-        // 签收人，1-本人，2-代收
+        vo.setId(id);// 任务id
+        vo.setOrderId(String.valueOf(taskDTO.getOrderId()));// 订单id
+        vo.setSenderName(orderDTO.getSenderName());// 寄件人姓名
+        vo.setReceiverName(orderDTO.getReceiverName());// 收件人姓名
+        vo.setSenderPhone(orderDTO.getSenderPhone());// 寄件人电话
+        vo.setReceiverPhone(orderDTO.getReceiverPhone());// 收件人电话
+        vo.setGoodsType(orderCargoDto.getName());// 物品类型名称
+        vo.setWeight(orderCargoDto.getWeight());// 重量
+        vo.setVolume(orderCargoDto.getVolume());// 体积
+        vo.setFreight(String.valueOf(orderDTO.getAmount()));// 金额
+        vo.setRemark(taskDTO.getMark());// 备注
+        vo.setPaymentMethod(orderDTO.getPaymentMethod());// 付款方式,1寄付，2到付
+        vo.setPaymentStatus(orderDTO.getPaymentStatus());// 付款状态,1未付，2已付
         vo.setSignRecipient(ObjectUtil.isEmpty(taskDTO.getSignRecipient()) ? null :
-                taskDTO.getSignRecipient().getCode());
-        // 身份证号是否验证0：未验证 1：验证通过 2：验证未通过
-        vo.setIdCardNoVerify(memberDto.getIdCardNoVerify());
-        // 身份证号脱敏
-        vo.setIdCardNo(DesensitizedUtil.idCardNum(memberDto.getIdCardNo(), 6, 4));
+                taskDTO.getSignRecipient().getCode());// 签收人，1-本人，2-代收
+        vo.setIdCardNoVerify(memberDto.getIdCardNoVerify());// 身份证号是否验证0：未验证 1：验证通过 2：验证未通过
+        vo.setIdCardNo(DesensitizedUtil.idCardNum(memberDto.getIdCardNo(), 6, 4));// 身份证号脱敏
 
         // 获取运单信息:取件任务新任务状态和已取消状态不查运单,只查派件任务和完成状态的运单
         if (ObjectUtil.equal(PickupDispatchTaskType.DISPATCH, taskDTO.getTaskType()) || ObjectUtil.equal(PickupDispatchTaskStatus.COMPLETED, taskDTO.getStatus())) {
             TransportOrderDTO transportOrderDTO = transportOrderFeign.findByOrderId(orderDTO.getId());
-            // 运单id
-            vo.setTransportOrderId(transportOrderDTO.getId());
+            vo.setTransportOrderId(transportOrderDTO.getId());// 运单id
         }
 
         // 根据id查询省、市、区名称并拼接为完整地址
@@ -533,14 +496,11 @@ public class TaskServiceImpl implements TaskService {
                 orderDTO.getSenderCountyId(), orderDTO.getSenderAddress());
         String receiverAddress = getDetailAddress(orderDTO.getReceiverProvinceId(), orderDTO.getReceiverCityId(),
                 orderDTO.getReceiverCountyId(), orderDTO.getReceiverAddress());
-        // 寄件人地址
-        vo.setSenderAddress(senderAddress);
-        // 收件人地址
-        vo.setReceiverAddress(receiverAddress);
-        // 寄件地址id，这里指的是区/县的地址ID
-        vo.setSenderCountyId(orderDTO.getSenderCountyId());
-        // 收件地址id，这里指的是区/县的地址ID
-        vo.setReceiverCountyId(orderDTO.getReceiverCountyId());
+
+        vo.setSenderAddress(senderAddress);// 寄件人地址
+        vo.setReceiverAddress(receiverAddress);// 收件人地址
+        vo.setSenderCountyId(orderDTO.getSenderCountyId());// 寄件地址id，这里指的是区/县的地址ID
+        vo.setReceiverCountyId(orderDTO.getReceiverCountyId());// 收件地址id，这里指的是区/县的地址ID
         return vo;
     }
 
@@ -599,8 +559,7 @@ public class TaskServiceImpl implements TaskService {
         OrderDTO orderDB = orderFeign.findById(orderId);
 
         // 3.身份校验:先查询用户信息，若已实名认证直接放行；未实名认证必须进行认证
-        // 用户信息
-        MemberDTO memberDto = memberFeign.detail(orderDB.getMemberId());
+        MemberDTO memberDto = memberFeign.detail(orderDB.getMemberId());// 用户信息
         if (!memberDto.getIdCardNoVerify().equals(MemberIdCardVerifyStatus.SUCCESS.getCode())) {
             if (CharSequenceUtil.hasBlank(vo.getIdCard(), vo.getName())) {
                 throw new SLWebException("用户未实名认证，必须输入身份证号和姓名！");
@@ -615,8 +574,7 @@ public class TaskServiceImpl implements TaskService {
 
         // 4.更新取派件任务
         PickupDispatchTaskDTO pickupDispatchTaskDTO = pickupDispatchTaskFeign.findById(Long.valueOf(vo.getId()));
-        // 任务状态
-        pickupDispatchTaskDTO.setStatus(PickupDispatchTaskStatus.COMPLETED);
+        pickupDispatchTaskDTO.setStatus(PickupDispatchTaskStatus.COMPLETED);// 任务状态
         pickupDispatchTaskFeign.updateStatus(pickupDispatchTaskDTO);
 
         // 5.获取快递员信息
@@ -726,15 +684,15 @@ public class TaskServiceImpl implements TaskService {
     public void sign(TaskSignVO vo) {
         // 1.更新任务
         PickupDispatchTaskDTO taskDTO = pickupDispatchTaskFeign.findById(Long.valueOf(vo.getId()));
-        if (ObjectUtil.notEqual(taskDTO.getSignStatus(), PickupDispatchTaskSignStatus.NOT_SIGNED)) {
+        if (ObjectUtil.notEqual(taskDTO.getSignStatus(),
+                com.sigma429.sl.enums.pickupDispatchtask.PickupDispatchTaskSignStatus.NOT_SIGNED)) {
             throw new SLWebException("快递已签收/拒收");
         }
-        // 任务状态
-        taskDTO.setStatus(PickupDispatchTaskStatus.COMPLETED);
-        // 签收状态(1为已签收，2为拒收)
-        taskDTO.setSignStatus(PickupDispatchTaskSignStatus.RECEIVED);
-        // 签收人，1-本人，2-代收
-        taskDTO.setSignRecipient(SignRecipientEnum.codeOf(vo.getSignRecipient()));
+
+        taskDTO.setStatus(PickupDispatchTaskStatus.COMPLETED);// 任务状态
+        taskDTO.setSignStatus(PickupDispatchTaskSignStatus.RECEIVED);// 签收状态
+        // (1为已签收，2为拒收)
+        taskDTO.setSignRecipient(SignRecipientEnum.codeOf(vo.getSignRecipient()));// 签收人，1-本人，2-代收
         pickupDispatchTaskFeign.updateStatus(taskDTO);
 
         // 2.更新订单
@@ -811,7 +769,8 @@ public class TaskServiceImpl implements TaskService {
     public void reject(String id) {
         // 1.状态校验
         PickupDispatchTaskDTO taskDTO = pickupDispatchTaskFeign.findById(Long.valueOf(id));
-        if (ObjectUtil.notEqual(taskDTO.getSignStatus(), PickupDispatchTaskSignStatus.NOT_SIGNED)) {
+        if (ObjectUtil.notEqual(taskDTO.getSignStatus(),
+                com.sigma429.sl.enums.pickupDispatchtask.PickupDispatchTaskSignStatus.NOT_SIGNED)) {
             throw new SLWebException("快递已签收/拒收");
         }
 
@@ -821,12 +780,9 @@ public class TaskServiceImpl implements TaskService {
         }
 
         // 2.更新任务
-        // 任务状态
-        taskDTO.setStatus(PickupDispatchTaskStatus.COMPLETED);
-        // 签收状态(1为已签收，2为拒收)
-        taskDTO.setSignStatus(PickupDispatchTaskSignStatus.REJECTION);
-        // 实际完成时间
-        taskDTO.setActualEndTime(LocalDateTime.now());
+        taskDTO.setStatus(PickupDispatchTaskStatus.COMPLETED);// 任务状态
+        taskDTO.setSignStatus(PickupDispatchTaskSignStatus.REJECTION);// 签收状态(1为已签收，2为拒收)
+        taskDTO.setActualEndTime(LocalDateTime.now());// 实际完成时间
         pickupDispatchTaskFeign.updateStatus(taskDTO);
 
         // 3.更新订单
@@ -886,7 +842,6 @@ public class TaskServiceImpl implements TaskService {
         PickupDispatchTaskStatisticsDTO taskStatisticsDTO = pickupDispatchTaskFeign.todayTasksStatistics(userId);
         return BeanUtil.toBean(taskStatisticsDTO, TaskStatisticsVO.class);
     }
-
 
     /**
      * 最近查找redis存取前缀

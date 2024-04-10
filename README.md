@@ -252,33 +252,10 @@ TMS-Logistics，是TMS运配系统，本质上解决的是怎样运送的问题�
 - Day22
     1. 分布式日志GrayLog与链路追踪SkyWalking搭建完成
     2. 简单理解短信服务、搜索服务和轨迹服务
+- Day23
+    1. 全部代码阅读完毕
 
 # 8、进度
 
-| common              | OK |
-|---------------------|----|
-| gateway             | OK |
-| mq                  | OK |
-| ms-base             | OK |
-| ms-carriage         | OK |
-| ms-courier          | OK |
-| ms-dispatch-service | OK |
-| ms-driver           | OK |
-| ms-oms              |    |
-| ms-search           |    |
-| ms-service-scope    | OK |
-| ms-sms              |    |
-| ms-track            |    |
-| ms-trade            | OK |
-| ms-transport        | OK |
-| ms-transport-info   |    |
-| ms-user             | OK |
-| ms-web-courier      |    |
-| ms-web-customer     |    |
-| ms-web-driver       |    |
-| ms-web-manager      |    |
-| ms-work             |    |
-| parent              | OK |
-| pay                 | OK |
-| xxl-job             | OK |
-
+- 前端测试，读完技术文档
+- 项目面经与简历写法

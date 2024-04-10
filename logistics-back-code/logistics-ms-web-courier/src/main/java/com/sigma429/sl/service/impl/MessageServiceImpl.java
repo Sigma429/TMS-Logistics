@@ -40,7 +40,61 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public MessagesHomeVO homeMessage() {
-        return null;
+        MessagesHomeVO messagesHomeVO = new MessagesHomeVO();
+
+        // 构件查询条件
+        MessageQueryDTO messageQueryDTO = new MessageQueryDTO();
+        messageQueryDTO.setBussinessType(MessageBussinessTypeEnum.COURIER.getCode());
+        messageQueryDTO.setUserId(UserThreadLocal.get().getUserId());
+        messageQueryDTO.setIsRead(MessageConstants.UNREAD);
+
+        // 查询未读消息数量
+        Integer noReadRes = messageFeign.countType(messageQueryDTO);
+        messagesHomeVO.setUnRead(ObjectUtil.notEqual(noReadRes, 0));
+        messagesHomeVO.setNewsNum(noReadRes);
+
+        // 查询最新未读消息
+        if (ObjectUtil.equal(noReadRes, 0)) {
+            return messagesHomeVO;
+        }
+
+        LatestMessageDTO latestMessageDTO = messageFeign.latestMessage(messageQueryDTO);
+        messagesHomeVO.setMinutes((int) Duration.between(latestMessageDTO.getCreated(), LocalDateTime.now()).toMinutes());
+        messagesHomeVO.setContentType(latestMessageDTO.getContentType());
+        assembleRecentMsg(messagesHomeVO, latestMessageDTO.getContentType());
+        return messagesHomeVO;
+    }
+
+    /**
+     * 封装消息类型对应的内容
+     * @param messagesHomeVO 首页消息相关模型
+     * @param contentType    消息类型
+     */
+    private static void assembleRecentMsg(MessagesHomeVO messagesHomeVO, Integer contentType) {
+        switch (MessageContentTypeEnum.codeOf(contentType)) {
+            // 公告消息
+            case COURIER_BULLETIN:
+                messagesHomeVO.setRecentMsg(MessageConstants.MessageTitle.BULLETIN);
+                break;
+            // 取件消息
+            case COURIER_PICKUP:
+                messagesHomeVO.setRecentMsg(MessageConstants.MessageTitle.PICKUP);
+                break;
+            // 签收相关消息
+            case COURIER_SIGN:
+                messagesHomeVO.setRecentMsg(MessageConstants.MessageTitle.SIGN);
+                break;
+            // 快件取消相关消息
+            case COURIER_CANCEL:
+                messagesHomeVO.setRecentMsg(MessageConstants.MessageTitle.CANCEL);
+                break;
+            // 派件相关消息
+            case COURIER_DISPATCH:
+                messagesHomeVO.setRecentMsg(MessageConstants.MessageTitle.DISPATCH);
+                break;
+            default:
+                throw new SLWebException("Unexpected value: " + contentType);
+        }
     }
 
     /**
@@ -49,9 +103,75 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public NewNoticeInfoVO notice() {
-        return null;
+        // 统计未读消息
+        NewNoticeInfoVO newNoticeInfoVO = this.unreadMessageStatistics();
+
+        // 构件查询条件
+        MessageQueryDTO dto = new MessageQueryDTO();
+        dto.setUserId(UserThreadLocal.getUserId());
+        dto.setBussinessType(MessageBussinessTypeEnum.COURIER.getCode());
+
+        // 获取寄件相关最新消息
+        dto.setContentType(MessageContentTypeEnum.COURIER_PICKUP.getCode());
+        LatestMessageDTO pickupDTO = messageFeign.latestMessage(dto);
+
+        // 获取签收相关最新消息
+        dto.setContentType(MessageContentTypeEnum.COURIER_SIGN.getCode());
+        LatestMessageDTO signDTO = messageFeign.latestMessage(dto);
+
+        // 获取快件取消相关最新消息
+        dto.setContentType(MessageContentTypeEnum.COURIER_CANCEL.getCode());
+        LatestMessageDTO cancelDTO = messageFeign.latestMessage(dto);
+
+        // 获取派件相关最新消息
+        dto.setContentType(MessageContentTypeEnum.COURIER_DISPATCH.getCode());
+        LatestMessageDTO dispatchDTO = messageFeign.latestMessage(dto);
+
+        // 组装最新消息时间
+        newNoticeInfoVO.setNewSendNoticeTime(ObjectUtil.isNotEmpty(pickupDTO) ? pickupDTO.getCreated() : null);
+        newNoticeInfoVO.setNewReceiveNoticeTime(ObjectUtil.isNotEmpty(signDTO) ? signDTO.getCreated() : null);
+        newNoticeInfoVO.setNewCancelNoticeTime(ObjectUtil.isNotEmpty(cancelDTO) ? cancelDTO.getCreated() : null);
+        newNoticeInfoVO.setNewDispatchNoticeTime(ObjectUtil.isNotEmpty(dispatchDTO) ? dispatchDTO.getCreated() : null);
+        return newNoticeInfoVO;
     }
 
+    /**
+     * 按照消息类型统计未读消息数量
+     * @return 未读消息通知
+     */
+    private NewNoticeInfoVO unreadMessageStatistics() {
+        // 1.构建查询条件
+        MessageQueryDTO dto = new MessageQueryDTO();
+        dto.setUserId(UserThreadLocal.getUserId());
+        dto.setBussinessType(MessageBussinessTypeEnum.COURIER.getCode());
+        dto.setIsRead(MessageConstants.UNREAD);
+
+        // 2.分页查询
+        List<MessageDTO> list = messageFeign.list(dto);
+
+        // 3.组装新未读消息数据
+        NewNoticeInfoVO newNoticeInfoVO = new NewNoticeInfoVO();
+        if (ObjectUtil.isNotEmpty(list)) {
+            // 按照消息类型统计数量
+            Map<Integer, Long> contentTypeMap =
+                    list.stream().collect(Collectors.groupingBy(MessageDTO::getContentType, Collectors.counting()));
+
+            newNoticeInfoVO.setHaveNewSendNotice(convertLong2Int(contentTypeMap.get(MessageContentTypeEnum.COURIER_PICKUP.getCode())) > 0);
+            newNoticeInfoVO.setHaveNewReceiveNotice(convertLong2Int(contentTypeMap.get(MessageContentTypeEnum.COURIER_SIGN.getCode())) > 0);
+            newNoticeInfoVO.setHaveNewCancelNotice(convertLong2Int(contentTypeMap.get(MessageContentTypeEnum.COURIER_CANCEL.getCode())) > 0);
+            newNoticeInfoVO.setHaveNewDispatchNotice(convertLong2Int(contentTypeMap.get(MessageContentTypeEnum.COURIER_DISPATCH.getCode())) > 0);
+        }
+        return newNoticeInfoVO;
+    }
+
+    /**
+     * 类型转换：Long-->int
+     * @param number Long类型
+     * @return int类型
+     */
+    private int convertLong2Int(Long number) {
+        return Math.toIntExact(number == null ? 0 : number);
+    }
 
     /**
      * 标记已读
@@ -59,7 +179,7 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public void update2Read(Long id) {
-
+        messageFeign.update2Read(id);
     }
 
     /**
@@ -68,7 +188,8 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public void readAll(Integer contentType) {
-
+        Long userId = UserThreadLocal.get().getUserId();
+        messageFeign.readAll(userId, contentType);
     }
 
     /**
@@ -78,6 +199,18 @@ public class MessageServiceImpl implements MessageService {
      */
     @Override
     public PageResponse<MessageVO> page(MessageQueryVO messageQueryVO) {
-        return null;
+        // 1.构造查询条件
+        MessageQueryDTO messageQueryDTO = BeanUtil.toBean(messageQueryVO, MessageQueryDTO.class);
+        messageQueryDTO.setBussinessType(MessageBussinessTypeEnum.COURIER.getCode());
+        messageQueryDTO.setUserId(UserThreadLocal.getUserId());
+
+        // 2.分页查询
+        PageResponse<MessageDTO> pageResponse = messageFeign.page(messageQueryDTO);
+        if (ObjectUtil.isEmpty(pageResponse.getItems())) {
+            return new PageResponse<>();
+        }
+
+        // 3.组装分页结果
+        return PageResponse.of(pageResponse, MessageVO.class);
     }
 }

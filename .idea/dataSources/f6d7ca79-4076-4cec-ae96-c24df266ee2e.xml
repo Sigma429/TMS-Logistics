@@ -23,8 +23,8 @@
     <schema id="16" parent="1" name="14"/>
     <schema id="17" parent="1" name="15"/>
     <hash-table id="18" parent="2" name="SL_TRANSPORT_COST_CONFIGURATION"/>
-    <list id="19" parent="2" name="WORKSPACE:MONTHLY_ORDER"/>
-    <list id="20" parent="2" name="WORKSPACE:WORKBENCH"/>
-    <string id="21" parent="2" name="transport-info::SL920733749248"/>
+    <hash-table id="19" parent="2" name="{sl-bloom-filter}:config"/>
+    <list id="20" parent="2" name="WORKSPACE:MONTHLY_ORDER"/>
+    <list id="21" parent="2" name="WORKSPACE:WORKBENCH"/>
   </database-model>
 </dataSource>

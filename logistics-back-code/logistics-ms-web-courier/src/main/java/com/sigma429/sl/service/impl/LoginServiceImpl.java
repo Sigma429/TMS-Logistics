@@ -25,6 +25,15 @@ public class LoginServiceImpl implements LoginService {
      */
     @Override
     public R<LoginVO> accountLogin(AccountLoginVO accountLoginVO) {
-        return null;
+        // 账号密码登录
+        Result<LoginDTO> loginResult = authTemplate.opsForLogin().token(accountLoginVO.getAccount(),
+                accountLoginVO.getPassword());
+
+        // 校验登录是否成功
+        if (loginResult.getCode() != Result.success().getCode()) {
+            return R.error(loginResult.getMsg());
+        }
+
+        return R.success(new LoginVO(loginResult.getData().getToken().getToken()));
     }
 }

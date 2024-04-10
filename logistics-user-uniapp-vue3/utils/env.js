@@ -2,7 +2,7 @@
 // 线上环境
 // export const baseUrl = 'http://slwl-geteway.itheima.net/customer'
 // 本地和测试环境
-export const baseUrl = 'http://god-express-gateway-t.itheima.net/customer'
+export const baseUrl = 'http://localhost:9527/customer'
 
 
 //不需要跳转到登录页面的接口

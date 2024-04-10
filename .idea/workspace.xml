@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ead22982-4d33-4b37-920d-d268b35e23c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-admin-vue/.env.development" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-admin-vue/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-admin-vue/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-admin-vue/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/config/skywalking/apache-skywalking-java-agent-8.11.0/skywalking-agent/logs/skywalking-api.log" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/config/skywalking/apache-skywalking-java-agent-8.11.0/skywalking-agent/logs/skywalking-api.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-oms/ms-oms-service/src/main/java/com/sigma429/sl/service/impl/CrudOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-oms/ms-oms-service/src/main/java/com/sigma429/sl/service/impl/CrudOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/AreaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/AreaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/LoginServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/PayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/PayServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/TrackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/TrackServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logistics-user-uniapp-vue3/utils/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/logistics-user-uniapp-vue3/utils/env.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +77,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Docker.logistics-gateway/Dockerfile (1).executor": "Run",
+    "Docker.logistics-gateway/Dockerfile.executor": "Run",
     "JUnit.AgencyServiceTest.testQueryByBid.executor": "Run",
     "JUnit.CaffeineTest.testCaffeine.executor": "Run",
     "JUnit.OrganServiceTest.findAll.executor": "Run",
@@ -75,6 +89,9 @@
     "JUnit.ScopeServiceTest.testQueryListByPoint2.executor": "Debug",
     "JUnit.TransportInfoServiceTest.queryByTransportOrderId.executor": "Run",
     "JUnit.TransportInfoServiceTest.saveOrUpdate.executor": "Run",
+    "Maven.logistics-gateway [clean].executor": "Run",
+    "Maven.logistics-gateway [package].executor": "Run",
+    "Maven.logistics-parent [package].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -106,7 +123,7 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "11",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-track/ms-track-service",
+    "last_opened_file_path": "D:/Project/express-platform/TMS-Logistics/logistics-back-code/logistics-ms-web-courier/src/main/java/com/sigma429/sl/service/impl",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +133,8 @@
     "project.structure.proportion": "0.14941406",
     "project.structure.side.proportion": "0.27605957",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "Docker",
+    "ts.external.directory.path": "D:\\Project\\express-platform\\TMS-Logistics\\logistics-admin-vue\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -131,11 +149,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-web-courier\src\main\java\com\sigma429\sl\service\impl" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-track\ms-track-service" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-sms\ms-sms-service" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-search\ms-search-service\src\test\java\com\sigma429\sl" />
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-track\ms-track-service\src\main\java\com\sigma429\sl" />
-      <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-track\ms-track-service\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\express-platform\TMS-Logistics\logistics-back-code\logistics-ms-oms\ms-oms-service" />
@@ -159,7 +177,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.WorkApplication">
+  <component name="RunManager" selected="Docker.logistics-gateway/Dockerfile (1)">
     <configuration name="CaffeineTest.testCaffeine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-transport-info-service" />
       <extension name="coverage">
@@ -171,38 +189,6 @@
       <option name="PACKAGE_NAME" value="com.sigma429.sl" />
       <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.CaffeineTest" />
       <option name="METHOD_NAME" value="testCaffeine" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PickupDispatchTaskServiceTest.saveTaskPickupDispatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-work-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sigma429.sl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
-      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.PickupDispatchTaskServiceTest" />
-      <option name="METHOD_NAME" value="saveTaskPickupDispatch" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScopeServiceTest.testQueryListByPoint2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-service-scope-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sigma429.sl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sigma429.sl" />
-      <option name="MAIN_CLASS_NAME" value="com.sigma429.sl.ScopeServiceTest" />
-      <option name="METHOD_NAME" value="testQueryListByPoint2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -381,6 +367,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="logistics-gateway/Dockerfile (1)" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="TMS-Logistics">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="logistics-back-code/logistics-gateway/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="logistics-gateway/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="logistics-back-code/logistics-gateway/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="lua.app" factoryName="Lua Application">
       <option name="program" value="lua.exe" />
       <option name="file" value="" />
@@ -392,9 +402,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.logistics-gateway/Dockerfile" />
+      <item itemvalue="Docker.logistics-gateway/Dockerfile (1)" />
       <item itemvalue="JUnit.CaffeineTest.testCaffeine" />
-      <item itemvalue="JUnit.PickupDispatchTaskServiceTest.saveTaskPickupDispatch" />
-      <item itemvalue="JUnit.ScopeServiceTest.testQueryListByPoint2" />
       <item itemvalue="JUnit.TransportInfoServiceTest.queryByTransportOrderId" />
       <item itemvalue="JUnit.TransportInfoServiceTest.saveOrUpdate" />
       <item itemvalue="Spring Boot.BaseApplication" />
@@ -420,11 +430,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.logistics-gateway/Dockerfile (1)" />
+        <item itemvalue="Docker.logistics-gateway/Dockerfile" />
         <item itemvalue="JUnit.CaffeineTest.testCaffeine" />
         <item itemvalue="JUnit.TransportInfoServiceTest.queryByTransportOrderId" />
         <item itemvalue="JUnit.TransportInfoServiceTest.saveOrUpdate" />
-        <item itemvalue="JUnit.PickupDispatchTaskServiceTest.saveTaskPickupDispatch" />
-        <item itemvalue="JUnit.ScopeServiceTest.testQueryListByPoint2" />
       </list>
     </recent_temporary>
   </component>
@@ -472,6 +482,9 @@
       <workItem from="1712656231737" duration="27000" />
       <workItem from="1712656269300" duration="106000" />
       <workItem from="1712656392863" duration="3674000" />
+      <workItem from="1712669274140" duration="4823000" />
+      <workItem from="1712711277196" duration="1387000" />
+      <workItem from="1712736408733" duration="2037000" />
     </task>
     <servers />
   </component>

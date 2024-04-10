@@ -249,11 +249,16 @@ public class CrudOrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> 
         BigDecimal weight = NumberUtil.round(orderPickupDTO.getWeight(), 2);
         OrderCargoDTO cargoDTO = orderCargoService.findByOrderId(orderPickupDTO.getId());
         OrderCargoEntity orderCargoEntity = new OrderCargoEntity();
-        orderCargoEntity.setName(orderPickupDTO.getGoodName());// 货物名称
-        orderCargoEntity.setVolume(volume);// 货品体积，单位m^3
-        orderCargoEntity.setWeight(weight);// 货品重量，单位kg
-        orderCargoEntity.setTotalVolume(volume);// 货品总体积，单位m^3
-        orderCargoEntity.setTotalWeight(weight);// 货品总重量，单位kg
+        // 货物名称
+        orderCargoEntity.setName(orderPickupDTO.getGoodName());
+        // 货品体积，单位m^3
+        orderCargoEntity.setVolume(volume);
+        // 货品重量，单位kg
+        orderCargoEntity.setWeight(weight);
+        // 货品总体积，单位m^3
+        orderCargoEntity.setTotalVolume(volume);
+        // 货品总重量，单位kg
+        orderCargoEntity.setTotalWeight(weight);
         orderCargoEntity.setId(cargoDTO.getId());
         orderCargoService.saveOrUpdate(orderCargoEntity);
     }
