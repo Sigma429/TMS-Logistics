@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../../../common/vendor.js");
-var uni_modules_uniLoadMore_components_uniLoadMore_i18n_index = require("./i18n/index.js");
+const common_vendor = require("../../../../common/vendor.js");
+const uni_modules_uniLoadMore_components_uniLoadMore_i18n_index = require("./i18n/index.js");
 let platform;
 setTimeout(() => {
   platform = common_vendor.index.getSystemInfoSync().platform;
@@ -13,6 +13,7 @@ const _sfc_main = {
   emits: ["clickLoadMore"],
   props: {
     status: {
+      // 上拉的状态：more-loading前；loading-loading中；noMore-没有更多了
       type: String,
       default: "more"
     },
@@ -106,5 +107,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     q: common_vendor.o((...args) => $options.onClick && $options.onClick(...args))
   });
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/uni_modules/uni-load-more/components/uni-load-more/uni-load-more.vue"]]);
 wx.createComponent(Component);

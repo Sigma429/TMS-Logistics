@@ -1,5 +1,5 @@
 "use strict";
-var common_vendor = require("../../../../common/vendor.js");
+const common_vendor = require("../../../../common/vendor.js");
 const _sfc_main = {
   name: "UniNumberBox",
   emits: ["change", "input", "update:modelValue", "blur", "focus"],
@@ -139,5 +139,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     o: $props.background
   };
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue"]]);
 wx.createComponent(Component);

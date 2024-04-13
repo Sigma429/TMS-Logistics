@@ -1,5 +1,5 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
+const common_vendor = require("../../common/vendor.js");
 if (!Array) {
   const _easycom_uni_icons2 = common_vendor.resolveComponent("uni-icons");
   _easycom_uni_icons2();
@@ -54,5 +54,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-39bdeeba"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/components/uni-search/index.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-4d8ef3bb"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/components/uni-search/index.vue"]]);
 wx.createComponent(Component);

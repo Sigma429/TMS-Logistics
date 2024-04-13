@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_order = require("../../pages/api/order.js");
-var utils_index = require("../../utils/index.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_order = require("../../pages/api/order.js");
+const utils_index = require("../../utils/index.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../../pages/api/login.js");
@@ -91,6 +91,7 @@ const _sfc_main = {
             dottedLine: true
           }];
           covers.data = [
+            //起始
             {
               id: 2,
               latitude: points[0].latitude,
@@ -103,9 +104,10 @@ const _sfc_main = {
                 anchorX: 0,
                 display: "ALWAYS"
               },
-              title: "\u59CB\u53D1\u5730",
+              title: "始发地",
               areaName: orderInfo.senderProvince
             },
+            //终点
             {
               id: 1,
               latitude: points[points.length - 1].latitude,
@@ -118,13 +120,14 @@ const _sfc_main = {
                 anchorX: 0,
                 display: "ALWAYS"
               },
-              title: "\u76EE\u7684\u5730",
+              title: "目的地",
               areaName: orderInfo.receiverProvince
             }
           ];
         } else if (res.data.status === 2) {
           findPoint();
           covers.data = [
+            //起始
             {
               id: 2,
               latitude: points[0].latitude,
@@ -137,9 +140,10 @@ const _sfc_main = {
                 anchorX: 0,
                 display: "ALWAYS"
               },
-              title: "\u59CB\u53D1\u5730",
+              title: "始发地",
               areaName: orderInfo.senderProvince
             },
+            //终点
             {
               id: 1,
               latitude: points[points.length - 1].latitude,
@@ -152,9 +156,10 @@ const _sfc_main = {
                 anchorX: 0,
                 display: "ALWAYS"
               },
-              title: "\u76EE\u7684\u5730",
+              title: "目的地",
               areaName: orderInfo.receiverProvince
             },
+            //小车
             {
               id: 4,
               latitude: res.data.lastPoint ? res.data.lastPoint.lat : "",
@@ -167,6 +172,7 @@ const _sfc_main = {
         } else if (res.data.status === 3) {
           findPoint();
           covers.data = [
+            //终点
             {
               id: 1,
               latitude: points[points.length - 1].latitude,
@@ -179,9 +185,10 @@ const _sfc_main = {
                 anchorX: 0,
                 display: "ALWAYS"
               },
-              title: "\u76EE\u7684\u5730",
+              title: "目的地",
               areaName: orderInfo.receiverProvince
             },
+            //快递员
             {
               id: 3,
               latitude: res.data.lastPoint ? res.data.lastPoint.lat : "",
@@ -204,6 +211,7 @@ const _sfc_main = {
             width: 5
           }];
           covers.data = [
+            //起始
             {
               id: 2,
               latitude: points[0].latitude,
@@ -216,9 +224,10 @@ const _sfc_main = {
                 anchorX: 0,
                 display: "ALWAYS"
               },
-              title: "\u59CB\u53D1\u5730",
+              title: "始发地",
               areaName: orderInfo.senderProvince
             },
+            //终点
             {
               id: 1,
               latitude: points[points.length - 1].latitude,
@@ -231,7 +240,7 @@ const _sfc_main = {
                 anchorX: 0,
                 display: "ALWAYS"
               },
-              title: "\u76EE\u7684\u5730",
+              title: "目的地",
               areaName: orderInfo.receiverProvince
             }
           ];
@@ -277,7 +286,7 @@ const _sfc_main = {
           common_vendor.index.hideToast();
           common_vendor.index.hideKeyboard();
           common_vendor.index.showToast({
-            title: "\u590D\u5236\u6210\u529F",
+            title: "复制成功",
             icon: "success",
             duration: 1e3
           });
@@ -308,23 +317,23 @@ const _sfc_main = {
     const showOrderStatus = (status) => {
       switch (status) {
         case 21e3:
-          return "\u5F85\u652F\u4ED8";
+          return "待支付";
         case 23e3:
-          return "\u5F85\u53D6\u4EF6";
+          return "待取件";
         case 230011:
-          return "\u5DF2\u53D6\u6D88";
+          return "已取消";
         case 23001:
-          return "\u5DF2\u53D6\u4EF6";
+          return "已取件";
         case 23005:
-          return "\u8FD0\u9001\u4E2D";
+          return "运送中";
         case 22e3:
-          return "\u5DF2\u5173\u95ED";
+          return "已关闭";
         case 23008:
-          return "\u6D3E\u9001\u4E2D";
+          return "派送中";
         case 23009:
-          return "\u5DF2\u7B7E\u6536";
+          return "已签收";
         case 23010:
-          return "\u5DF2\u62D2\u6536";
+          return "已拒收";
       }
     };
     const logisticsInfo = common_vendor.reactive({
@@ -369,7 +378,7 @@ const _sfc_main = {
         orderInfo.senderAddress = senderProvince.name + senderCity.name + senderCounty.name + senderAddress;
         orderInfo.goods = orderCargoVOS[0].name + (orderCargoVOS[0].goodsType ? "(" + orderCargoVOS[0].goodsType.name + ")" : "");
         orderInfo.goodsWeight = orderCargoVOS[0].totalWeight;
-        orderInfo.paymentMethod = paymentMethod === 1 ? "\u5BC4\u4ED8" : "\u5230\u4ED8";
+        orderInfo.paymentMethod = paymentMethod === 1 ? "寄付" : "到付";
         orderInfo.amount = amount;
         orderInfo.receiverPhone = receiverPhone;
         orderInfo.senderPhone = senderPhone;
@@ -380,7 +389,7 @@ const _sfc_main = {
         orderInfo.id = id;
         logisticsInfo.data = transportOrderPointVOS.reverse();
         if ([23e3, 230011, 22e3].includes(orderStatus.value)) {
-          common_vendor.nextTick(() => {
+          common_vendor.nextTick$1(() => {
             common_vendor.index.createSelectorQuery().select(".send-desc").boundingClientRect((res2) => {
               let height = res2.height;
               let line = height / 15;
@@ -392,7 +401,7 @@ const _sfc_main = {
           getOrderLineFunc();
       }).catch((err) => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -402,7 +411,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
-          title: "\u8BA2\u5355\u8BE6\u60C5"
+          title: "订单详情"
         }),
         b: [23001, 23005, 23008, 23009, 23010].includes(orderStatus.value)
       }, [23001, 23005, 23008, 23009, 23010].includes(orderStatus.value) ? {
@@ -426,7 +435,7 @@ const _sfc_main = {
       } : {}, {
         g: netStatus.value
       }, netStatus.value ? common_vendor.e({
-        h: common_vendor.t([23e3, 22e3, 230011].includes(orderStatus.value) ? "\u8BA2" : "\u8FD0"),
+        h: common_vendor.t([23e3, 22e3, 230011].includes(orderStatus.value) ? "订" : "运"),
         i: common_vendor.t([23e3, 22e3, 230011].includes(orderStatus.value) ? orderInfo.id : orderInfo.transportOrderId),
         j: common_vendor.o(($event) => handleCopy([23e3, 22e3, 230011].includes(orderStatus.value) ? orderInfo.id : orderInfo.transportOrderId)),
         k: [23001, 23005, 23008, 23009, 23010].includes(orderStatus.value)
@@ -441,10 +450,10 @@ const _sfc_main = {
         n: common_vendor.t(showOrderStatus(orderStatus.value)),
         o: [230011, 22e3, 23009, 23010].includes(orderStatus.value)
       }, [230011, 22e3, 23009, 23010].includes(orderStatus.value) ? {
-        p: common_vendor.t(orderStatus.value === 230011 ? "\u53D6\u6D88" : orderStatus.value === 22e3 ? "\u5173\u95ED" : orderStatus.value === 23009 ? "\u7B7E\u6536" : "\u62D2\u7B7E"),
+        p: common_vendor.t(orderStatus.value === 230011 ? "取消" : orderStatus.value === 22e3 ? "关闭" : orderStatus.value === 23009 ? "签收" : "拒签"),
         q: common_vendor.t(common_vendor.unref(utils_index.handleTimeToStrTime)(orderInfo.updated))
       } : {
-        r: common_vendor.t(orderInfo.estimatedStartTime ? orderStatus.value === 23e3 ? "\u9884\u8BA1" + common_vendor.unref(utils_index.handleTimeToStrTime)(orderInfo.estimatedStartTime) + "\u524D\u4E0A\u95E8" : "\u9884\u8BA1" + common_vendor.unref(utils_index.handleTimeToStrTime)(orderInfo.estimatedArrivalTime) + "\u524D\u9001\u8FBE" : "")
+        r: common_vendor.t(orderInfo.estimatedStartTime ? orderStatus.value === 23e3 ? "预计" + common_vendor.unref(utils_index.handleTimeToStrTime)(orderInfo.estimatedStartTime) + "前上门" : "预计" + common_vendor.unref(utils_index.handleTimeToStrTime)(orderInfo.estimatedArrivalTime) + "前送达" : "")
       }, {
         s: common_vendor.t(orderInfo.senderProvince),
         t: common_vendor.n([21e3, 23e3, 23001, 23005, 23008].includes(orderStatus.value) ? "green-arrow" : ""),
@@ -468,20 +477,20 @@ const _sfc_main = {
       } : {
         L: common_vendor.f(logisticsInfo.data, (item, index, i0) => {
           return common_vendor.e({
-            a: ["\u5DF2\u62D2\u6536", "\u5DF2\u7B7E\u6536", "\u5DF2\u53D6\u4EF6"].includes(item.status)
-          }, ["\u5DF2\u62D2\u6536", "\u5DF2\u7B7E\u6536", "\u5DF2\u53D6\u4EF6"].includes(item.status) ? {
-            b: common_vendor.t(item.status === "\u5DF2\u62D2\u6536" ? "\u62D2" : item.status === "\u5DF2\u7B7E\u6536" ? "\u7B7E" : "\u53D6")
-          } : index === 0 && ["\u8FD0\u9001\u4E2D", "\u6D3E\u9001\u4E2D"].includes(item.status) || index > 0 && logisticsInfo.data[index - 1].status !== "\u8FD0\u9001\u4E2D" ? {
-            d: item.status === "\u6D3E\u9001\u4E2D" ? "../../static/paisong.png" : "../../static/yunshuzhong.png"
-          } : index > 0 && logisticsInfo.data[index - 1].status === "\u8FD0\u9001\u4E2D" ? {} : {}, {
-            c: index === 0 && ["\u8FD0\u9001\u4E2D", "\u6D3E\u9001\u4E2D"].includes(item.status) || index > 0 && logisticsInfo.data[index - 1].status !== "\u8FD0\u9001\u4E2D",
-            e: index > 0 && logisticsInfo.data[index - 1].status === "\u8FD0\u9001\u4E2D",
+            a: ["已拒收", "已签收", "已取件"].includes(item.status)
+          }, ["已拒收", "已签收", "已取件"].includes(item.status) ? {
+            b: common_vendor.t(item.status === "已拒收" ? "拒" : item.status === "已签收" ? "签" : "取")
+          } : index === 0 && ["运送中", "派送中"].includes(item.status) || index > 0 && logisticsInfo.data[index - 1].status !== "运送中" ? {
+            d: item.status === "派送中" ? "../../static/paisong.png" : "../../static/yunshuzhong.png"
+          } : index > 0 && logisticsInfo.data[index - 1].status === "运送中" ? {} : {}, {
+            c: index === 0 && ["运送中", "派送中"].includes(item.status) || index > 0 && logisticsInfo.data[index - 1].status !== "运送中",
+            e: index > 0 && logisticsInfo.data[index - 1].status === "运送中",
             f: !(index === logisticsInfo.data.length - 1)
           }, !(index === logisticsInfo.data.length - 1) ? {
-            g: common_vendor.n(item.status === "\u8FD0\u9001\u4E2D" ? "short" : "")
+            g: common_vendor.n(item.status === "运送中" ? "short" : "")
           } : {}, {
-            h: !(index > 0 && logisticsInfo.data[index - 1].status === "\u8FD0\u9001\u4E2D" && item.status === "\u8FD0\u9001\u4E2D")
-          }, !(index > 0 && logisticsInfo.data[index - 1].status === "\u8FD0\u9001\u4E2D" && item.status === "\u8FD0\u9001\u4E2D") ? {
+            h: !(index > 0 && logisticsInfo.data[index - 1].status === "运送中" && item.status === "运送中")
+          }, !(index > 0 && logisticsInfo.data[index - 1].status === "运送中" && item.status === "运送中") ? {
             i: common_vendor.t(item.status)
           } : {}, {
             j: common_vendor.t(item.created),
@@ -507,5 +516,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-7f654b86"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/order-info/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-04f1ac97"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/order-info/index.vue"]]);
 wx.createPage(MiniProgramPage);

@@ -1,7 +1,7 @@
 "use strict";
-var icons = {
+const icons = {
   "id": "2852637",
-  "name": "uniui\u56FE\u6807\u5E93",
+  "name": "uniui图标库",
   "font_family": "uniicons",
   "css_prefix_text": "uniui-",
   "description": "",

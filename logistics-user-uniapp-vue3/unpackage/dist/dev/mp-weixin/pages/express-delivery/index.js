@@ -1,8 +1,8 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_address = require("../api/address.js");
-var pages_api_order = require("../api/order.js");
-var utils_index = require("../../utils/index.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_address = require("../api/address.js");
+const pages_api_order = require("../api/order.js");
+const utils_index = require("../../utils/index.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../api/login.js");
@@ -24,7 +24,7 @@ const _sfc_main = {
     const twoLine = common_vendor.ref();
     const store = common_vendor.useStore();
     const users = store.state.user;
-    const isCanSubmit = common_vendor.computed$1(() => {
+    const isCanSubmit = common_vendor.computed(() => {
       return geterInfo.name && senderInfo.name && goods.goodsName && payMethod.value && toDoorTimeLabel.value;
     });
     const timePicker = common_vendor.ref();
@@ -32,14 +32,18 @@ const _sfc_main = {
     const priceDetail = common_vendor.ref();
     const isSeachPriceDetail = common_vendor.ref(false);
     const toDoorTime = common_vendor.ref("");
-    const toDoorTimeLabel = common_vendor.ref("\u4ECA\u5929 \u4E00\u5C0F\u65F6\u5185");
+    const toDoorTimeLabel = common_vendor.ref("今天 一小时内");
     const payMethod = common_vendor.ref(1);
     const type = common_vendor.ref("");
     const feightPrice = common_vendor.reactive({
       expense: "",
+      //运费
       weight: "",
+      //计算重量
       firstWeight: "",
+      //首重价格
       continuousWeight: ""
+      //续重价格
     });
     const isFromGoods = common_vendor.ref(false);
     const stopClick = common_vendor.ref(false);
@@ -64,8 +68,8 @@ const _sfc_main = {
     });
     let netStatus = common_vendor.ref(true);
     const tabList = common_vendor.reactive([
-      "\u4E0A\u95E8\u53D6\u4EF6",
-      "\u7F51\u70B9\u81EA\u5BC4"
+      "上门取件",
+      "网点自寄"
     ]);
     let activeIndex = common_vendor.ref(0);
     const openAccountRulesDialog = () => {
@@ -101,7 +105,7 @@ const _sfc_main = {
       goods.weight = users.weight;
       goods.goodsName = users.goodsInfo.name;
       goods.goodsType = users.goodsInfo.goodsType ? users.goodsInfo.goodsType.id : "";
-      toDoorTimeLabel.value = users.toDoorTimeLabel || "\u4ECA\u5929 \u4E00\u5C0F\u65F6\u5185";
+      toDoorTimeLabel.value = users.toDoorTimeLabel || "今天 一小时内";
       toDoorTime.value = users.toDoorTime;
       payMethod.value = users.payMethod;
       isFromGoods.value = options.isFromGoods;
@@ -140,7 +144,7 @@ const _sfc_main = {
             senderInfo.areaLabel = res.data.province.name + " " + res.data.city.name + " " + res.data.county.name;
             common_vendor.index.setStorageSync("sendId", res.data.id);
             netStatus.value = true;
-            common_vendor.nextTick(() => {
+            common_vendor.nextTick$1(() => {
               common_vendor.index.createSelectorQuery().select(".send-desc").boundingClientRect((res2) => {
                 let height = res2.height;
                 let line = height / 15;
@@ -150,7 +154,7 @@ const _sfc_main = {
           }
         }).catch((err) => {
           common_vendor.index.showToast({
-            title: "\u7F51\u7EDC\u5F02\u5E38",
+            title: "网络异常",
             duration: 2e3,
             icon: "none"
           });
@@ -179,7 +183,7 @@ const _sfc_main = {
           geterInfo.address = address;
           geterInfo.areaLabel = province.name + " " + city.name + " " + county.name;
         }
-        common_vendor.nextTick(() => {
+        common_vendor.nextTick$1(() => {
           common_vendor.index.createSelectorQuery().select(".send-desc").boundingClientRect((res2) => {
             let height = res2.height;
             let line = height / 15;
@@ -208,7 +212,7 @@ const _sfc_main = {
       store.commit("user/setFirstWeight", 0);
       store.commit("user/setContinuousWeight", 0);
       store.commit("user/setToDoorTimeLabel", "");
-      store.commit("user/setToDoorTime", String(new Date().getFullYear()) + "-" + String(new Date().getMonth() + 1) + "-" + new Date().getDate() + " " + String(new Date().getHours() + 1) + ":" + String(Number(new Date().getMinutes()) < 10 ? "0" + Number(new Date().getMinutes()) : Number(new Date().getMinutes())) + ":00");
+      store.commit("user/setToDoorTime", String((/* @__PURE__ */ new Date()).getFullYear()) + "-" + String((/* @__PURE__ */ new Date()).getMonth() + 1) + "-" + (/* @__PURE__ */ new Date()).getDate() + " " + String((/* @__PURE__ */ new Date()).getHours() + 1) + ":" + String(Number((/* @__PURE__ */ new Date()).getMinutes()) < 10 ? "0" + Number((/* @__PURE__ */ new Date()).getMinutes()) : Number((/* @__PURE__ */ new Date()).getMinutes())) + ":00");
       store.commit("user/setWeight", 1);
       store.commit("user/setPayMethod", 1);
     };
@@ -246,18 +250,19 @@ const _sfc_main = {
         return;
       }
       stopClick.value = true;
-      console.log(goods, "\u4E0B\u5355");
+      console.log(goods, "下单");
       pages_api_order.doOrder({
         goodNum: 1,
         goodsName: goods.goodsName,
         goodsType: goods.goodsType,
         payMethod: payMethod.value,
-        pickUpTime: toDoorTimeLabel.value === "\u4ECA\u5929 \u4E00\u5C0F\u65F6\u5185" ? String(new Date().getFullYear()) + "-" + String(new Date().getMonth() + 1) + "-" + new Date().getDate() + " " + String(new Date().getHours() + 1) + ":" + String(Number(new Date().getMinutes()) < 10 ? "0" + Number(new Date().getMinutes()) : Number(new Date().getMinutes())) + ":00" : users.toDoorTime,
+        pickUpTime: toDoorTimeLabel.value === "今天 一小时内" ? String((/* @__PURE__ */ new Date()).getFullYear()) + "-" + String((/* @__PURE__ */ new Date()).getMonth() + 1) + "-" + (/* @__PURE__ */ new Date()).getDate() + " " + String((/* @__PURE__ */ new Date()).getHours() + 1) + ":" + String(Number((/* @__PURE__ */ new Date()).getMinutes()) < 10 ? "0" + Number((/* @__PURE__ */ new Date()).getMinutes()) : Number((/* @__PURE__ */ new Date()).getMinutes())) + ":00" : users.toDoorTime,
         totalVolume: goods.volume,
         totalWeight: goods.weight,
         receiptAddress: common_vendor.index.getStorageSync("getId"),
         sendAddress: sendAddress.value || common_vendor.index.getStorageSync("sendId"),
         pickupType: 0
+        //0上门取件，1网点自寄
       }).then((res) => {
         console.log(res, "resss");
         if (res.code !== 200) {
@@ -283,7 +288,9 @@ const _sfc_main = {
     const toSendAddressInfo = () => {
       if (sendAddress.value || common_vendor.index.getStorageSync("sendId")) {
         common_vendor.index.navigateTo({
-          url: "/subPages/address-info/index?type=send&editOrAdd=edit&id=" + common_vendor.index.getStorageSync("sendId")
+          url: "/subPages/address-info/index?type=send&editOrAdd=edit&id=" + common_vendor.index.getStorageSync(
+            "sendId"
+          )
         });
       } else {
         common_vendor.index.navigateTo({
@@ -294,7 +301,9 @@ const _sfc_main = {
     const toGetAddressInfo = () => {
       if (common_vendor.index.getStorageSync("getId")) {
         common_vendor.index.navigateTo({
-          url: "/subPages/address-info/index?type=get&editOrAdd=edit&id=" + common_vendor.index.getStorageSync("getId")
+          url: "/subPages/address-info/index?type=get&editOrAdd=edit&id=" + common_vendor.index.getStorageSync(
+            "getId"
+          )
         });
       } else {
         common_vendor.index.navigateTo({
@@ -304,7 +313,7 @@ const _sfc_main = {
     };
     const getTime = (value) => {
       toDoorTimeLabel.value = value.selectedDayLabel + " " + value.selectedTimeLabel;
-      toDoorTime.value = String(new Date().getFullYear()) + "-" + String(new Date().getMonth() + 1) + "-" + (new Date().getDate() + value.selectedDay + " " + String((value.selectedTime === 1 ? new Date().getHours() + 1 : value.selectedTime) + ":00:00"));
+      toDoorTime.value = String((/* @__PURE__ */ new Date()).getFullYear()) + "-" + String((/* @__PURE__ */ new Date()).getMonth() + 1) + "-" + ((/* @__PURE__ */ new Date()).getDate() + value.selectedDay + " " + String((value.selectedTime === 1 ? (/* @__PURE__ */ new Date()).getHours() + 1 : value.selectedTime) + ":00:00"));
       store.commit("user/setToDoorTimeLabel", toDoorTimeLabel.value);
       store.commit("user/setToDoorTime", toDoorTime.value);
     };
@@ -313,7 +322,7 @@ const _sfc_main = {
       store.commit("user/setPayMethod", value);
     };
     const calcFreight = () => {
-      console.log(goods, "\u8BA1\u7B97\u8FD0\u8D39");
+      console.log(goods, "计算运费");
       pages_api_order.getEstimatePrice({
         goodNum: 1,
         goodsName: goods.goodsName,
@@ -325,6 +334,7 @@ const _sfc_main = {
         receiptAddress: common_vendor.index.getStorageSync("getId"),
         sendAddress: common_vendor.index.getStorageSync("sendId"),
         pickupType: 0
+        //0上门取件，1网点自寄
       }).then((res) => {
         if (res.code == 200) {
           store.commit("user/setExpense", res.data.expense);
@@ -347,26 +357,26 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
-          title: "\u5BC4\u5FEB\u9012",
+          title: "寄快递",
           handleToLink
         }),
         b: common_vendor.unref(netStatus)
       }, common_vendor.unref(netStatus) ? common_vendor.e({
         c: twoLine.value >= 2 ? 1 : "",
-        d: common_vendor.t(senderInfo.name ? senderInfo.name : "\u5BC4\u4EF6\u4EBA\u4FE1\u606F"),
+        d: common_vendor.t(senderInfo.name ? senderInfo.name : "寄件人信息"),
         e: senderInfo.phone
       }, senderInfo.phone ? {
         f: common_vendor.t(senderInfo.phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2"))
       } : {}, {
-        g: common_vendor.t(senderInfo.address ? senderInfo.areaLabel + senderInfo.address : "\u53BB\u586B\u5199"),
+        g: common_vendor.t(senderInfo.address ? senderInfo.areaLabel + senderInfo.address : "去填写"),
         h: common_vendor.o(toSendAddressInfo),
         i: common_vendor.o(($event) => handleToAddress("send")),
-        j: common_vendor.t(geterInfo.name ? geterInfo.name : "\u6536\u4EF6\u4EBA\u4FE1\u606F"),
+        j: common_vendor.t(geterInfo.name ? geterInfo.name : "收件人信息"),
         k: geterInfo.phone
       }, geterInfo.phone ? {
         l: common_vendor.t(geterInfo.phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2"))
       } : {}, {
-        m: common_vendor.t(geterInfo.address ? geterInfo.areaLabel + geterInfo.address : "\u53BB\u586B\u5199"),
+        m: common_vendor.t(geterInfo.address ? geterInfo.areaLabel + geterInfo.address : "去填写"),
         n: common_vendor.o(toGetAddressInfo),
         o: common_vendor.o(($event) => handleToAddress("get")),
         p: common_vendor.f(tabList, (item, index, i0) => {
@@ -380,21 +390,21 @@ const _sfc_main = {
         q: common_vendor.n(common_vendor.unref(activeIndex) === 1 ? "active" : ""),
         r: common_vendor.unref(activeIndex) === 0
       }, common_vendor.unref(activeIndex) === 0 ? {
-        s: common_vendor.t(toDoorTimeLabel.value ? toDoorTimeLabel.value : "\u8BF7\u9009\u62E9"),
+        s: common_vendor.t(toDoorTimeLabel.value ? toDoorTimeLabel.value : "请选择"),
         t: common_vendor.n(toDoorTimeLabel.value ? "active" : ""),
         v: common_vendor.o(handleGetTime),
-        w: common_vendor.t(goods.goodsName ? goods.goodsName + ", " + (goods.weight + "\u516C\u65A4") + (goods.volume ? ", " + (dealWithVolume(goods.volume / 1e6) + "m\xB3") : "") : "\u8BF7\u9009\u62E9"),
+        w: common_vendor.t(goods.goodsName ? goods.goodsName + ", " + (goods.weight + "公斤") + (goods.volume ? ", " + (dealWithVolume(goods.volume / 1e6) + "m³") : "") : "请选择"),
         x: common_vendor.n(goods.goodsName ? "active" : ""),
         y: common_vendor.o(handleToGoodsInfo),
-        z: common_vendor.t(payMethod.value === 1 ? "\u5BC4\u4ED8" : payMethod.value === 2 ? "\u5230\u4ED8" : "\u8BF7\u9009\u62E9"),
+        z: common_vendor.t(payMethod.value === 1 ? "寄付" : payMethod.value === 2 ? "到付" : "请选择"),
         A: common_vendor.n(payMethod.value ? "active" : ""),
         B: common_vendor.o(handleToPayType)
       } : {}, {
-        C: common_vendor.sr(timePicker, "69a7bdc6-1", {
+        C: common_vendor.sr(timePicker, "15e40fe0-1", {
           "k": "timePicker"
         }),
         D: common_vendor.o(getTime),
-        E: common_vendor.sr(payType, "69a7bdc6-2", {
+        E: common_vendor.sr(payType, "15e40fe0-2", {
           "k": "payType"
         }),
         F: common_vendor.o(getPayType),
@@ -409,7 +419,7 @@ const _sfc_main = {
         O: common_vendor.t(feightPrice.firstWeight),
         P: common_vendor.t(feightPrice.continuousWeight),
         Q: common_vendor.t(feightPrice.weight),
-        R: common_vendor.sr(priceDetail, "69a7bdc6-3", {
+        R: common_vendor.sr(priceDetail, "15e40fe0-3", {
           "k": "priceDetail"
         }),
         S: common_vendor.p({
@@ -423,5 +433,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/express-delivery/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/express-delivery/index.vue"]]);
 wx.createPage(MiniProgramPage);

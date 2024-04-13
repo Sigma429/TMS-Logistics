@@ -1,5 +1,5 @@
 "use strict";
-var common_vendor = require("../../../common/vendor.js");
+const common_vendor = require("../../../common/vendor.js");
 if (!Array) {
   const _easycom_uni_number_box2 = common_vendor.resolveComponent("uni-number-box");
   _easycom_uni_number_box2();
@@ -74,7 +74,7 @@ const _sfc_main = {
           isExceed.value = true;
           value = 9999;
           common_vendor.index.showToast({
-            title: "\u91CD\u91CF\u6700\u5927\u53EF\u4E0D\u80FD\u8D85\u8FC79999kg",
+            title: "重量最大可不能超过9999kg",
             duration: 1e3,
             icon: "none"
           });
@@ -96,7 +96,7 @@ const _sfc_main = {
           isExceedVolume.value = true;
           value = 999;
           common_vendor.index.showToast({
-            title: "\u4F53\u79EF\u6700\u5927\u53EF\u4E0D\u80FD\u8D85\u8FC7999m\xB3",
+            title: "体积最大可不能超过999m³",
             duration: 1e3,
             icon: "none"
           });
@@ -193,5 +193,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-0d4e98f8"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/goodsInfo/components/weightAndVolume.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-ca2b4eaa"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/goodsInfo/components/weightAndVolume.vue"]]);
 wx.createComponent(Component);

@@ -1,5 +1,5 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
+const common_vendor = require("../../common/vendor.js");
 if (!Array) {
   const _component_nav_bar = common_vendor.resolveComponent("nav-bar");
   _component_nav_bar();
@@ -24,7 +24,7 @@ const _sfc_main = {
     common_vendor.onMounted(() => {
       goods.info = users.goodsInfo;
     });
-    const isActive = common_vendor.computed$1(() => {
+    const isActive = common_vendor.computed(() => {
       return Boolean(users.goodsInfo.name);
     });
     const isShowOther = (flag, type) => {
@@ -51,7 +51,7 @@ const _sfc_main = {
     const confirm = () => {
       if (!goods.info.name) {
         return common_vendor.index.showToast({
-          title: "\u8BF7\u9009\u62E9\u7269\u54C1",
+          title: "请选择物品",
           duration: 1e3,
           icon: "none"
         });
@@ -63,7 +63,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
-          title: "\u7269\u54C1\u4FE1\u606F"
+          title: "物品信息"
         }),
         b: common_vendor.o(getGoodsInfo),
         c: common_vendor.p({
@@ -84,5 +84,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/goodsInfo/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/goodsInfo/index.vue"]]);
 wx.createPage(MiniProgramPage);

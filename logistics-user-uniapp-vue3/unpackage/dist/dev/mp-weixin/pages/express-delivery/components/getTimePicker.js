@@ -1,5 +1,5 @@
 "use strict";
-var common_vendor = require("../../../common/vendor.js");
+const common_vendor = require("../../../common/vendor.js");
 if (!Array) {
   const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
   _easycom_uni_popup2();
@@ -15,25 +15,30 @@ const _sfc_main = {
     const popup = common_vendor.ref();
     let scrollTop = common_vendor.ref(0);
     let selectedDay = common_vendor.ref(0);
-    let selectedDayLabel = common_vendor.ref("\u4ECA\u5929");
+    let selectedDayLabel = common_vendor.ref("今天");
     let selectedTime = common_vendor.ref(0);
     let selectedTimeLabel = common_vendor.ref();
-    const selectDay = common_vendor.reactive(["\u4ECA\u5929", "\u660E\u5929", "\u540E\u5929"]);
+    const selectDay = common_vendor.reactive(["今天", "明天", "后天"]);
     let todayList = common_vendor.reactive({
       todos: [{
-        label: "\u4E00\u5C0F\u65F6\u5185",
+        label: "一小时内",
         value: 1
       }]
     });
     common_vendor.onMounted(() => {
-      todayList.todos = [...todayList.todos.concat(dateList.filter((item) => item.value > new Date().getHours()))];
+      todayList.todos = [...todayList.todos.concat(
+        dateList.filter((item) => item.value > (/* @__PURE__ */ new Date()).getHours())
+      )];
     });
-    const dateList = common_vendor.reactive(Array.from({
-      length: 11
-    }, (v, k) => ({
-      label: `${k + 9}:00-${k + 10}:00`,
-      value: k + 9
-    })));
+    const dateList = common_vendor.reactive(
+      // 弹窗中的时间列表
+      Array.from({
+        length: 11
+      }, (v, k) => ({
+        label: `${k + 9}:00-${k + 10}:00`,
+        value: k + 9
+      }))
+    );
     const scroll = (e) => {
       scrollTop.value = e.detail.scrollTop;
     };
@@ -86,7 +91,7 @@ const _sfc_main = {
         }),
         d: common_vendor.unref(scrollTop),
         e: common_vendor.o(scroll),
-        f: common_vendor.sr(popup, "d7737426-0", {
+        f: common_vendor.sr(popup, "83f22e93-0", {
           "k": "popup"
         }),
         g: common_vendor.p({
@@ -97,5 +102,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-d7737426"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/express-delivery/components/getTimePicker.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-83f22e93"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/express-delivery/components/getTimePicker.vue"]]);
 wx.createComponent(Component);

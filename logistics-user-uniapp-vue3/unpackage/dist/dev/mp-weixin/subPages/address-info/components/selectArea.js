@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../../common/vendor.js");
-var pages_api_order = require("../../../pages/api/order.js");
+const common_vendor = require("../../../common/vendor.js");
+const pages_api_order = require("../../../pages/api/order.js");
 require("../../../utils/request.js");
 require("../../../utils/env.js");
 require("../../../pages/api/login.js");
@@ -37,7 +37,7 @@ const _sfc_main = {
     });
     let selectedProvince = common_vendor.reactive({
       data: {
-        name: "\u5317\u4EAC\u5E02",
+        name: "北京市",
         id: "1"
       }
     });
@@ -46,7 +46,7 @@ const _sfc_main = {
     });
     let selectedCity = common_vendor.reactive({
       data: {
-        name: "\u76F4\u8F96\u5E02",
+        name: "直辖市",
         id: "2"
       }
     });
@@ -55,7 +55,7 @@ const _sfc_main = {
     });
     let selectedArea = common_vendor.reactive({
       data: {
-        name: "\u4E1C\u57CE\u533A",
+        name: "东城区",
         id: "3"
       }
     });
@@ -65,25 +65,25 @@ const _sfc_main = {
     let hotCityIndex = common_vendor.ref("");
     const cityList = common_vendor.reactive([
       {
-        label: "\u5317\u4EAC",
+        label: "北京",
         provinceId: "1",
         cityId: "2",
         countyId: "3"
       },
       {
-        label: "\u4E0A\u6D77",
+        label: "上海",
         provinceId: "161792",
         cityId: "161793",
         countyId: "161794"
       },
       {
-        label: "\u5E7F\u5DDE",
+        label: "广州",
         provinceId: "483250",
         cityId: "483251",
         countyId: "483252"
       },
       {
-        label: "\u6DF1\u5733",
+        label: "深圳",
         provinceId: "483250",
         cityId: "487721",
         countyId: "487722"
@@ -121,17 +121,17 @@ const _sfc_main = {
       }).then((res) => {
         type.data = res.data;
         if (type === province) {
-          common_vendor.nextTick(() => {
+          common_vendor.nextTick$1(() => {
             selectedProvince.data = res.data.filter((item) => item.id == placeIdItem.provinceId)[0] || res.data[0];
             areaIndex.data[0] = res.data.findIndex((item) => item.id == placeIdItem.provinceId);
           });
         } else if (type === city) {
-          common_vendor.nextTick(() => {
+          common_vendor.nextTick$1(() => {
             selectedCity.data = res.data.filter((item) => item.id == placeIdItem.cityId)[0] || res.data[0];
             areaIndex.data[1] = res.data.findIndex((item) => item.id == placeIdItem.cityId);
           });
         } else if (type === area) {
-          common_vendor.nextTick(() => {
+          common_vendor.nextTick$1(() => {
             selectedArea.data = res.data.filter((item) => item.id == placeIdItem.countyId)[0] || res.data[0];
             areaIndex.data[2] = res.data.findIndex((item) => item.id == placeIdItem.countyId);
           });
@@ -209,7 +209,7 @@ const _sfc_main = {
         h: common_vendor.o(bindChange),
         i: common_vendor.o(handlePickStart),
         j: common_vendor.o(confirm),
-        k: common_vendor.sr(popup, "7dfaf907-0", {
+        k: common_vendor.sr(popup, "73210372-0", {
           "k": "popup"
         }),
         l: common_vendor.p({
@@ -219,5 +219,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-7dfaf907"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/address-info/components/selectArea.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-73210372"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/address-info/components/selectArea.vue"]]);
 wx.createComponent(Component);

@@ -1,25 +1,6 @@
 "use strict";
-var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var uni_modules_uniTransition_components_uniTransition_createAnimation = require("./createAnimation.js");
-var common_vendor = require("../../../../common/vendor.js");
+const uni_modules_uniTransition_components_uniTransition_createAnimation = require("./createAnimation.js");
+const common_vendor = require("../../../../common/vendor.js");
 const _sfc_main = {
   name: "uniTransition",
   emits: ["click", "change"],
@@ -74,10 +55,12 @@ const _sfc_main = {
     }
   },
   computed: {
+    // 生成样式数据
     stylesObject() {
-      let styles = __spreadProps(__spreadValues({}, this.styles), {
+      let styles = {
+        ...this.styles,
         "transition-duration": this.duration / 1e3 + "s"
-      });
+      };
       let transform = "";
       for (let i in styles) {
         let line = this.toLine(i);
@@ -85,6 +68,7 @@ const _sfc_main = {
       }
       return transform;
     },
+    // 初始化动画条件
     transformStyles() {
       return "transform:" + this.transform + ";opacity:" + this.opacity + ";" + this.stylesObject;
     }
@@ -99,17 +83,27 @@ const _sfc_main = {
     this.durationTime = this.duration;
   },
   methods: {
+    /**
+     *  ref 触发 初始化动画
+     */
     init(obj = {}) {
       if (obj.duration) {
         this.durationTime = obj.duration;
       }
       this.animation = uni_modules_uniTransition_components_uniTransition_createAnimation.createAnimation(Object.assign(this.config, obj), this);
     },
+    /**
+     * 点击组件触发回调
+     */
     onClick() {
       this.$emit("click", {
         detail: this.isShow
       });
     },
+    /**
+     * ref 触发 动画分组
+     * @param {Object} obj
+     */
     step(obj, config = {}) {
       if (!this.animation)
         return;
@@ -121,17 +115,21 @@ const _sfc_main = {
             this.animation[i](obj[i]);
           }
         } catch (e) {
-          console.error(`\u65B9\u6CD5 ${i} \u4E0D\u5B58\u5728`);
+          console.error(`方法 ${i} 不存在`);
         }
       }
       this.animation.step(config);
       return this;
     },
+    /**
+     *  ref 触发 执行动画
+     */
     run(fn) {
       if (!this.animation)
         return;
       this.animation.run(fn);
     },
+    // 开始过度动画
     open() {
       clearTimeout(this.timer);
       this.transform = "";
@@ -152,6 +150,7 @@ const _sfc_main = {
         }, 20);
       });
     },
+    // 关闭过度动画
     close(type) {
       if (!this.animation)
         return;
@@ -167,6 +166,7 @@ const _sfc_main = {
         });
       });
     },
+    // 处理动画开始前的默认样式
     styleInit(type) {
       let styles = {
         transform: ""
@@ -187,6 +187,7 @@ const _sfc_main = {
       }
       return styles;
     },
+    // 处理内置组合动画
     tranfromInit(type) {
       let buildTranfrom = (type2, mode) => {
         let aniNum = null;
@@ -229,6 +230,7 @@ const _sfc_main = {
         "zoom-out": `scaleX(${type ? 1 : 1.2}) scaleY(${type ? 1 : 1.2})`
       };
     },
+    // 内置动画类型与实际动画对应字典
     animationMode() {
       return {
         fade: "opacity",
@@ -240,6 +242,7 @@ const _sfc_main = {
         "zoom-out": "scale"
       };
     },
+    // 驼峰转中横线
     toLine(name) {
       return name.replace(/([A-Z])/g, "-$1").toLowerCase();
     }
@@ -255,5 +258,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     e: common_vendor.o((...args) => $options.onClick && $options.onClick(...args))
   } : {});
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/uni_modules/uni-transition/components/uni-transition/uni-transition.vue"]]);
 wx.createComponent(Component);

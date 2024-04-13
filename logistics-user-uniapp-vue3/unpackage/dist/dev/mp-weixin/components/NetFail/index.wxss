@@ -1,19 +1,19 @@
 /* 水平间距 */
 /* 水平间距 */
-.net-fail .net-fail-image.data-v-33ea5bd3 {
+.net-fail .net-fail-image.data-v-44cb6724 {
   width: 400rpx;
   height: 240rpx;
   margin: 0 auto;
   display: block;
   margin-top: 310rpx;
 }
-.net-fail .tips.data-v-33ea5bd3 {
+.net-fail .tips.data-v-44cb6724 {
   text-align: center;
   font-size: 28rpx;
   color: #818181;
   margin-top: 40rpx;
 }
-.net-fail .btn.data-v-33ea5bd3 {
+.net-fail .btn.data-v-44cb6724 {
   width: 240rpx;
   height: 88rpx;
   line-height: 88rpx;

@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_order = require("../../pages/api/order.js");
-var utils_index = require("../../utils/index.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_order = require("../../pages/api/order.js");
+const utils_index = require("../../utils/index.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../../pages/api/login.js");
@@ -45,7 +45,7 @@ const _sfc_main = {
     };
     const handleSecondQi = () => {
       common_vendor.index.showToast({
-        title: "\u7A0B\u5E8F\u5458\u54E5\u54E5\u6B63\u5728\u5B9E\u73B0\u4E2D",
+        title: "程序员哥哥正在实现中",
         icon: "none",
         duration: 1e3
       });
@@ -77,11 +77,11 @@ const _sfc_main = {
         orderInfo.senderAddress = senderProvince.name + senderCity.name + senderCounty.name + senderAddress;
         orderInfo.goods = orderCargoVOS[0].name + (orderCargoVOS[0].goodsType ? "(" + orderCargoVOS[0].goodsType.name + ")" : "");
         orderInfo.goodsWeight = orderCargoVOS[0].totalWeight;
-        orderInfo.paymentMethod = paymentMethod === 1 ? "\u5BC4\u4ED8" : "\u5230\u4ED8";
+        orderInfo.paymentMethod = paymentMethod === 1 ? "寄付" : "到付";
         orderInfo.amount = amount;
         orderInfo.receiverPhone = receiverPhone;
         orderInfo.senderPhone = senderPhone;
-        common_vendor.nextTick(() => {
+        common_vendor.nextTick$1(() => {
           common_vendor.index.createSelectorQuery().select(".send-desc").boundingClientRect((res2) => {
             let height = res2.height;
             let line = height / 15;
@@ -93,7 +93,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
-          title: "\u4E0B\u5355\u6210\u529F",
+          title: "下单成功",
           handleToLink,
           src: "../../static/order-success-goBack.png"
         }),
@@ -120,5 +120,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-56fe3aea"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/order-success/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-4a336843"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/order-success/index.vue"]]);
 wx.createPage(MiniProgramPage);

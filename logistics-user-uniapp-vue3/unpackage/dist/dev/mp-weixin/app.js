@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("./common/vendor.js");
-var store_index = require("./store/index.js");
+const common_vendor = require("./common/vendor.js");
+const store_index = require("./store/index.js");
 require("./store/modules/global.js");
 require("./store/modules/user.js");
 require("./pages/api/user.js");
@@ -31,7 +31,7 @@ const _sfc_main = {
     };
   }
 };
-var App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/App.vue"]]);
+const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/App.vue"]]);
 const NavBar = () => "./components/Navbar/index.js";
 const NetFail = () => "./components/NetFail/index.js";
 const app = common_vendor.createApp(App);

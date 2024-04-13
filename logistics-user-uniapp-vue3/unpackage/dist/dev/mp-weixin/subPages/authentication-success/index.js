@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_my = require("../../pages/api/my.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_my = require("../../pages/api/my.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../../pages/api/login.js");
@@ -49,7 +49,7 @@ const _sfc_main = {
           });
         } else {
           common_vendor.index.showToast({
-            title: "\u5220\u9664\u6210\u529F",
+            title: "删除成功",
             icon: "none",
             duration: 1e3
           });
@@ -61,7 +61,7 @@ const _sfc_main = {
         }
       }).catch(() => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -83,12 +83,12 @@ const _sfc_main = {
         i: common_vendor.p({
           type: "info",
           cancelColor: "red",
-          cancelText: "\u53D6\u6D88",
-          confirmText: "\u786E\u5B9A",
-          title: "\u786E\u5B9A\u5220\u9664\u5B9E\u540D\u4FE1\u606F\u5417\uFF1F",
-          content: "\u5220\u9664\u540E\uFF0C\u5BC4\u4EF6\u65F6\u9700\u51FA\u793A\u8EAB\u4EFD\u8BC1\u4EF6\u4F9B\r\n\u5FEB\u9012\u5458\u91CD\u65B0\u91C7\u96C6\u8EAB\u4EFD\u4FE1\u606F"
+          cancelText: "取消",
+          confirmText: "确定",
+          title: "确定删除实名信息吗？",
+          content: "删除后，寄件时需出示身份证件供\r\n快递员重新采集身份信息"
         }),
-        j: common_vendor.sr(alertDialog, "5f422b5e-0", {
+        j: common_vendor.sr(alertDialog, "7df2a3e3-0", {
           "k": "alertDialog"
         }),
         k: common_vendor.p({
@@ -98,5 +98,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-5f422b5e"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/authentication-success/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-7df2a3e3"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/authentication-success/index.vue"]]);
 wx.createPage(MiniProgramPage);

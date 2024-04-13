@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../../../common/vendor.js");
-var pages_api_order = require("../../api/order.js");
-var utils_index = require("../../../utils/index.js");
+const common_vendor = require("../../../common/vendor.js");
+const pages_api_order = require("../../api/order.js");
+const utils_index = require("../../../utils/index.js");
 require("../../../utils/request.js");
 require("../../../utils/env.js");
 require("../../api/login.js");
@@ -51,7 +51,7 @@ const _sfc_main = {
           common_vendor.index.hideToast();
           common_vendor.index.hideKeyboard();
           common_vendor.index.showToast({
-            title: "\u590D\u5236\u6210\u529F",
+            title: "复制成功",
             icon: "success",
             duration: 1e3
           });
@@ -65,13 +65,13 @@ const _sfc_main = {
         pageInfo.pageSize = 10;
         getOrderListFunc();
         common_vendor.index.showToast({
-          title: "\u5220\u9664\u6210\u529F",
+          title: "删除成功",
           icon: "success",
           duration: 1e3
         });
       }).catch((err) => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -111,23 +111,23 @@ const _sfc_main = {
     const showOrderStatus = (status2) => {
       switch (status2) {
         case 21e3:
-          return "\u5F85\u652F\u4ED8";
+          return "待支付";
         case 23e3:
-          return "\u5F85\u53D6\u4EF6";
+          return "待取件";
         case 230011:
-          return "\u5DF2\u53D6\u6D88";
+          return "已取消";
         case 23001:
-          return "\u5DF2\u53D6\u4EF6";
+          return "已取件";
         case 23005:
-          return "\u8FD0\u9001\u4E2D";
+          return "运送中";
         case 22e3:
-          return "\u5DF2\u5173\u95ED";
+          return "已关闭";
         case 23008:
-          return "\u6D3E\u9001\u4E2D";
+          return "派送中";
         case 23009:
-          return "\u5DF2\u7B7E\u6536";
+          return "已签收";
         case 23010:
-          return "\u5DF2\u62D2\u6536";
+          return "已拒收";
       }
     };
     const handleToOrderInfo = (event, id, transportOrderId) => {
@@ -159,9 +159,9 @@ const _sfc_main = {
       } : !common_vendor.unref(allOrderList).data.length && common_vendor.unref(isLogin) ? {} : {
         d: common_vendor.f(common_vendor.unref(allOrderList).data, (item, index, i0) => {
           return common_vendor.e({
-            a: common_vendor.t([23e3, 22e3, 230011].includes(item.status) ? "\u8BA2" : "\u8FD0"),
+            a: common_vendor.t([23e3, 22e3, 230011].includes(item.status) ? "订" : "运"),
             b: common_vendor.t([23e3, 22e3, 230011].includes(item.status) ? item.id : item.transportOrderId),
-            c: common_vendor.o(($event) => handleCopy([23e3, 22e3, 230011].includes(item.status) ? item.id : item.transportOrderId)),
+            c: common_vendor.o(($event) => handleCopy([23e3, 22e3, 230011].includes(item.status) ? item.id : item.transportOrderId), index),
             d: common_vendor.t(item.senderCity.name),
             e: common_vendor.t(item.senderName),
             f: common_vendor.t(showOrderStatus(item.status)),
@@ -210,41 +210,41 @@ const _sfc_main = {
           }, [23e3, 23001, 23005, 23008, 23010].includes(item.status) ? {} : {}, {
             F: item.status === 23e3
           }, item.status === 23e3 ? {
-            G: common_vendor.o(($event) => handleOrderCancel(item.id))
+            G: common_vendor.o(($event) => handleOrderCancel(item.id), index)
           } : {}, {
             H: [22e3, 230011, 23009].includes(item.status)
           }, [22e3, 230011, 23009].includes(item.status) ? {
-            I: common_vendor.o(($event) => handleOrderDelete(item.id))
+            I: common_vendor.o(($event) => handleOrderDelete(item.id), index)
           } : {}, {
-            J: item.paymentStatus && [23001, 23005, 23008, 23009, 23010].includes(item.status)
+            J: common_vendor.o((...args) => common_vendor.unref(utils_index.handleSecondQi) && common_vendor.unref(utils_index.handleSecondQi)(...args), index),
+            K: item.paymentStatus && [23001, 23005, 23008, 23009, 23010].includes(item.status)
           }, item.paymentStatus && [23001, 23005, 23008, 23009, 23010].includes(item.status) ? {
-            K: item.paymentStatus === 1 ? "../../../static/daizhifu.png" : "../../../static/yizhifu.png"
+            L: item.paymentStatus === 1 ? "../../../static/daizhifu.png" : "../../../static/yizhifu.png"
           } : {}, {
-            L: index,
-            M: common_vendor.o(($event) => handleToOrderInfo(_ctx.event, item.id, item.transportOrderId), index)
+            M: index,
+            N: common_vendor.o(($event) => handleToOrderInfo(_ctx.event, item.id, item.transportOrderId), index)
           });
         }),
-        e: common_vendor.o((...args) => common_vendor.unref(utils_index.handleSecondQi) && common_vendor.unref(utils_index.handleSecondQi)(...args)),
-        f: common_vendor.o(handleSeeMore)
+        e: common_vendor.o(handleSeeMore)
       }, {
         c: !common_vendor.unref(allOrderList).data.length && common_vendor.unref(isLogin),
-        g: common_vendor.o(close),
-        h: common_vendor.o(confirm),
-        i: common_vendor.p({
+        f: common_vendor.o(close),
+        g: common_vendor.o(confirm),
+        h: common_vendor.p({
           mode: "base",
-          content: "\u786E\u5B9A\u662F\u5426\u5220\u9664\u6B64\u6761\u8BA2\u5355\uFF1F",
+          content: "确定是否删除此条订单？",
           animation: false,
           ["before-close"]: true
         }),
-        j: common_vendor.sr(popup, "ed4d4cae-0", {
+        i: common_vendor.sr(popup, "584c4a6f-0", {
           "k": "popup"
         }),
-        k: common_vendor.p({
+        j: common_vendor.p({
           type: "dialog"
         })
       });
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-ed4d4cae"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/index/components/orderList.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-584c4a6f"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/index/components/orderList.vue"]]);
 wx.createComponent(Component);

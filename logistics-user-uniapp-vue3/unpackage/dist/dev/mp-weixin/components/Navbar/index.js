@@ -1,5 +1,5 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
+const common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   __name: "index",
   props: {
@@ -8,6 +8,7 @@ const _sfc_main = {
       default: ""
     },
     handleToLink: {
+      //用于自定义跳转
       type: Function
     },
     src: {
@@ -52,5 +53,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-6e7b2b6e"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/components/Navbar/index.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-e4fdf528"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/components/Navbar/index.vue"]]);
 wx.createComponent(Component);

@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_address = require("../../pages/api/address.js");
-var pages_api_my = require("../../pages/api/my.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_address = require("../../pages/api/address.js");
+const pages_api_my = require("../../pages/api/my.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../../pages/api/login.js");
@@ -32,13 +32,15 @@ const _sfc_main = {
     const addressType = common_vendor.ref();
     const editOrAdd = common_vendor.ref();
     const id = common_vendor.ref("");
-    const isConfirm = common_vendor.computed$1(() => {
-      return Boolean(formName.value) && Boolean(formPhone.value) && Boolean(formAddressInfo.value) && areaLabel.value !== "\u57CE\u5E02/\u5730\u533A";
+    const isConfirm = common_vendor.computed(() => {
+      return Boolean(formName.value) && Boolean(formPhone.value) && Boolean(formAddressInfo.value) && areaLabel.value !== "城市/地区";
     });
-    const isReset = common_vendor.computed$1(() => {
-      return Boolean(formName.value) || Boolean(formPhone.value) || Boolean(formAddressInfo.value) || Boolean(provinceId.value);
+    const isReset = common_vendor.computed(() => {
+      return Boolean(formName.value) || Boolean(formPhone.value) || Boolean(formAddressInfo.value) || Boolean(
+        provinceId.value
+      );
     });
-    const areaLabel = common_vendor.ref("\u57CE\u5E02/\u5730\u533A");
+    const areaLabel = common_vendor.ref("城市/地区");
     const isRealNameAuth = common_vendor.ref(true);
     common_vendor.onLoad((options) => {
       if (options.id) {
@@ -48,7 +50,7 @@ const _sfc_main = {
       id.value = options.id || "";
       type.value = options.type;
       isFromAddress.value = options.isFromAddress;
-      title.value = options.type === "address" ? "\u7F16\u8F91\u5730\u5740" : options.type === "send" ? "\u5BC4\u4EF6\u4EBA\u5730\u5740\u586B\u5199" : "\u6536\u4EF6\u4EBA\u5730\u5740\u586B\u5199";
+      title.value = options.type === "address" ? "编辑地址" : options.type === "send" ? "寄件人地址填写" : "收件人地址填写";
       isDefaultAddress.value = options.isDefault === "0" ? false : true;
     });
     common_vendor.onMounted(() => {
@@ -127,7 +129,7 @@ const _sfc_main = {
       formAddressInfo.value = "";
       formName.value = "";
       formPhone.value = "";
-      areaLabel.value = "\u57CE\u5E02/\u5730\u533A";
+      areaLabel.value = "城市/地区";
     };
     const handleToLink = () => {
       common_vendor.index.navigateBack();
@@ -136,17 +138,17 @@ const _sfc_main = {
       console.log();
       if (!isConfirm.value) {
         common_vendor.index.showToast({
-          title: "\u8BF7\u5C06\u4FE1\u606F\u586B\u5199\u5B8C\u6574",
+          title: "请将信息填写完整",
           icon: "none"
         });
       } else if (!/^1[3456789]\d{9}$/.test(formPhone.value)) {
         common_vendor.index.showToast({
-          title: "\u8BF7\u586B\u5199\u6B63\u786E\u7684\u624B\u673A\u53F7\u7801\u683C\u5F0F",
+          title: "请填写正确的手机号码格式",
           icon: "none"
         });
       } else if (formName.value.length < 2) {
         common_vendor.index.showToast({
-          title: "\u59D3\u540D\u5B57\u6570\u957F\u5EA6\u4E3A2-10",
+          title: "姓名字数长度为2-10",
           icon: "none"
         });
       } else {
@@ -163,7 +165,7 @@ const _sfc_main = {
             isDefault: isDefaultAddress.value ? 1 : 0
           }).then((res) => {
             common_vendor.index.showToast({
-              title: "\u64CD\u4F5C\u6210\u529F",
+              title: "操作成功",
               icon: "success"
             });
             if (isFromAddress.value === "true") {
@@ -190,7 +192,7 @@ const _sfc_main = {
             isDefault: isDefaultAddress.value ? 1 : 0
           }).then((res) => {
             common_vendor.index.showToast({
-              title: "\u64CD\u4F5C\u6210\u529F",
+              title: "操作成功",
               icon: "success"
             });
             if (isFromAddress.value === "true") {
@@ -214,7 +216,7 @@ const _sfc_main = {
         }),
         b: type.value !== "get" && editOrAdd.value !== "add"
       }, type.value !== "get" && editOrAdd.value !== "add" ? common_vendor.e({
-        c: common_vendor.t(!isRealNameAuth.value ? "\u6839\u636E\u56FD\u5BB6\u6CD5\u5F8B\u6CD5\u89C4\u8981\u6C42\uFF0C\u5BC4\u4EF6\u4EBA\u540D\u79F0\u987B\u4E0E\u5B9E\u540D\u4FE1\u606F\u4E00\u81F4\u3002\u60A8\u53EF\u4EE5\u5728\u4E0B\u5355\u524D\u8BA4\u8BC1\u6216\u73B0\u573A\u51FA\u793A\u8BC1\u4EF6" : "\u6839\u636E\u56FD\u5BB6\u6CD5\u5F8B\u6CD5\u89C4\u8981\u6C42\uFF0C\u5BC4\u4EF6\u4EBA\u540D\u79F0\u987B\u4E0E\u5B9E\u540D\u4FE1\u606F\u4E00\u81F4\u3002"),
+        c: common_vendor.t(!isRealNameAuth.value ? "根据国家法律法规要求，寄件人名称须与实名信息一致。您可以在下单前认证或现场出示证件" : "根据国家法律法规要求，寄件人名称须与实名信息一致。"),
         d: common_vendor.n(type.value === "get" ? "active" : ""),
         e: !isRealNameAuth.value && type.value !== "get"
       }, !isRealNameAuth.value && type.value !== "get" ? {
@@ -227,7 +229,7 @@ const _sfc_main = {
         i: type.value === "send"
       }, type.value === "send" ? {} : type.value === "get" ? {} : {}, {
         j: type.value === "get",
-        k: common_vendor.t(type.value === "send" ? "\u5BC4" : "\u6536"),
+        k: common_vendor.t(type.value === "send" ? "寄" : "收"),
         l: common_vendor.o(toAddress)
       }), {
         m: common_vendor.n(formName.value !== "" ? "active" : ""),
@@ -237,22 +239,22 @@ const _sfc_main = {
         q: common_vendor.o(handleFormPhone),
         r: formPhone.value,
         s: common_vendor.t(areaLabel.value),
-        t: common_vendor.n(areaLabel.value !== "\u57CE\u5E02/\u5730\u533A" ? "active" : ""),
+        t: common_vendor.n(areaLabel.value !== "城市/地区" ? "active" : ""),
         v: common_vendor.o(handledSelectArea),
         w: common_vendor.n(formAddressInfo.value !== "" ? "active" : ""),
         x: formAddressInfo.value,
         y: common_vendor.o(handleFormAddressInfo),
         z: (isFromAddress.value ? isDefaultAddress.value : isSaveToAddress.value) ? 1 : "",
-        A: common_vendor.t(isFromAddress.value ? "\u8BBE\u4E3A\u9ED8\u8BA4\u5BC4\u4EF6\u5730\u5740" : "\u4FDD\u5B58\u5230\u5730\u5740\u7C3F"),
+        A: common_vendor.t(isFromAddress.value ? "设为默认寄件地址" : "保存到地址簿"),
         B: common_vendor.o(handleSaveToAddress),
         C: common_vendor.o(reset),
         D: common_vendor.n(common_vendor.unref(isReset) ? "active" : ""),
         E: common_vendor.o(submit),
         F: common_vendor.p({
-          btnText: "\u786E\u5B9A",
+          btnText: "确定",
           isActive: common_vendor.unref(isConfirm)
         }),
-        G: common_vendor.sr(selectArea, "3ff5d8d2-2", {
+        G: common_vendor.sr(selectArea, "b08e797b-2", {
           "k": "selectArea"
         }),
         H: common_vendor.o(getAreaData),
@@ -266,5 +268,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-3ff5d8d2"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/address-info/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-b08e797b"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/address-info/index.vue"]]);
 wx.createPage(MiniProgramPage);

@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../common/vendor.js");
-var utils_env = require("./env.js");
-var pages_api_login = require("../pages/api/login.js");
+const common_vendor = require("../common/vendor.js");
+const utils_env = require("./env.js");
+const pages_api_login = require("../pages/api/login.js");
 function request({
   url = "",
   params = {},
@@ -76,7 +76,7 @@ function request({
                 } else {
                   resolve();
                   common_vendor.index.showToast({
-                    title: res2.msg || "\u7F51\u7EDC\u5F02\u5E38",
+                    title: res2.msg || "网络异常",
                     duration: 2e3,
                     icon: "none"
                   });
@@ -96,7 +96,7 @@ function request({
             common_vendor.index.removeStorageSync("token");
             common_vendor.index.removeStorageSync("refreshToken");
             common_vendor.index.showToast({
-              title: res.data.msg || "\u5237\u65B0token\u5931\u8D25\uFF0C\u8BF7\u91CD\u65B0\u767B\u5F55.",
+              title: res.data.msg || "刷新token失败，请重新登录.",
               icon: "none",
               duration: 1e3,
               success: () => {
@@ -112,7 +112,7 @@ function request({
           }
         }).catch((err) => {
           common_vendor.index.showToast({
-            title: "\u7F51\u7EDC\u5F02\u5E38",
+            title: "网络异常",
             duration: 2e3,
             icon: "none"
           });
@@ -121,7 +121,7 @@ function request({
     } else if (errorCode == 500) {
       if (common_vendor.index.getStorageSync("token") == "") {
         common_vendor.index.showToast({
-          title: "\u8BF7\u5148\u767B\u5F55",
+          title: "请先登录",
           icon: "none",
           duration: 2e3,
           success: () => {

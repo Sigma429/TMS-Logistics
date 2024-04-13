@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../../../common/vendor.js");
-var uni_modules_uniSearchBar_components_uniSearchBar_i18n_index = require("./i18n/index.js");
+const common_vendor = require("../../../../common/vendor.js");
+const uni_modules_uniSearchBar_components_uniSearchBar_i18n_index = require("./i18n/index.js");
 const {
   t
 } = common_vendor.initVueI18n(uni_modules_uniSearchBar_components_uniSearchBar_i18n_index.messages);
@@ -26,7 +26,7 @@ const _sfc_main = {
     },
     cancelText: {
       type: String,
-      default: "\u53D6\u6D88"
+      default: "取消"
     },
     bgColor: {
       type: String,
@@ -189,5 +189,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     v: common_vendor.o((...args) => $options.cancel && $options.cancel(...args))
   } : {});
 }
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.vue"]]);
 wx.createComponent(Component);

@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../../common/vendor.js");
-var pages_api_order = require("../../api/order.js");
+const common_vendor = require("../../../common/vendor.js");
+const pages_api_order = require("../../api/order.js");
 require("../../../utils/request.js");
 require("../../../utils/env.js");
 require("../../api/login.js");
@@ -57,7 +57,7 @@ const _sfc_main = {
         }
       }).catch((err) => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -71,7 +71,7 @@ const _sfc_main = {
         }
       }).catch((err) => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -168,7 +168,7 @@ const _sfc_main = {
         i: common_vendor.p({
           cancelButton: isFocus.value && searchValue.value ? "none" : "auto",
           focus: isFocus.value,
-          placeholder: "\u8BF7\u8F93\u5165\u641C\u7D22\u5185\u5BB9",
+          placeholder: "请输入搜索内容",
           modelValue: searchValue.value
         }),
         j: searchValue.value && isFocus.value
@@ -217,7 +217,7 @@ const _sfc_main = {
         })
       } : {}, {
         x: common_vendor.o(closeForbidGoodsDialog),
-        y: common_vendor.sr(popup, "62a3a6e9-1", {
+        y: common_vendor.sr(popup, "3e490897-1", {
           "k": "popup"
         }),
         z: common_vendor.p({
@@ -228,5 +228,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-62a3a6e9"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/goodsInfo/components/goodsSearch.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-3e490897"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/goodsInfo/components/goodsSearch.vue"]]);
 wx.createComponent(Component);

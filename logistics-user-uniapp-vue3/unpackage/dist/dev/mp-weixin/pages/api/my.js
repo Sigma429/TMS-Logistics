@@ -1,5 +1,5 @@
 "use strict";
-var utils_request = require("../../utils/request.js");
+const utils_request = require("../../utils/request.js");
 const getUserInfo = (params) => utils_request.request({
   url: `/user/profile`,
   method: "get",

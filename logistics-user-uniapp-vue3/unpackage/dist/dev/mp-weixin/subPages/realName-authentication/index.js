@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var utils_validate = require("../../utils/validate.js");
-var pages_api_my = require("../../pages/api/my.js");
+const common_vendor = require("../../common/vendor.js");
+const utils_validate = require("../../utils/validate.js");
+const pages_api_my = require("../../pages/api/my.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../../pages/api/login.js");
@@ -12,13 +12,13 @@ if (!Array) {
 const _sfc_main = {
   __name: "index",
   setup(__props) {
-    let namePlaceholder = common_vendor.ref("\u8BF7\u586B\u5199");
-    let idcardPlaceholder = common_vendor.ref("\u8BF7\u586B\u5199");
+    let namePlaceholder = common_vendor.ref("请填写");
+    let idcardPlaceholder = common_vendor.ref("请填写");
     let showClearIconName = common_vendor.ref(false);
     let showClearIcon = common_vendor.ref(false);
     let nameInputValue = common_vendor.ref("");
     let inputClearValue = common_vendor.ref("");
-    const isCanAuth = common_vendor.computed$1(() => {
+    const isCanAuth = common_vendor.computed(() => {
       return utils_validate.validateIdentityCard(inputClearValue.value) && nameInputValue.value;
     });
     const clearInput = (event) => {
@@ -27,7 +27,7 @@ const _sfc_main = {
         showClearIcon.value = true;
       } else {
         showClearIcon.value = false;
-        idcardPlaceholder.value = "\u8BF7\u586B\u5199";
+        idcardPlaceholder.value = "请填写";
       }
     };
     const clearInputName = (event) => {
@@ -36,29 +36,29 @@ const _sfc_main = {
         showClearIconName.value = true;
       } else {
         showClearIconName.value = false;
-        namePlaceholder.value = "\u8BF7\u586B\u5199";
+        namePlaceholder.value = "请填写";
       }
     };
     const clearIconName = () => {
       nameInputValue.value = "";
       showClearIconName.value = false;
-      namePlaceholder.value = "\u8BF7\u586B\u5199";
+      namePlaceholder.value = "请填写";
       if (!inputClearValue.value) {
-        idcardPlaceholder.value = "\u8BF7\u586B\u5199";
+        idcardPlaceholder.value = "请填写";
       }
     };
     const clearIcon = () => {
       inputClearValue.value = "";
       showClearIcon.value = false;
-      idcardPlaceholder.value = "\u8BF7\u586B\u5199";
+      idcardPlaceholder.value = "请填写";
       if (!nameInputValue.value) {
-        namePlaceholder.value = "\u8BF7\u586B\u5199";
+        namePlaceholder.value = "请填写";
       }
     };
     const doAuth = () => {
       if (!isCanAuth.value) {
         return common_vendor.index.showToast({
-          title: "\u4FE1\u606F\u586B\u5199\u4E0D\u5B8C\u6574",
+          title: "信息填写不完整",
           icon: "none",
           duration: 1e3
         });
@@ -76,7 +76,7 @@ const _sfc_main = {
           });
         } else {
           common_vendor.index.showToast({
-            title: "\u8BA4\u8BC1\u6210\u529F",
+            title: "认证成功",
             icon: "none",
             duration: 1e3
           });
@@ -88,7 +88,7 @@ const _sfc_main = {
         }
       }).catch(() => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -97,7 +97,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
-          title: "\u5B9E\u540D\u8BA4\u8BC1"
+          title: "实名认证"
         }),
         b: common_vendor.o(clearInputName),
         c: common_vendor.unref(nameInputValue),
@@ -119,5 +119,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-71333222"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/realName-authentication/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-c8907c37"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/realName-authentication/index.vue"]]);
 wx.createPage(MiniProgramPage);

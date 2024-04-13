@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_my = require("../api/my.js");
-var utils_index = require("../../utils/index.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_my = require("../api/my.js");
+const utils_index = require("../../utils/index.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../api/login.js");
@@ -9,7 +9,7 @@ const _sfc_main = {
   __name: "index",
   setup(__props) {
     const token = common_vendor.ref();
-    const sexList = common_vendor.reactive(["\u5973", "\u7537"]);
+    const sexList = common_vendor.reactive(["女", "男"]);
     let nickName = common_vendor.ref("");
     let avatarUrl = common_vendor.ref("");
     let startDate = common_vendor.ref();
@@ -22,7 +22,7 @@ const _sfc_main = {
     common_vendor.onShow(() => {
       startDate.value = getDate("start");
       endDate.value = getDate("end");
-      nickName.value = common_vendor.index.getStorageSync("nickName") || "\u795E\u9886\u7528\u6237";
+      nickName.value = common_vendor.index.getStorageSync("nickName") || "神领用户";
       avatarUrl.value = common_vendor.index.getStorageSync("avatarUrl") || "../../static/defaultHeadImg.png";
       token.value = common_vendor.index.getStorageSync("token");
       baseUserInfo();
@@ -49,7 +49,7 @@ const _sfc_main = {
       });
     };
     const getDate = (type) => {
-      const date = new Date();
+      const date = /* @__PURE__ */ new Date();
       let year = date.getFullYear();
       let month = date.getMonth() + 1;
       let day = date.getDate();
@@ -99,7 +99,7 @@ const _sfc_main = {
         baseUserInfo();
       }).catch((err) => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -112,7 +112,7 @@ const _sfc_main = {
         baseUserInfo();
       }).catch((err) => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -128,7 +128,7 @@ const _sfc_main = {
         f: common_vendor.o((...args) => common_vendor.unref(utils_index.handleSecondQi) && common_vendor.unref(utils_index.handleSecondQi)(...args)),
         g: token.value
       }, token.value ? {
-        h: common_vendor.t(common_vendor.unref(sex) ? "\u7537" : "\u5973"),
+        h: common_vendor.t(common_vendor.unref(sex) ? "男" : "女"),
         i: common_vendor.o(changeSex),
         j: common_vendor.unref(sex),
         k: sexList,
@@ -145,5 +145,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-4dcceeb0"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/my/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-f97bc692"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/my/index.vue"]]);
 wx.createPage(MiniProgramPage);

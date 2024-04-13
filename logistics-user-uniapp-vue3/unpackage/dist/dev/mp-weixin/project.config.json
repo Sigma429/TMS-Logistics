@@ -33,9 +33,7 @@
     },
     "disableUseStrict": false,
     "useCompilerPlugins": false,
-    "minifyWXML": true,
-    "skylineRenderEnable": false,
-    "condition": false
+    "minifyWXML": true
   },
   "editorSetting": {
     "tabIndent": "insertSpaces",

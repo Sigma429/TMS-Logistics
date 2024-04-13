@@ -1,26 +1,26 @@
 "use strict";
-var en = {
+const en = {
   "uni-popup.cancel": "cancel",
   "uni-popup.ok": "ok",
   "uni-popup.placeholder": "pleace enter",
   "uni-popup.title": "Hint",
   "uni-popup.shareTitle": "Share to"
 };
-var zhHans = {
-  "uni-popup.cancel": "\u53D6\u6D88",
-  "uni-popup.ok": "\u786E\u5B9A",
-  "uni-popup.placeholder": "\u8BF7\u8F93\u5165",
-  "uni-popup.title": "\u63D0\u793A",
-  "uni-popup.shareTitle": "\u5206\u4EAB\u5230"
+const zhHans = {
+  "uni-popup.cancel": "取消",
+  "uni-popup.ok": "确定",
+  "uni-popup.placeholder": "请输入",
+  "uni-popup.title": "提示",
+  "uni-popup.shareTitle": "分享到"
 };
-var zhHant = {
-  "uni-popup.cancel": "\u53D6\u6D88",
-  "uni-popup.ok": "\u78BA\u5B9A",
-  "uni-popup.placeholder": "\u8ACB\u8F38\u5165",
-  "uni-popup.title": "\u63D0\u793A",
-  "uni-popup.shareTitle": "\u5206\u4EAB\u5230"
+const zhHant = {
+  "uni-popup.cancel": "取消",
+  "uni-popup.ok": "確定",
+  "uni-popup.placeholder": "請輸入",
+  "uni-popup.title": "提示",
+  "uni-popup.shareTitle": "分享到"
 };
-var messages = {
+const messages = {
   en,
   "zh-Hans": zhHans,
   "zh-Hant": zhHant

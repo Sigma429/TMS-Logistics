@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_address = require("../api/address.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_address = require("../api/address.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../api/login.js");
@@ -30,9 +30,11 @@ const _sfc_main = {
     let isManage = common_vendor.ref(false);
     let deleteIds = common_vendor.reactive({
       data: []
+      //删除的地址id集合
     });
     let list = common_vendor.reactive({
       data: []
+      //列表数据
     });
     let pageInfo = common_vendor.reactive({
       page: 1,
@@ -81,22 +83,23 @@ const _sfc_main = {
         getList();
         if (res.code === 200) {
           common_vendor.index.showToast({
-            title: "\u4FEE\u6539\u6210\u529F",
+            title: "修改成功",
             icon: "none",
             duration: 1e3,
             type: "success"
           });
         } else {
           common_vendor.index.showToast({
-            title: "\u4FEE\u6539\u6210\u529F",
+            title: "修改成功",
             icon: "none",
             duration: 1e3,
+            //提示的延迟时间，单位毫秒，默认：1500
             type: "error"
           });
         }
       }).catch(() => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -117,14 +120,14 @@ const _sfc_main = {
       } else if (type.value === "get") {
         if (common_vendor.index.getStorageSync("sendId") === id)
           return common_vendor.index.showToast({
-            title: "\u5BC4\u4EF6\u5730\u5740\u548C\u6536\u4EF6\u5730\u5740\u4E0D\u80FD\u9009\u62E9\u540C\u4E00\u4E2A",
+            title: "寄件地址和收件地址不能选择同一个",
             icon: "none",
             duration: 1e3
           });
       } else {
         if (common_vendor.index.getStorageSync("getId") === id)
           return common_vendor.index.showToast({
-            title: "\u5BC4\u4EF6\u5730\u5740\u548C\u6536\u4EF6\u5730\u5740\u4E0D\u80FD\u9009\u62E9\u540C\u4E00\u4E2A",
+            title: "寄件地址和收件地址不能选择同一个",
             icon: "none",
             duration: 1e3
           });
@@ -175,7 +178,7 @@ const _sfc_main = {
         console.log(456);
       }).catch((err) => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -211,14 +214,14 @@ const _sfc_main = {
         pageInfo.pageSize = 10;
         getList();
         common_vendor.index.showToast({
-          title: "\u5220\u9664\u6210\u529F",
+          title: "删除成功",
           icon: "success",
           duration: 1e3
         });
         isManage.value = false;
       }).catch(() => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -245,7 +248,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.p({
-          title: "\u5730\u5740\u7C3F",
+          title: "地址簿",
           handleToLink
         }),
         b: common_vendor.unref(netStatus)
@@ -256,7 +259,7 @@ const _sfc_main = {
         f: common_vendor.o(($event) => common_vendor.isRef(searchValue) ? searchValue.value = $event : searchValue = $event),
         g: common_vendor.p({
           cancelButton: "none",
-          placeholder: "\u8BF7\u8F93\u5165\u59D3\u540D/\u624B\u673A\u53F7",
+          placeholder: "请输入姓名/手机号",
           modelValue: common_vendor.unref(searchValue)
         }),
         h: common_vendor.unref(list).data.length > 0
@@ -271,10 +274,10 @@ const _sfc_main = {
             e: common_vendor.t(item.province ? item.province.name + item.city.name + item.county.name + item.address : "")
           }, common_vendor.unref(type) !== "get" ? {
             f: Boolean(item.isDefault) ? 1 : "",
-            g: common_vendor.o(($event) => handleSaveToDefaultAddress(item.id, item.isDefault))
+            g: common_vendor.o(($event) => handleSaveToDefaultAddress(item.id, item.isDefault), index)
           } : {}, {
-            h: common_vendor.o(($event) => handleEditAddress(item)),
-            i: common_vendor.o(($event) => handledDelete(item.id)),
+            h: common_vendor.o(($event) => handleEditAddress(item), index),
+            i: common_vendor.o(($event) => handledDelete(item.id), index),
             j: common_vendor.o(($event) => common_vendor.unref(isManage) ? checkbox(index) : handleToAddressInfo(item.id), index),
             k: index
           });
@@ -291,7 +294,7 @@ const _sfc_main = {
         q: common_vendor.s(common_vendor.unref(scrollHeight)),
         r: common_vendor.o(LoadMoreCustomers)
       } : {
-        s: common_vendor.t(common_vendor.unref(searchValue) ? "\u6CA1\u6709\u641C\u7D22\u5230\u76F8\u5173\u6761\u4EF6\u7684\u5730\u5740" : "\u6682\u65E0\u6570\u636E")
+        s: common_vendor.t(common_vendor.unref(searchValue) ? "没有搜索到相关条件的地址" : "暂无数据")
       }, {
         t: common_vendor.unref(isManage)
       }, common_vendor.unref(isManage) ? {
@@ -300,10 +303,10 @@ const _sfc_main = {
       } : {}, {
         x: common_vendor.unref(list).data.length > 0
       }, common_vendor.unref(list).data.length > 0 ? {
-        y: common_vendor.t(common_vendor.unref(isManage) ? "\u5B8C\u6210" : "\u7BA1\u7406"),
+        y: common_vendor.t(common_vendor.unref(isManage) ? "完成" : "管理"),
         z: common_vendor.o(handleEdit)
       } : {}, {
-        A: common_vendor.t(common_vendor.unref(isManage) ? "\u5220\u9664" : "\u65B0\u589E\u5730\u5740"),
+        A: common_vendor.t(common_vendor.unref(isManage) ? "删除" : "新增地址"),
         B: common_vendor.n(common_vendor.unref(isManage) && common_vendor.unref(deleteIds).data.length || !common_vendor.unref(isManage) ? "active" : ""),
         C: common_vendor.o(handleDeleteOrAdd)
       }) : {
@@ -315,11 +318,11 @@ const _sfc_main = {
         F: common_vendor.o(confirm),
         G: common_vendor.p({
           mode: "base",
-          content: common_vendor.unref(isManage) ? "\u786E\u5B9A\u662F\u5426\u5220\u9664\u6240\u9009\u5730\u5740\uFF1F" : "\u786E\u5B9A\u662F\u5426\u5220\u9664\u6B64\u6761\u5730\u5740\uFF1F",
+          content: common_vendor.unref(isManage) ? "确定是否删除所选地址？" : "确定是否删除此条地址？",
           animation: false,
           ["before-close"]: true
         }),
-        H: common_vendor.sr(popup, "5f170bce-4", {
+        H: common_vendor.sr(popup, "c47feaaa-4", {
           "k": "popup"
         }),
         I: common_vendor.p({
@@ -329,5 +332,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-5f170bce"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/address/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-c47feaaa"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/address/index.vue"]]);
 wx.createPage(MiniProgramPage);

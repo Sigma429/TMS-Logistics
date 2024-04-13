@@ -1,5 +1,5 @@
 "use strict";
-var common_vendor = require("../../../common/vendor.js");
+const common_vendor = require("../../../common/vendor.js");
 if (!Array) {
   const _easycom_uni_popup2 = common_vendor.resolveComponent("uni-popup");
   _easycom_uni_popup2();
@@ -16,13 +16,13 @@ const _sfc_main = {
     const payType = common_vendor.ref(1);
     const list = common_vendor.reactive([
       {
-        title: "\u5BC4\u4ED8",
-        subTitle: "\u5FEB\u9012\u5458\u53D6\u4EF6\u65F6\uFF0C\u5BC4\u65B9\u53EF\u5728\u7EBF\u652F\u4ED8\u3001\u626B\u5FEB\u9012\u5458\u6536\u6B3E\u7801\u8FDB\u884C\u652F\u4ED8",
+        title: "寄付",
+        subTitle: "快递员取件时，寄方可在线支付、扫快递员收款码进行支付",
         value: 1
       },
       {
-        title: "\u5230\u4ED8",
-        subTitle: "\u5FEB\u9012\u7B7E\u6536\u540E\uFF0C\u6536\u65B9\u53EF\u901A\u8FC7\u626B\u5FEB\u9012\u5458\u6536\u6B3E\u7801\u8FDB\u884C\u652F\u4ED8",
+        title: "到付",
+        subTitle: "快递签收后，收方可通过扫快递员收款码进行支付",
         value: 2
       }
     ]);
@@ -52,7 +52,7 @@ const _sfc_main = {
           };
         }),
         c: common_vendor.o(handleCancel),
-        d: common_vendor.sr(popup, "3e8a4ebe-0", {
+        d: common_vendor.sr(popup, "2c26eb8d-0", {
           "k": "popup"
         }),
         e: common_vendor.p({
@@ -63,5 +63,5 @@ const _sfc_main = {
     };
   }
 };
-var Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-3e8a4ebe"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/express-delivery/components/payType.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-2c26eb8d"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/express-delivery/components/payType.vue"]]);
 wx.createComponent(Component);

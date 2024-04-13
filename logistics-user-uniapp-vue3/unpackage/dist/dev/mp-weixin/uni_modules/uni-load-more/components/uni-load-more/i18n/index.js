@@ -1,20 +1,20 @@
 "use strict";
-var en = {
+const en = {
   "uni-load-more.contentdown": "Pull up to show more",
   "uni-load-more.contentrefresh": "loading...",
   "uni-load-more.contentnomore": "No more data"
 };
-var zhHans = {
-  "uni-load-more.contentdown": "\u4E0A\u62C9\u663E\u793A\u66F4\u591A",
-  "uni-load-more.contentrefresh": "\u6B63\u5728\u52A0\u8F7D...",
-  "uni-load-more.contentnomore": "\u6CA1\u6709\u66F4\u591A\u6570\u636E\u4E86"
+const zhHans = {
+  "uni-load-more.contentdown": "上拉显示更多",
+  "uni-load-more.contentrefresh": "正在加载...",
+  "uni-load-more.contentnomore": "没有更多数据了"
 };
-var zhHant = {
-  "uni-load-more.contentdown": "\u4E0A\u62C9\u986F\u793A\u66F4\u591A",
-  "uni-load-more.contentrefresh": "\u6B63\u5728\u52A0\u8F09...",
-  "uni-load-more.contentnomore": "\u6C92\u6709\u66F4\u591A\u6578\u64DA\u4E86"
+const zhHant = {
+  "uni-load-more.contentdown": "上拉顯示更多",
+  "uni-load-more.contentrefresh": "正在加載...",
+  "uni-load-more.contentnomore": "沒有更多數據了"
 };
-var messages = {
+const messages = {
   en,
   "zh-Hans": zhHans,
   "zh-Hant": zhHant

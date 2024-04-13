@@ -2,11 +2,11 @@
 const DeliveryData = [
   {
     value: 1,
-    label: "\u5BC4\u4EF6"
+    label: "寄件"
   },
   {
     value: 2,
-    label: "\u6536\u4EF6"
+    label: "收件"
   }
 ];
 exports.DeliveryData = DeliveryData;

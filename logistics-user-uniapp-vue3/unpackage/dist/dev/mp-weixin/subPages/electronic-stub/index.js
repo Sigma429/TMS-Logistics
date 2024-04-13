@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_order = require("../../pages/api/order.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_order = require("../../pages/api/order.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../../pages/api/login.js");
@@ -71,7 +71,7 @@ const _sfc_main = {
         orderInfo.senderAddress = senderProvince.name + senderCity.name + senderCounty.name + senderAddress;
         orderInfo.goods = orderCargoVOS[0].name + (orderCargoVOS[0].goodsType ? "(" + orderCargoVOS[0].goodsType.name + ")" : "");
         orderInfo.goodsWeight = orderCargoVOS[0].totalWeight;
-        orderInfo.paymentMethod = paymentMethod === 1 ? "\u5BC4\u4ED8" : "\u5230\u4ED8";
+        orderInfo.paymentMethod = paymentMethod === 1 ? "寄付" : "到付";
         orderInfo.amount = amount;
         orderInfo.receiverPhone = receiverPhone;
         orderInfo.senderPhone = senderPhone;
@@ -85,7 +85,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
-          title: "\u7535\u5B50\u5B58\u6839"
+          title: "电子存根"
         }),
         b: common_vendor.unref(orderInfo).barCode,
         c: common_vendor.t(common_vendor.unref(orderInfo).transportOrderId),
@@ -109,5 +109,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-eccf7176"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/electronic-stub/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-21625d67"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/electronic-stub/index.vue"]]);
 wx.createPage(MiniProgramPage);

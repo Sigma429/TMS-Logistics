@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_order = require("../../pages/api/order.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_order = require("../../pages/api/order.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../../pages/api/login.js");
@@ -19,56 +19,60 @@ const _sfc_main = {
     const customerReason = common_vendor.reactive([
       {
         value: 1,
-        label: "\u8BA1\u5212\u6709\u53D8\uFF0C\u4E0D\u9700\u8981\u5BC4\u4E86"
+        label: "计划有变，不需要寄了"
       },
       {
         value: 2,
-        label: "\u6362\u4E2A\u65F6\u95F4\u518D\u5BC4"
+        label: "换个时间再寄"
       },
       {
         value: 3,
-        label: "\u53BB\u670D\u52A1\u70B9\u81EA\u5BC4"
+        label: "去服务点自寄"
       }
     ]);
-    const senderReason = common_vendor.reactive([
-      {
-        value: 4,
-        label: "\u9001\u8FBE\u65F6\u95F4\u4E0D\u80FD\u8FBE\u5230\u6211\u7684\u8981\u6C42"
-      },
-      {
-        value: 5,
-        label: "\u8FD0\u8D39\u592A\u8D35\u4E86"
-      },
-      {
-        value: 6,
-        label: "\u5FEB\u9012\u5458\u672A\u53CA\u65F6\u53D6\u4EF6"
-      },
-      {
-        value: 7,
-        label: "\u5FEB\u9012\u5458\u4E0D\u4E0A\u95E8"
-      },
-      {
-        value: 8,
-        label: "\u5FEB\u9012\u5458\u670D\u52A1\u6001\u5EA6\u5DEE"
-      }
-    ]);
+    const senderReason = common_vendor.reactive(
+      [
+        {
+          value: 4,
+          label: "送达时间不能达到我的要求"
+        },
+        {
+          value: 5,
+          label: "运费太贵了"
+        },
+        {
+          value: 6,
+          label: "快递员未及时取件"
+        },
+        {
+          value: 7,
+          label: "快递员不上门"
+        },
+        {
+          value: 8,
+          label: "快递员服务态度差"
+        }
+      ]
+    );
     const handleConfirmCancel = () => {
-      pages_api_order.cancelOrder(orderId.value).then((res) => {
-        common_vendor.index.showToast({
-          title: "\u53D6\u6D88\u6210\u529F",
-          icon: "none",
-          success: () => {
-          },
-          duration: 2e3
-        });
-        setTimeout(() => {
-          common_vendor.index.switchTab({
-            url: "/pages/index/index"
+      pages_api_order.cancelOrder(orderId.value).then(
+        (res) => {
+          common_vendor.index.showToast({
+            title: "取消成功",
+            icon: "none",
+            success: () => {
+            },
+            duration: 2e3
           });
-        }, 2500);
-      }).catch(() => {
+          setTimeout(() => {
+            common_vendor.index.switchTab({
+              url: "/pages/index/index"
+            });
+          }, 2500);
+        }
+      ).catch(() => {
         common_vendor.index.showToast({
-          title: "\u7F51\u7EDC\u5F02\u5E38",
+          title: "网络异常",
           duration: 2e3,
           icon: "none"
         });
@@ -83,7 +87,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
-          title: "\u53D6\u6D88\u8BA2\u5355"
+          title: "取消订单"
         }),
         b: common_vendor.f(customerReason, (item, index, i0) => {
           return {
@@ -109,5 +113,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-1c6dafee"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/subPages/order-cancel/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-8d887a92"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/subPages/order-cancel/index.vue"]]);
 wx.createPage(MiniProgramPage);

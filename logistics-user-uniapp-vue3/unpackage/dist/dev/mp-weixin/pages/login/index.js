@@ -1,6 +1,6 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var pages_api_login = require("../api/login.js");
+const common_vendor = require("../../common/vendor.js");
+const pages_api_login = require("../api/login.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 if (!Array) {
@@ -23,12 +23,12 @@ const _sfc_main = {
     const decryptPhoneNumber = (e) => {
       handleClose();
       console.log("fff");
-      wx.login({
+      common_vendor.wx$1.login({
         success(res) {
           if (e.detail.errMsg === "getPhoneNumber:ok" && e.target.errMsg === "getPhoneNumber:ok") {
             if (!store.state.user.isLoginSuccess)
               return common_vendor.index.showToast({
-                title: "\u8BF7\u52FF\u91CD\u590D\u767B\u5F55",
+                title: "请勿重复登录",
                 duration: 2e3,
                 icon: "none"
               });
@@ -47,7 +47,7 @@ const _sfc_main = {
             }).catch((err2) => {
               console.log(err2, "==================");
               common_vendor.index.showToast({
-                title: "\u7F51\u7EDC\u5F02\u5E38",
+                title: "网络异常",
                 duration: 2e3,
                 icon: "none"
               });
@@ -68,13 +68,13 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_vendor.p({
-          title: "\u767B\u5F55"
+          title: "登录"
         }),
         b: common_vendor.o(handleOpen),
         c: common_vendor.o(handleClose),
         d: common_vendor.o(handleClose),
         e: common_vendor.o(decryptPhoneNumber),
-        f: common_vendor.sr(popup, "4586967a-1", {
+        f: common_vendor.sr(popup, "d08ef7d4-1", {
           "k": "popup"
         }),
         g: common_vendor.p({
@@ -85,5 +85,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-4586967a"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/login/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-d08ef7d4"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/login/index.vue"]]);
 wx.createPage(MiniProgramPage);

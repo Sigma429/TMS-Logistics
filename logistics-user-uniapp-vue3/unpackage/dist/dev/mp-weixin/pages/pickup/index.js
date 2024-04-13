@@ -1,7 +1,7 @@
 "use strict";
-var common_vendor = require("../../common/vendor.js");
-var utils_commonData = require("../../utils/commonData.js");
-var pages_api_order = require("../api/order.js");
+const common_vendor = require("../../common/vendor.js");
+const utils_commonData = require("../../utils/commonData.js");
+const pages_api_order = require("../api/order.js");
 require("../../utils/request.js");
 require("../../utils/env.js");
 require("../api/login.js");
@@ -66,7 +66,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_vendor.o(handleSearch),
-        b: common_vendor.sr(tab, "0e6a68f8-1", {
+        b: common_vendor.sr(tab, "003520e8-1", {
           "k": "tab"
         }),
         c: common_vendor.o(getTabIndex),
@@ -75,7 +75,7 @@ const _sfc_main = {
           staticNum: common_vendor.unref(staticNum).data
         }),
         e: common_vendor.unref(capsuleBottom) + "px",
-        f: common_vendor.sr(orderListRef, "0e6a68f8-2", {
+        f: common_vendor.sr(orderListRef, "003520e8-2", {
           "k": "orderListRef"
         }),
         g: common_vendor.o(_ctx.stopRefreshFunc),
@@ -86,5 +86,5 @@ const _sfc_main = {
     };
   }
 };
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-0e6a68f8"], ["__file", "E:/project/project-wl-yonghuduan-uniapp-vue3/pages/pickup/index.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-003520e8"], ["__file", "D:/Project/express-platform/TMS-Logistics/logistics-user-uniapp-vue3/pages/pickup/index.vue"]]);
 wx.createPage(MiniProgramPage);

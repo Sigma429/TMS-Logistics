@@ -1,13 +1,13 @@
 /* 水平间距 */
 /* 水平间距 */
-.BtnFooter.data-v-0e2d1a4f {
+.BtnFooter.data-v-c2c04913 {
   position: fixed;
   bottom: 0;
   height: 172rpx;
   width: 100%;
   background-color: white;
 }
-.BtnFooter .btn.data-v-0e2d1a4f {
+.BtnFooter .btn.data-v-c2c04913 {
   width: 404rpx;
   height: 88rpx;
   background: #CCCCCC;
@@ -18,6 +18,6 @@
   line-height: 88rpx;
   margin: 24rpx auto 0;
 }
-.BtnFooter .btn.active.data-v-0e2d1a4f {
+.BtnFooter .btn.active.data-v-c2c04913 {
   background-color: #E84134;
 }
