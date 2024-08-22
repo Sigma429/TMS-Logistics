@@ -61,8 +61,8 @@ TMS-Logistics类似顺丰速运，是向C端用户提供快递服务的系统。
 | Skywalking    | 9.1.0     | 链路追踪解决方案                                                  |
 | Graylog       | 4.3       | 分布式日志解决方案                                                 |
 | Leaf          | 1.0.1     | 美团点评分布式ID生成系统                                             |
-| EagleMap      | 1.0       | 黑马程序员自研开源项目 https://eaglemap.itheima.net/                 |
-| 权限管家          | 1.0.7     | 黑马程序员自研开源项目 https://gitee.com/itcastopen/itcast-authority |
+| EagleMap      | 1.0       | https://eaglemap.itheima.net/                 |
+| 权限管家          | 1.0.7     | https://gitee.com/itcastopen/itcast-authority |
 | nexus         | 2.15.1    | maven私服                                                   |
 | gogs          | 0.12      | git代码管理                                                   |
 | Jenkins       | lts-jdk11 | 持续集成                                                      |
